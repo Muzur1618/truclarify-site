@@ -33,20 +33,6 @@
 html{scroll-behavior:smooth;color-scheme:light}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* FORCE LIGHT MODE - Override browser dark mode */
-@media (prefers-color-scheme: dark) {
-  html, body {
-    background: #F9F8F5 !important;
-    color: #111111 !important;
-  }
-  :root {
-    --bg: #F9F8F5 !important;
-    --bg-card: #FFFFFF !important;
-    --ink: #111111 !important;
-    --ink-mid: #666660 !important;
-  }
-}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(249,248,245,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .logo{text-decoration:none;display:flex;align-items:center;gap:9px}
