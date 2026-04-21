@@ -2278,7 +2278,7 @@ function downloadMusicKit() {
 }
 
 function copyMkitCertLink() {
-  const name = document.getElementById('mkitName')?.value||'';
+  const name = document.getElementById('mkitName')?.value||''; 
   const url = `https://truclarify.com/verified/music?name=${encodeURIComponent(name)}&id=${Date.now().toString(36)}`;
   navigator.clipboard.writeText(url).then(()=>alert('Certificate link copied!\n\n'+url));
 }
