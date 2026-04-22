@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
 <title>TruClarify for Creators - Artist Name Intelligence & Music Rights</title>
 <meta name="description" content="Check your artist name across every streaming platform. Understand what you own when you make music with Suno. Get your complete Music Creator Kit - from $9.99.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -1742,11 +1743,7 @@ Homepage headline: ${e.homepage_headline||''}
 
 Product description: ${e.product_description||''}`;
   }
-  const dos = Array.isArray(kit.brand_voice_dos) ? kit.brand_voice_dos.join('
-') : (kit.brand_voice_dos||'');
-  const donts = Array.isArray(kit.brand_voice_donts) ? kit.brand_voice_donts.join('
-') : (kit.brand_voice_donts||'');
-  return block('Brand Voice Personality', kit.brand_voice_tone || '') +
+  const dos = Array.isArray(kit.brand_voice_dos) ? kit.brand_voice_dos.join('\n') : (kit.brand_voice_dos||'');  const donts = Array.isArray(kit.brand_voice_donts) ? kit.brand_voice_donts.join('\n') : (kit.brand_voice_donts||'');  return block('Brand Voice Personality', kit.brand_voice_tone || '') +
     block('Dos', dos) +
     block("Don'ts", donts) +
     block('Voice Examples', ex);
@@ -1770,17 +1767,13 @@ function copyBlock(id) {
 }
 
 function downloadKit() {
-  alert('In production: this generates a beautiful multi-page PDF of your complete kit and downloads it.
-
-Replace this with a PDF generation service (pdf-lib or a serverless function) when you go live.');
+alert('In production: this generates a beautiful multi-page PDF of your complete kit and downloads it\n\nReplace this with a PDF generation service (pdf-lib or a serverless function) when you go live.');
 }
 
 function copyCertLink() {
   const name = document.getElementById('kitName')?.value || '';
   const url = `https://truclarify.com/verified?name=${encodeURIComponent(name)}&id=${Date.now().toString(36)}`;
-  navigator.clipboard.writeText(url).then(() => alert('Certificate link copied!
-
-' + url));
+  navigator.clipboard.writeText(url).then(() => alert('Certificate link copied!\n\n' + url));
 }
 
 
