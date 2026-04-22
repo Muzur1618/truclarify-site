@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1577,7 +1578,7 @@ async function generateNames() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 800,
         messages: [{
           role: 'user',
@@ -1821,7 +1822,7 @@ async function generateKit() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: isPro ? 4000 : 2500,
         messages: [{ role: 'user', content: prompt }]
       })
@@ -2328,7 +2329,7 @@ async function generateMusicKit() {
     const prompt = buildMusicKitPrompt(name, desc, genre, suno, mkitTone, isPro);
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens: isPro ? 4000 : 2500,
+      body: JSON.stringify({ model:'claude-sonnet-4-6', max_tokens: isPro ? 4000 : 2500,
         messages:[{role:'user', content: prompt}] })
     });
     const data = await resp.json();
