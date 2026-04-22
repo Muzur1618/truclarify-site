@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>TruClarify for Founders - Business Name Intelligence</title>
 <meta name="description" content="Check if your business name is safe to use. Trademark risk, phonetic conflicts, domain availability, social handles, and hidden risk analysis - all in one honest search.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -29,8 +30,22 @@
   --red-bg:rgba(196,24,60,0.08);
   --r:10px;--rl:16px;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;color-scheme:light}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* FORCE LIGHT MODE - Override browser dark mode */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #F9F8F5 !important;
+    color: #111111 !important;
+  }
+  :root {
+    --bg: #F9F8F5 !important;
+    --bg-card: #FFFFFF !important;
+    --ink: #111111 !important;
+    --ink-mid: #666660 !important;
+  }
+}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(249,248,245,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
@@ -736,7 +751,24 @@ footer strong{font-family:'DM Serif Display',serif;font-size:15px;color:var(--in
 <!-- PROOF -->
 
 <div class="proof">
-  <div class="proof-item"><div class="proof-num">50+</div>
+  <div class="proof-item">
+    <div class="proof-num">50+</div>
+    <div class="proof-lbl">Platforms checked</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">3</div>
+    <div class="proof-lbl">TM databases</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">6</div>
+    <div class="proof-lbl">Risk dimensions</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">$0</div>
+    <div class="proof-lbl">To start</div>
+  </div>
+</div>
+
 <!-- FEATURES -->
 <section class="section" id="features">
   <div class="stag">What we check</div>
@@ -2045,11 +2077,7 @@ Homepage headline: ${e.homepage_headline||''}
 
 Product description: ${e.product_description||''}`;
   }
-  const dos = Array.isArray(kit.brand_voice_dos) ? kit.brand_voice_dos.join('
-') : (kit.brand_voice_dos||'');
-  const donts = Array.isArray(kit.brand_voice_donts) ? kit.brand_voice_donts.join('
-') : (kit.brand_voice_donts||'');
-  return block('Brand Voice Personality', kit.brand_voice_tone || '') +
+  const dos = Array.isArray(kit.brand_voice_dos) ? kit.brand_voice_dos.join('\n') : (kit.brand_voice_dos||'');  const donts = Array.isArray(kit.brand_voice_donts) ? kit.brand_voice_donts.join('\n') : (kit.brand_voice_donts||'');  return block('Brand Voice Personality', kit.brand_voice_tone || '') +
     block('Dos', dos) +
     block("Don'ts", donts) +
     block('Voice Examples', ex);
@@ -2073,17 +2101,13 @@ function copyBlock(id) {
 }
 
 function downloadKit() {
-  alert('In production: this generates a beautiful multi-page PDF of your complete kit and downloads it.
-
-Replace this with a PDF generation service (pdf-lib or a serverless function) when you go live.');
+alert('In production: this generates a beautiful multi-page PDF of your complete kit and downloads it\n\nReplace this with a PDF generation service (pdf-lib or a serverless function) when you go live.');
 }
 
 function copyCertLink() {
   const name = document.getElementById('kitName')?.value || '';
   const url = `https://truclarify.com/verified?name=${encodeURIComponent(name)}&id=${Date.now().toString(36)}`;
-  navigator.clipboard.writeText(url).then(() => alert('Certificate link copied!
-
-' + url));
+  navigator.clipboard.writeText(url).then(() => alert('Certificate link copied!\n\n' + url));
 }
 
 
