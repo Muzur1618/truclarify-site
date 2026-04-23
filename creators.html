@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
 <title>TruClarify for Creators - Artist Name Intelligence & Music Rights</title>
-<meta name="description" content="Check your artist name across every streaming platform. Understand what you own when you make music with Suno. Get your complete Music Creator Kit - from $9.99.">
+<meta name="description" content="Your complete AI music release kit — generated in 60 seconds. Name check, rights briefing, distributor pre-fills, C2PA toolkit and more. Built for Suno creators. Free to start, kits from $5.99.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 
@@ -431,16 +431,16 @@ footer strong{font-family:'DM Serif Display',serif;font-size:15px;color:var(--in
 .cert-preview-overlay button{font-size:11px;font-weight:700;padding:6px 16px;border-radius:7px;background:#fff;color:#0F172A;border:none;cursor:pointer}
 
 /* ── CREATOR KITS GRID ── */
-.creator-kits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
-.ck{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--rl);padding:24px;transition:all .2s;position:relative}
+.creator-kits{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+.ck{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--rl);padding:32px;transition:all .2s;position:relative;display:flex;flex-direction:column}
 .ck:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
 .ck.featured{border-color:rgba(147,197,253,.4);background:rgba(147,197,253,.07)}
 .ck-badge{position:absolute;top:-10px;left:16px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#93C5FD;color:#0F172A;padding:3px 10px;border-radius:100px}
 .ck-tier{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:7px}
-.ck-price{font-family:'DM Serif Display',serif;font-size:36px;line-height:1;color:#fff;margin-bottom:4px}
+.ck-price{font-family:'DM Serif Display',serif;font-size:48px;line-height:1;color:#fff;margin-bottom:6px}
 .ck-price sub{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;vertical-align:middle;color:rgba(255,255,255,.5)}
 .ck-desc{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:18px}
-.ck-feats{list-style:none;margin-bottom:20px}
+.ck-feats{list-style:none;margin-bottom:20px;flex:1}
 .ck-feats li{font-size:11px;color:rgba(255,255,255,.6);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:7px;align-items:flex-start;line-height:1.5}
 .ck-feats li:last-child{border-bottom:none}
 .ck-feats .ckchk{color:#6EE7B7;font-size:10px;flex-shrink:0;margin-top:2px}
@@ -625,15 +625,15 @@ footer a:hover{color:#93C5FD}
     <a href="founders.html" class="nl">For Founders</a>
     <a href="#check" class="nl">Check Name</a>
     <a href="#kits" class="nl">Kits</a>
-    <a href="#check" class="nb">Start Free</a>
+    <button class="nb" onclick="openMusicKit('free')">Start Free</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="creators-hero">
   <span class="tag" style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)">🎵 For Music Creators & AI Artists</span>
-  <h1>Your artist name is your<br><em>most valuable asset.</em></h1>
-  <p>Check it across every streaming platform before you release a single track. Understand what you own when you make music with Suno. Get everything you need to launch correctly - from $9.99.</p>
+  <h1>Your complete AI music release kit —<br><em>generated in 60 seconds.</em></h1>
+  <p>Most AI creators release with the wrong name, missing royalties, and no rights documentation. TruClarify gives you a personalized, done-for-you kit in seconds. Free to start, full kits from $5.99.</p>
   <div class="hero-btns">
     <button class="hero-btn-p" onclick="document.getElementById('check').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('artistNameInput').focus(),400)">Check My Artist Name Free →</button>
     <a href="#kits" class="hero-btn-s">See Kits ↓</a>
@@ -731,69 +731,89 @@ footer a:hover{color:#93C5FD}
 <div class="kits-section" id="kits">
   <div class="kits-tag">Music Creator Kits</div>
   <h2 class="kits-h">Everything you need.<br>Priced for creators.</h2>
-  <p class="kits-sub">From a free name check to a complete rights and distribution package. Pick what you need right now.</p>
+  <p class="kits-sub">Wrong name, missing royalties, no rights paper trail — pick a kit and fix all three before your first drop.</p>
 
-  <div class="creator-kits">
+  <div class="creator-kits" style="grid-template-columns:repeat(3,1fr)">
+
+    <!-- FREE MINI-KIT -->
     <div class="ck">
-      <div class="ck-tier">Free</div>
+      <div class="ck-tier">Free Mini-Kit</div>
       <div class="ck-price">$0</div>
-      <div class="ck-desc">5 checks per day</div>
+      <div class="ck-desc">Real value. No card needed. Start here.</div>
       <ul class="ck-feats">
-        <li><span class="ckchk">✓</span>Artist name check - 10 platforms</li>
-        <li><span class="ckchk">✓</span>Phonetic conflict detection</li>
-        <li><span class="ckchk">✓</span>Hidden risk analysis</li>
-        <li><span class="ckchk">✓</span>Name strength score</li>
-        <li><span class="ckchk">✓</span>SoundExchange royalty finder</li>
-        <li><span class="ckchk">✓</span>Certificate preview</li>
-        <li><span class="ckchk">✓</span>AI rights briefing (intro)</li>
+        <li><span class="ckchk">✓</span>Artist name check + brand score</li>
+        <li><span class="ckchk">✓</span>7-day launch calendar</li>
+        <li><span class="ckchk">✓</span>Basic bio framework</li>
+        <li><span class="ckchk">✓</span>Canva cover art template link</li>
+        <li><span class="ckchk">✓</span>C2PA Quick-Start Guide (1 page)</li>
+        <li><span class="ckchk">✓</span>3 proven Suno prompt templates</li>
+        <li><span class="ckchk">✓</span>3-step first release checklist</li>
+        <li><span class="ckchk">✓</span>Basic metadata cheat sheet</li>
+        <li><span class="ckchk">✓</span>AI disclosure quick guide</li>
+        <li><span class="ckchk">✓</span>Recommended tools starter pack</li>
+        <li><span class="ckchk">✓</span>30-second name story template</li>
       </ul>
-      <button class="ck-cta ck-cta-ghost" onclick="document.getElementById('check').scrollIntoView({behavior:'smooth'})">Start Free →</button>
+      <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('free')">Get Free Mini-Kit →</button>
     </div>
+
+    <!-- LAUNCH KIT -->
     <div class="ck">
-      <div class="ck-tier">Starter Kit</div>
-      <div class="ck-price">$9<sub>.99</sub></div>
-      <div class="ck-desc">Launch your artist identity today</div>
+      <div class="ck-tier">Launch Kit</div>
+      <div class="ck-price">$5<sub>.99</sub></div>
+      <div class="ck-desc">Everything you need to launch today</div>
       <ul class="ck-feats">
-        <li><span class="ckchk">✓</span>Everything in Free</li>
+        <li><span class="ckchk">✓</span>Everything in Free Mini-Kit</li>
         <li><span class="ckchk">✓</span>Verified Artist Certificate (download)</li>
-        <li><span class="ckchk">✓</span>Check across 30+ music platforms</li>
-        <li><span class="ckchk">✓</span>Artist bios for 8 platforms in your voice</li>
-        <li><span class="ckchk">✓</span>Username conflict resolution</li>
-        <li><span class="ckchk">✓</span>Platform launch sequence calendar</li>
-        <li><span class="ckchk">✓</span>Claiming checklist with direct links</li>
+        <li><span class="ckchk">✓</span>Platform bios for 8 platforms in your voice</li>
         <li><span class="ckchk">✓</span>Name story framework (3 lengths)</li>
-        <li><span class="ckchk">✓</span>Hashtag strategy by genre</li>
-        <li><span class="ckchk">✓</span>Misspelling intercept list</li>
-        <li><span class="ckchk">✓</span>Name pronunciation guide</li>
-        <li><span class="ckchk">✓</span>Platform priority guide for your genre</li>
+        <li><span class="ckchk">✓</span>Pronunciation guide + misspelling list</li>
+        <li><span class="ckchk">✓</span>Username conflict resolution</li>
+        <li><span class="ckchk">✓</span>Full 30-day launch calendar</li>
+        <li><span class="ckchk">✓</span>Claiming checklist with direct links</li>
+        <li><span class="ckchk">✓</span>Metadata standardization sheet</li>
+        <li><span class="ckchk">✓</span>DistroKid pre-fill template</li>
+        <li><span class="ckchk">✓</span>AI disclosure checklist</li>
+        <li><span class="ckchk">✓</span>Personalized distributor recommendation</li>
+        <li><span class="ckchk new">📱</span>30-day social content calendar</li>
+        <li><span class="ckchk new">💰</span>Uncollected royalty estimate</li>
+        <li><span class="ckchk new">📊</span>Streaming platform pay comparison</li>
+        <li><span class="ckchk new">🎯</span>Playlist pitching package</li>
+        <li><span class="ckchk new">📦</span>Best distributor for your genre</li>
       </ul>
-      <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('starter')">Get Starter Kit - $9.99 →</button>
+      <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('starter')">Get Launch Kit - $5.99 →</button>
     </div>
+
+    <!-- PREMIUM PIPELINE KIT -->
     <div class="ck featured">
       <div class="ck-badge">Best Value</div>
-      <div class="ck-tier">Pro Kit</div>
-      <div class="ck-price">$19<sub>.99</sub></div>
-      <div class="ck-desc">Release correctly. Protect your rights.</div>
+      <div class="ck-tier">Premium Pipeline Kit</div>
+      <div class="ck-price">$9<sub>.99</sub></div>
+      <div class="ck-desc">The complete 2026 AI music release system</div>
       <ul class="ck-feats">
-        <li><span class="ckchk">✓</span>Everything in Starter</li>
-        <li><span class="ckchk">✓</span>AI Music Legal Briefing (full)</li>
-        <li><span class="ckchk">✓</span>Human authorship assessment + score</li>
+        <li><span class="ckchk">✓</span>Everything in Launch Kit</li>
+        <li><span class="ckchk">✓</span>Full AI Rights Briefing + authorship score</li>
+        <li><span class="ckchk">✓</span>Rights Establishment Record</li>
         <li><span class="ckchk">✓</span>Creative Decision Log template</li>
-        <li><span class="ckchk">✓</span>Rights establishment record</li>
-        <li><span class="ckchk">✓</span>Distributor pre-fills (DistroKid, TuneCore, CD Baby)</li>
-        <li><span class="ckchk">✓</span>AI disclosure compliance checklist</li>
-        <li><span class="ckchk">✓</span>Metadata standardisation sheet</li>
+        <li><span class="ckchk new">🔐</span>C2PA Provenance Toolkit + ledger</li>
+        <li><span class="ckchk new">🎛️</span>Stem polishing workflow (LALAL.AI + DAW)</li>
+        <li><span class="ckchk new">🎬</span>TikTok/Reels/Shorts video engine</li>
+        <li><span class="ckchk new">📈</span>Advanced royalty tracker dashboard</li>
+        <li><span class="ckchk new">🎵</span>Sync licensing playbook</li>
+        <li><span class="ckchk new">🔗</span>Full recommended tools + 6 affiliates</li>
         <li><span class="ckchk">✓</span>PRO registration guide (ASCAP/BMI)</li>
-        <li><span class="ckchk">✓</span>SoundExchange registration package</li>
-        <li><span class="ckchk">✓</span>MLC registration guide</li>
+        <li><span class="ckchk">✓</span>SoundExchange + MLC registration</li>
         <li><span class="ckchk">✓</span>Cover song licensing guide</li>
         <li><span class="ckchk">✓</span>Spotify for Artists optimisation</li>
-        <li><span class="ckchk">✓</span>EPK generator</li>
+        <li><span class="ckchk">✓</span>Full EPK generator</li>
+        <li><span class="ckchk">✓</span>Distributor pre-fills (DistroKid, TuneCore, CD Baby)</li>
+        <li><span class="ckchk new">📣</span>Personalized referral share package</li>
+        <li><span class="ckchk new">🏆</span>TruClarify Verified Artist badge</li>
         <li><span class="ckchk">✓</span>30 days monitoring included</li>
-        <li><span class="ckchk">✓</span>Annual AI music law update enrolled</li>
+        <li><span class="ckchk">✓</span>Annual AI law update enrolled</li>
       </ul>
-      <button class="ck-cta ck-cta-solid" onclick="openMusicKit('pro')">Get Pro Kit - $19.99 →</button>
+      <button class="ck-cta ck-cta-solid" onclick="openMusicKit('pro')">Get Premium Pipeline Kit - $9.99 →</button>
     </div>
+
   </div>
 
   <!-- MONITORING -->
@@ -812,15 +832,15 @@ footer a:hover{color:#93C5FD}
   <div class="suno-card">
     <div>
       <h3>Made music with Suno?<br>Do you know what you own?</h3>
-      <p>Most AI music creators release tracks without understanding their rights - and discover the gaps too late. TruClarify's Pro Kit includes a complete AI Music Rights Briefing, human authorship assessment, and distributor compliance package so you release with confidence.</p>
+      <p>You made the music. Now comes the part most creators skip — and regret. Name conflicts, uncollected royalties, distributor rejections, zero rights documentation. The Premium Pipeline Kit handles all of it. Built specifically for Suno creators in 2026. Personalized, done-for-you, generated in seconds.</p>
       <div class="suno-tags">
         <span class="suno-tag">Copyright clarity</span>
+        <span class="suno-tag">C2PA provenance</span>
         <span class="suno-tag">Distributor compliance</span>
-        <span class="suno-tag">PRO registration</span>
-        <span class="suno-tag">Rights documentation</span>
+        <span class="suno-tag">Video promotion engine</span>
       </div>
     </div>
-    <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get the Pro Kit - $19.99 →</button>
+    <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get the Premium Pipeline Kit - $9.99 →</button>
   </div>
 </div>
 
@@ -890,7 +910,7 @@ footer a:hover{color:#93C5FD}
           <button class="genre-btn" onclick="selectMkitTone(this,'Raw')">Raw</button>
         </div>
         <div id="mkitSunoNote" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:11px 14px;font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:14px">
-          <span style="color:#FCA5A5;font-weight:700">Suno creator detected.</span> Your Pro Kit includes the full AI Music Rights Briefing, human authorship assessment, distributor compliance checklists, and rights documentation.
+          <span style="color:#FCA5A5;font-weight:700">Suno creator detected.</span> Your Premium Pipeline Kit includes the full AI Rights Briefing, C2PA provenance toolkit, human authorship assessment, and complete distributor compliance package.
         </div>
         <button class="mkit-gen-btn" id="mkitGenBtn" onclick="generateMusicKit()">✨ Generate My Kit →</button>
         <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px">Live demo · In production: Stripe payment before generation</p>
@@ -1370,11 +1390,12 @@ function subDigest() {
 function focusSearch() {
   hideGen();
   const el = document.getElementById('ni');
+  if (!el) return;
   el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   setTimeout(() => el.focus(), 400);
 }
 
-// document.getElementById('ni').addEventListener('keydown', e => { if (e.key === 'Enter') runCheck(); }); // Commented out - 'ni' doesn't exist on creators page
+// founders-only event listener removed
 document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', function(e) {
   if (e.target === this) this.classList.remove('on');
 }));
@@ -1744,7 +1765,9 @@ Homepage headline: ${e.homepage_headline||''}
 
 Product description: ${e.product_description||''}`;
   }
-  const dos = Array.isArray(kit.brand_voice_dos) ? kit.brand_voice_dos.join('\n') : (kit.brand_voice_dos||'');  const donts = Array.isArray(kit.brand_voice_donts) ? kit.brand_voice_donts.join('\n') : (kit.brand_voice_donts||'');  return block('Brand Voice Personality', kit.brand_voice_tone || '') +
+  const dos = Array.isArray(kit.brand_voice_dos) ? kit.brand_voice_dos.join('\n') : (kit.brand_voice_dos||'');
+  const donts = Array.isArray(kit.brand_voice_donts) ? kit.brand_voice_donts.join('\n') : (kit.brand_voice_donts||'');
+  return block('Brand Voice Personality', kit.brand_voice_tone || '') +
     block('Dos', dos) +
     block("Don'ts", donts) +
     block('Voice Examples', ex);
@@ -1768,7 +1791,7 @@ function copyBlock(id) {
 }
 
 function downloadKit() {
-alert('In production: this generates a beautiful multi-page PDF of your complete kit and downloads it\n\nReplace this with a PDF generation service (pdf-lib or a serverless function) when you go live.');
+  alert('In production: PDF generation coming soon.');
 }
 
 function copyCertLink() {
@@ -1808,10 +1831,10 @@ function selectMkitTone(btn, tone) {
   mkitTone = tone;
 }
 function scrollToCreators() {
-  document.getElementById('creators').scrollIntoView({behavior:'smooth'});
+  document.getElementById('creatorResults').scrollIntoView({behavior:'smooth'});
 }
 function scrollToArtistCheck() {
-  document.getElementById('creators').scrollIntoView({behavior:'smooth'});
+  document.getElementById('creatorResults').scrollIntoView({behavior:'smooth'});
   setTimeout(() => document.getElementById('artistNameInput').focus(), 500);
 }
 
@@ -1887,23 +1910,34 @@ function renderArtistResults(name) {
   });
 
   document.getElementById('certPreviewName').textContent = cap;
-  document.getElementById('sexLink').href = `https://www.soundexchange.com/artist-support/`;
+  const _slnk = document.getElementById('sexLink'); if(_slnk) _slnk.href = `https://www.soundexchange.com/artist-support/`;
 
   // Pre-fill kit name
   document.getElementById('mkitName').value = cap;
   if (mkitGenre) document.getElementById('mkitGenre').value = artistGenre;
 
   document.getElementById('creatorResults').classList.add('on');
-  document.getElementById('creators').scrollIntoView({behavior:'smooth', block:'nearest'});
+  document.getElementById('creatorResults').scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 
 // ── MUSIC KIT MODAL ───────────────────────────────────────────────────────────
 function openMusicKit(tier) {
   mkitTier = tier;
+  // Monitoring gets its own dedicated modal
+  if (tier === 'monitoring') {
+    openMonitoringModal();
+    return;
+  }
+  // Free mini-kit gets email capture then delivers kit
+  if (tier === 'free') {
+    openFreeKitModal();
+    return;
+  }
+
   const titles = {
-    starter: ['Music Creator Starter Kit - $9.99', 'Get your artist identity launched today.'],
-    pro: ['Music Creator Pro Kit - $19.99', 'Release correctly. Protect your rights. Get paid.'],
-    monitoring: ['Creator Monitoring - $4.99/month', 'Protect your artist name as you build your career.'],
+    free:    ['Free Mini-Kit', 'Your personalized starter kit — generated instantly.'],
+    starter: ['Launch Kit - $5.99', 'Everything you need to launch your artist identity today.'],
+    pro:     ['Premium Pipeline Kit - $9.99', 'The complete 2026 AI music release system.'],
   };
   const [title, sub] = titles[tier] || titles.starter;
   document.getElementById('mkitTitle').textContent = title;
@@ -1931,6 +1965,123 @@ function openMusicKit(tier) {
 function closeMkit() {
   document.getElementById('mkitOverlay').classList.remove('on');
   document.body.style.overflow = '';
+}
+
+function scrollToCheck() {
+  // Try multiple methods to ensure scroll works
+  const el = document.getElementById('check');
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({top: y, behavior: 'smooth'});
+    setTimeout(() => {
+      const input = document.getElementById('artistNameInput');
+      if (input) { input.focus(); input.scrollIntoView({behavior:'smooth', block:'center'}); }
+    }, 700);
+  } else {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+}
+
+// ── FREE REPORT FLOW ─────────────────────────────────────────
+let freeReportData = {};
+
+function showFreeEmailCapture(name, data) {
+  freeReportData = {name, data};
+  const cap = name.charAt(0).toUpperCase() + name.slice(1);
+  // Update preview title with artist name
+  const titleEl = document.getElementById('proPreviewTitle');
+  if (titleEl) titleEl.textContent = cap + "'s Pro Kit — Preview";
+  const nameEl = document.getElementById('proPreviewName');
+  if (nameEl) nameEl.textContent = cap;
+  // Update bio preview with artist name
+  const bioEl = document.getElementById('proPreviewBio');
+  if (bioEl) bioEl.innerHTML = '<strong style="color:rgba(255,255,255,0.9)">Spotify:</strong> ' + cap + ' creates music that moves between worlds — atmospheric textures layered over beats that feel both ancient and futuristic. For listeners who need sound to think.<br><br><strong style="color:rgba(255,255,255,0.9)">Instagram (150 chars):</strong> ' + cap + ' 🎵 Making sounds for the space between awake and dreaming · New music always dropping';
+  document.getElementById('freeReportOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('freeReportEmail')?.focus(), 400);
+}
+
+function closeFreeReport() {
+  document.getElementById('freeReportOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function saveFreeResults() {
+  const email = document.getElementById('freeReportEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    const el = document.getElementById('freeReportEmail');
+    el.style.borderColor = 'rgba(239,68,68,0.6)';
+    setTimeout(() => el.style.borderColor = '', 1500);
+    return;
+  }
+  // In production: save to Supabase + Resend confirmation
+  console.log('Email captured:', email);
+  const btn = document.querySelector('#freeReportOverlay button[onclick="saveFreeResults()"]');
+  if (btn) { btn.textContent = '✓ Saved!'; btn.style.background = '#6EE7B7'; }
+}
+
+
+function openFreeKitModal() {
+  document.getElementById('freeKitOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('freeKitEmail')?.focus(), 300);
+}
+
+function closeFreeKit() {
+  document.getElementById('freeKitOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+async function generateFreeKit() {
+  const email = document.getElementById('freeKitEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    const el = document.getElementById('freeKitEmail');
+    el.style.borderColor = 'rgba(239,68,68,0.6)';
+    setTimeout(() => el.style.borderColor = '', 1500);
+    return;
+  }
+  // In production: save to Supabase + trigger Resend welcome email
+  console.log('Free kit email:', email);
+
+  // Get artist name from input
+  const name = document.getElementById('artistNameInput')?.value?.trim() || 'Artist';
+  const genre = artistGenre || 'Pop';
+
+  closeFreeKit();
+
+  // Open the kit modal in free tier mode
+  mkitTier = 'free';
+  document.getElementById('mkitTitle').textContent = 'Free Mini-Kit';
+  document.getElementById('mkitSubtitle').textContent = 'Your personalized starter kit — generated instantly.';
+  document.getElementById('mkitName').value = name;
+  document.getElementById('mkitGenre').value = genre;
+  showMkitState('progress');
+  document.getElementById('mkitOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+
+  // Generate via Claude API
+  await generateMusicKit();
+}
+
+function openMonitoringModal() {
+  document.getElementById('monitoringOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMonitoring() {
+  document.getElementById('monitoringOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function startMonitoring() {
+  const email = document.getElementById('monitoringEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('monitoringEmail').style.borderColor = 'rgba(239,68,68,0.6)';
+    setTimeout(() => document.getElementById('monitoringEmail').style.borderColor = '', 1500);
+    return;
+  }
+  // In production: Stripe subscription checkout
+  alert('In production: this opens Stripe Checkout for $4.99/month monitoring subscription.\n\nEmail captured: ' + email);
 }
 function handleMkitClick(e) {
   if (e.target === document.getElementById('mkitOverlay')) closeMkit();
@@ -1961,21 +2112,29 @@ async function generateMusicKit() {
     'Checking username conflicts across 30+ platforms...',
     'Building platform launch calendar...',
     'Generating hashtag strategy for your genre...',
-    'Creating name story frameworks...',
-    'Building claiming checklist...',
+    'Calculating uncollected royalty estimate...',
+    'Comparing distributors for your genre...',
+    'Building 30-day social content calendar...',
+    'Creating playlist pitching package...',
     'Creating your Verified Artist Certificate...',
   ];
   const proSteps = [
     'Writing platform bios in your artist voice...',
     'Checking username conflicts across 30+ platforms...',
     'Generating AI Music Rights Briefing...',
+    'Building C2PA provenance toolkit...',
+    'Creating stem polishing workflow...',
+    'Building TikTok/Reels video promotion engine...',
     'Building distributor compliance packages...',
-    'Creating rights establishment record...',
+    'Calculating uncollected royalty estimate...',
+    'Building advanced royalty tracker...',
+    'Creating sync licensing playbook...',
+    'Curating recommended tools + affiliate links...',
     'Pre-filling PRO registration (ASCAP/BMI)...',
     'Building SoundExchange registration package...',
-    'Generating metadata standardisation sheet...',
     'Creating Spotify for Artists optimisation guide...',
-    'Building your Verified Artist Certificate...',
+    'Building referral package and verified badge...',
+    'Creating your Verified Artist Certificate...',
   ];
   const steps = isPro ? proSteps : starterSteps;
   const stepsEl = document.getElementById('mkitProgSteps');
@@ -2017,11 +2176,17 @@ async function generateMusicKit() {
 }
 
 function buildMusicKitPrompt(name, desc, genre, suno, tone, isPro) {
+  const isFree = mkitTier === 'free';
   const sunoCtx = suno === 'yes' ? 'This music is fully AI-generated using Suno.' :
                   suno === 'partial' ? 'This music is AI-assisted - created with Suno but with additional human creative elements.' :
                   'This is traditionally produced music.';
-  return `You are a music industry expert and brand strategist generating a complete Music Creator Kit for artist "${name}".
+  const tierCtx = isFree ? 'FREE MINI-KIT (shorter, basic content, clear teasers for paid)' :
+                  isPro ? 'PREMIUM PIPELINE KIT (comprehensive, complete 2026 system)' :
+                  'LAUNCH KIT (solid launch content, no advanced legal or video)';
 
+  return `You are a music industry expert generating a Music Creator Kit for artist "${name}".
+
+Tier: ${tierCtx}
 Music description: ${desc}
 Genre: ${genre}
 AI context: ${sunoCtx}
@@ -2051,7 +2216,12 @@ Generate a complete music creator kit as a single JSON object with these exact k
   "launch_calendar": "Day-by-day calendar for first 2 weeks - which platform to claim each day and why",
   "claiming_checklist": "10-step claiming checklist with specific action for each step",
   "misspellings": ["5 common misspellings of ${name}"],
-  "genre_release_tip": "One specific tip for releasing ${genre} music that most artists miss"${isPro ? `,
+  "genre_release_tip": "One specific tip for releasing ${genre} music that most artists miss",
+  "royalty_calculator": "Estimate uncollected royalties: based on ${genre} streaming norms, if they have released music for 6+ months without SoundExchange/MLC registration, estimate their likely uncollected balance range and the exact steps to claim it",
+  "distributor_recommendation": "Based on ${genre} and their situation, recommend the BEST distributor (DistroKid at $22.99/yr unlimited, TuneCore at $14.99/single, or CD Baby at $9.95/single one-time) with a clear side-by-side comparison table showing pricing, AI policy, Content ID, royalty schedule, and why this specific one wins for ${genre} artists",
+  "streaming_comparison": "Streaming platform royalty rates comparison for ${genre}: per-stream rates for Spotify (approx $0.003-0.005), Apple Music ($0.007-0.01), Tidal ($0.012-0.015), Amazon Music ($0.004), YouTube Music ($0.002), Deezer ($0.006), Pandora ($0.0013). Include which platforms have best playlist discovery for ${genre} and which pay highest per stream",
+  "social_content_calendar": "30-day social media content calendar for ${name} - specific post ideas for Instagram, TikTok, and X/Twitter. Include release day strategy, behind-the-scenes content, engagement hooks, and genre-specific trends to leverage",
+  "playlist_pitching_package": "5 personalized cold-pitch email templates for Spotify playlist curators in the ${genre} space. Include subject lines, opening hooks, artist description, track pitch, and call to action. Also list 5 real ${genre} playlist submission platforms: SubmitHub, Groover, Playlist Push, Soundplate, and daily.place with specific notes on each"${isPro ? `,
   "ai_rights_briefing": "Plain-English explanation of what ${sunoCtx.includes('Suno') ? 'Suno' : 'AI'} creators own - copyright position, what commercial licence gives you, what it does not, the 3 most important things to know",
   "human_authorship_score": "Based on '${sunoCtx}' - score their copyright position 1-10 and explain what specific actions would strengthen it",
   "creative_decision_log": "A structured template for documenting creative decisions - fields to fill in, what to capture, why it matters for copyright",
@@ -2066,13 +2236,24 @@ Generate a complete music creator kit as a single JSON object with these exact k
   "cover_song_guide": "If they want to release covers - do they need a licence, where to get it, how much it costs for ${genre} covers",
   "spotify_optimisation": "10-point Spotify for Artists optimisation checklist specific to ${genre}",
   "epk_template": "Complete Electronic Press Kit template - every section, what to include, how to format for ${genre} artists",
-  "annual_update_preview": "What the annual AI music law update will cover - 3 specific areas of law evolving in 2026 that affect ${genre} AI music creators"` : ''}
+  "annual_update_preview": "What the annual AI music law update will cover - 3 specific areas of law evolving in 2026 that affect ${genre} AI music creators",
+  "c2pa_guide": "Step-by-step C2PA Content Credentials setup for ${genre} Suno creators: what C2PA is, why it matters for 2026 platforms, which free tools to use (Truepic, Adobe Content Authenticity, Verify), how to attach credentials to audio files, and how to build a provenance ledger for their catalogue",
+  "stem_workflow": "Complete stem polishing workflow for ${genre}: Step 1 - Export stems from Suno (vocals, drums, melody, bass). Step 2 - Import to LALAL.AI for stem separation/cleaning (affiliate: lalal.ai). Step 3 - Import to BandLab (free browser DAW) for mixing. Step 4 - Apply these 5 specific ${genre} mixing tips. Step 5 - Master with LANDR (affiliate: landr.com). Include specific settings for ${genre}.",
+  "video_engine": "Short-form video promotion engine for ${genre}: 5 TikTok/Reels/YouTube Shorts concepts specific to ${genre} with exact scripts, hooks, and calls to action. Include: trending audio strategy, lyric video workflow using Canva (free), sonic meme hook ideas for ${genre}, optimal posting times, hashtag strategy for video, and the 3-second hook formula that works for ${genre} music",
+  "royalty_tracker": "Advanced royalty tracking setup: Google Sheet column structure for tracking streams by platform, royalty rates per platform (Spotify $0.003-0.005, Apple $0.008, Tidal $0.013, etc), PRO payment schedule, SoundExchange quarterly dates, MLC payment timing, and how to spot discrepancies. Include formula for projecting monthly income at different stream counts for ${genre}.",
+  "sync_playbook": "Sync licensing playbook for ${genre}: what sync licensing is, current AI music policies at major sync agencies (Musicbed, Artlist, Pond5), what human authorship elements are needed for sync eligibility, how to pitch ${genre} music for sync, typical sync fees for indie artists ($500-50,000 range), and the 5 steps to become sync-ready",
+  "recommended_tools": "Curated tool recommendations with honest blurbs: 1) DistroKid ($22.99/yr unlimited) for distribution - best AI disclosure workflow, 2) LALAL.AI for stem separation - 30% off first month at lalal.ai, 3) LANDR for mastering - $15 credit at landr.com, 4) Epidemic Sound for royalty-free music/samples - best for content creators, 5) SubmitHub for playlist pitching - start with $10 budget, 6) Canva Pro for visuals and lyric videos - free tier is enough to start. Include specific ${genre} use case for each tool.",
+  "referral_script": "3 personalized social media posts the artist can share to refer other creators to TruClarify. Instagram version (with emojis), TikTok version (punchy, trend-aware), X/Twitter version (concise). Make them feel authentic not promotional. Include their score and one specific thing TruClarify helped them discover.",
+  "verified_badge_html": "An HTML snippet they can embed on their website or Linktree showing TruClarify Verified Artist status. Clean, dark themed, links to truclarify.com/creators"
+  "referral_script": "A personalized social media post the artist can share to refer other creators to TruClarify. Include their artist name, their score, what they discovered, and a natural call to action. Make it feel authentic not promotional. For Instagram, TikTok, and X/Twitter - 3 versions.",
+  "verified_badge_html": "An HTML snippet they can embed on their website or Linktree showing TruClarify Verified Artist status with their name and score. Clean, professional, links to truclarify.com"` : ''}
 }
 
 Return ONLY the JSON. No markdown, no explanation. Pure JSON.`;
 }
 
 function buildMusicFallback(name, desc, genre, suno, tone, isPro) {
+  const isFree = mkitTier === 'free';
   const low = name.toLowerCase().replace(/\s/g,'');
   const cap = name.charAt(0).toUpperCase() + name.slice(1);
   const base = {
@@ -2106,7 +2287,12 @@ function buildMusicFallback(name, desc, genre, suno, tone, isPro) {
 9. Register domain ${low}.com or ${low}.io
 10. Create DistroKid or TuneCore account`,
     misspellings: [`${low}s`, `${low.slice(0,-1)}`, `${low}z`, `${low.replace(/[aeiou]/,'a')}`, `${low.replace(/[aeiou]/g,'')}`],
-    genre_release_tip: `For ${genre}: Release on a Friday (global new music Friday) and pitch to Spotify editorial playlists at least 7 days before release date via Spotify for Artists.`
+    genre_release_tip: `For ${genre}: Release on a Friday (global new music Friday) and pitch to Spotify editorial playlists at least 7 days before release date via Spotify for Artists.`,
+    royalty_calculator: `If you have released ${genre} music for 6+ months without SoundExchange registration, you likely have uncollected digital performance royalties. The average for an independent artist is $200-800. Step 1: Go to soundexchange.com/artist-support and search your artist name. Step 2: Register (free, 15 minutes). Step 3: Claim your balance. This is separate from your Spotify/Apple royalties - most independent artists miss this entirely.`,
+    distributor_recommendation: `For ${genre} artists, DistroKid ($22.99/year unlimited releases) is the best choice if you release frequently. TuneCore ($14.99/single) is better for occasional releases. CD Baby ($9.95/single, one-time) is ideal for catalogue building without annual fees. DistroKid wins for most ${genre} creators because unlimited releases at a flat annual fee means every track you drop costs you nothing extra. All three now require AI content disclosure for Suno music.`,
+    streaming_comparison: `Streaming royalties per play (approximate): Tidal $0.013 (highest), Apple Music $0.008, Spotify $0.004, Amazon Music $0.004, Deezer $0.006, YouTube Music $0.002, Pandora $0.0013 (lowest). For ${genre}: Spotify offers the best playlist discovery ecosystem. Apple Music pays nearly 2x Spotify per stream. Tidal pays highest but has smaller audience. Strategy: distribute everywhere, focus promotion energy on Spotify for growth and Apple Music for revenue.`,
+    social_content_calendar: `Week 1: Day 1 - Introduce yourself and your sound (video). Day 2 - Share your creative process. Day 3 - Post a 15-second clip of your best track. Day 4 - Ask your audience a question about ${genre} music. Day 5 - Behind the scenes of your setup. Week 2: Day 8 - Share the story behind your artist name. Day 9 - Post a mood board for your sound. Day 10 - Collaborate or duet with another ${genre} creator. Day 11 - Share a playlist of your influences. Day 12 - Countdown to your next release. Weeks 3-4: Alternate between: track snippets, process videos, Q&As, collaborations, and milestone celebrations. Release day: post on all platforms simultaneously, stories, go live.`,
+    playlist_pitching_package: `TEMPLATE 1 (Direct pitch): Subject: "${cap} - [Track Name] for [Playlist Name]". Hi [Curator name], I'm ${cap}, a ${genre} artist. I think [Track Name] would fit perfectly in [Playlist Name] because [specific reason]. It has [X] streams so far. Would love a listen: [link]. Thank you. TEMPLATE 2 (Warm intro): Start with a genuine compliment about the playlist, then pitch. Always personalise the first line. TEMPLATE 3 (Short pitch): Under 50 words. Link first. PLATFORMS: SubmitHub.com (most curators, small fee per submission), Groover.co (guaranteed feedback), PlaylistPush.com (premium, paid), Soundplate.com (free submissions), daily.place (editorial focus).`
   };
   if (isPro) {
     Object.assign(base, {
@@ -2165,6 +2351,14 @@ SOCIAL:
 CONTACT: [EMAIL]
 
 PRESS PHOTOS: [LINK]`,
+      c2pa_guide: `C2PA (Coalition for Content Provenance and Authenticity) is the emerging standard for proving AI content origin. For ${genre} creators in 2026: Step 1 - Go to contentauthenticity.org and download the free Adobe Content Authenticity app. Step 2 - Before distributing any track, run your audio file through the C2PA tool to attach content credentials. Step 3 - Build your provenance ledger: a Google Sheet documenting each track with columns for: Track Title, Creation Date, Suno Version Used, Prompt Used, Human Edits Made, C2PA Credential ID, Distribution Date. This ledger is your legal paper trail. Step 4 - When uploading to distributors, reference your C2PA credential ID in the metadata notes field. Platforms including Spotify and YouTube are actively adopting C2PA verification - creators with credentials will have a significant trust advantage.`,
+      stem_workflow: `Stem polishing workflow for ${genre}: Step 1 - In Suno, generate your track and download the stems (vocals, instrumentals, drums if available). Step 2 - Go to LALAL.AI (lalal.ai) and upload your full track to separate any stems Suno didn't export. LALAL.AI's AI separation is remarkably clean. Step 3 - Import stems into BandLab (bandlab.com - free browser DAW). Create a new project and import each stem as a separate track. Step 4 - ${genre}-specific mixing tips: Set vocals at -6db, instruments at -12db, kick at -9db. Add a high-pass filter at 80hz to all non-bass tracks. Use BandLab's built-in reverb (20-25% wet) for space. Step 5 - Export your mixed track as WAV (not MP3). Step 6 - Upload to LANDR (landr.com) for AI mastering - select ${genre} as your genre for optimal mastering settings. Download the mastered file and use this for distribution.`,
+      video_engine: `Short-form video engine for ${genre}: CONCEPT 1 (Hook + Drop): Open with 3 seconds of silence + text "This AI made this" → drop into your best 15 seconds. Works for any ${genre} track. CONCEPT 2 (Process Video): Screen record your Suno prompt being typed → the generation loading → the reveal. Caption: "I typed 12 words and got this." CONCEPT 3 (Name Story): Text overlay telling the story of your artist name → your music underneath. CONCEPT 4 (Genre Flip): Show the same beat in 3 different moods using Suno variations. CONCEPT 5 (Community Ask): Post a clip and ask "Which version should I release?" - drives comments. POSTING STRATEGY: TikTok 6-9pm local time, Reels 11am-1pm, Shorts any time with keyword in title. LYRIC VIDEO: Use Canva (canva.com) free tier → choose a lyric video template → upload your cover art → add lyrics as animated text. Export as MP4. Takes 20 minutes.`,
+      royalty_tracker: `Royalty Tracker Setup - copy this Google Sheet structure: Column A: Track Title | Column B: Release Date | Column C: Distributor | Column D: Spotify Streams | Column E: Apple Streams | Column F: Tidal Streams | Column G: Distributor Royalties (monthly) | Column H: SoundExchange (quarterly) | Column I: MLC (quarterly) | Column J: PRO (quarterly) | Column K: Total. ROYALTY RATES (approximate 2026): Spotify $0.003-0.005/stream, Apple Music $0.007-0.01, Tidal $0.012-0.015, Amazon $0.004, YouTube Music $0.002, Deezer $0.006. PROJECTION FORMULA: At 10,000 monthly streams across platforms (mixed), expect $35-60/month in distributor royalties + $5-15 from SoundExchange + $2-8 from MLC. At 100,000 monthly streams: $350-600 + $50-150 + $20-80. Key insight for ${genre}: Apple Music listeners stream more per session than Spotify - prioritize Apple Music promotion for higher per-stream revenue.`,
+      sync_playbook: `Sync Licensing for ${genre} in 2026: Sync licensing places your music in TV, film, ads, and games. Typical indie rates: $500-5,000 for a TV placement, $2,000-15,000 for a film, $5,000-50,000 for a major ad. AI MUSIC STATUS: Most sync agencies now have explicit AI music policies. Musicbed (musicbed.com) and Artlist (artlist.io) both accept AI-assisted music IF you have documented human authorship. Pure AI output with no human edits is generally rejected. YOUR SYNC CHECKLIST: 1) Add original lyrics or vocal elements, 2) Make at least 10 deliberate post-production changes and document them in your Creative Decision Log, 3) Master professionally (LANDR or similar), 4) Register with SoundExchange before pitching sync. HOW TO PITCH: Submit to Musicbed and Artlist through their artist submission forms. Include your C2PA credentials and a brief note about your human creative contributions. For ${genre}, sync opportunities are strongest in: lifestyle content, vlogs, sports highlight reels, and indie film.`,
+      recommended_tools: `RECOMMENDED TOOLS FOR ${genre.toUpperCase()} CREATORS:\n\n1. DISTROKID ($22.99/year unlimited) distrokid.com - Best AI disclosure workflow, unlimited releases, instant Spotify delivery. Use code at checkout for discount.\n\n2. LALAL.AI lalal.ai - Stem separation for polishing your Suno tracks. 30% better than competitors for ${genre}. Start with free tier (3 tracks).\n\n3. LANDR landr.com - AI mastering in minutes. Select ${genre} for optimized settings. $15 credit for new accounts.\n\n4. EPIDEMIC SOUND epidemicsound.com - Royalty-free samples and sounds for enhancing your productions. $0 for the first 30 days.\n\n5. SUBMITHUB submithub.com - Playlist pitching platform. Start with $10 budget, target ${genre}-specific curators. Average 20% acceptance rate.\n\n6. CANVA PRO canva.com - Cover art, lyric videos, social media templates. Free tier is sufficient to start. Upgrade for brand kit.`,
+      referral_script: `Just got my TruClarify Verified Artist Certificate for ${cap}. It checked my name across 30+ platforms, flagged a streaming conflict I had no idea about, and gave me my complete launch kit in 60 seconds. If you're releasing music - check your name first. truclarify.com/creators 🎵`,
+      verified_badge_html: `<a href="https://truclarify.com/creators" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#0F172A;border:1px solid rgba(110,231,183,0.4);border-radius:8px;padding:8px 14px;text-decoration:none;font-family:sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#1B44C8"/><path d="M3 8l3.5 3.5L13 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#6EE7B7;font-size:11px;font-weight:700;letter-spacing:0.05em">TRUCLARIFY</span><span style="color:rgba(255,255,255,0.6);font-size:11px">Verified Artist</span></a>`,
       annual_update_preview: `Your annual AI music law update will cover: (1) New Copyright Office guidance on AI-generated works and what it means for your catalogue, (2) Updated distributor policies on AI disclosure requirements, (3) PRO developments on AI-assisted work registration. These updates are personalised to your specific release history and distribution setup.`
     });
   }
@@ -2208,6 +2402,11 @@ function renderMusicResults(name, kit, isPro, suno) {
     {id:'scal',    label:'Calendar',    html: renderMBlock('Platform Launch Calendar', kit.launch_calendar) + renderMBlock('Priority platforms', kit.platform_priority)},
     {id:'schecklist', label:'Checklist', html: renderMBlock('Step-by-Step Claiming Checklist', kit.claiming_checklist)},
     {id:'stip',    label:'Release Tip', html: renderMBlock('Genre Release Tip', kit.genre_release_tip)},
+    {id:'sroyalty', label:'💰 Royalties',  html: renderMBlock('Uncollected Royalty Estimate', kit.royalty_calculator)},
+    {id:'sdist',    label:'📦 Distributor', html: renderMBlock('Best Distributor for You', kit.distributor_recommendation)},
+    {id:'sstream',  label:'📊 Platform Pay', html: renderMBlock('Streaming Platform Comparison', kit.streaming_comparison)},
+    {id:'ssocial',  label:'📱 Content Plan', html: renderMBlock('30-Day Social Content Calendar', kit.social_content_calendar)},
+    {id:'splaylist',label:'🎯 Playlists',   html: renderMBlock('Playlist Pitching Package', kit.playlist_pitching_package)},
   ];
   const proTabs = isPro ? [
     {id:'prights', label:'AI Rights',    html: renderMBlock('AI Music Rights Briefing', kit.ai_rights_briefing) + renderMBlock('Human Authorship Assessment', kit.human_authorship_score)},
@@ -2218,6 +2417,16 @@ function renderMusicResults(name, kit, isPro, suno) {
     {id:'pcover',  label:'Cover Songs',  html: renderMBlock('Cover Song Licensing', kit.cover_song_guide)},
     {id:'pspot',   label:'Spotify',      html: renderMBlock('Spotify for Artists Optimisation', kit.spotify_optimisation)},
     {id:'pepk',    label:'Press Kit',    html: renderMBlock('Electronic Press Kit Template', kit.epk_template)},
+    {id:'pc2pa',   label:'🔐 C2PA',        html: renderMBlock('C2PA Provenance Toolkit', kit.c2pa_guide)},
+    {id:'pstems',  label:'🎛️ Stems',       html: renderMBlock('Stem Polishing Workflow (LALAL.AI + DAW)', kit.stem_workflow)},
+    {id:'pvideo',  label:'🎬 Video Engine', html: renderMBlock('TikTok/Reels/Shorts Promotion Engine', kit.video_engine)},
+    {id:'proyalty',label:'📈 Royalty Tracker', html: renderMBlock('Advanced Royalty Tracker Dashboard', kit.royalty_tracker)},
+    {id:'psync',   label:'🎬 Sync',         html: renderMBlock('Sync Licensing Playbook', kit.sync_playbook)},
+    {id:'ptools',  label:'🔗 Tools',        html: renderMBlock('Recommended Tools + Affiliates', kit.recommended_tools)},
+    {id:'preferral',label:'📣 Share',        html: renderReferralPane(kit, name, score)},
+    {id:'pbadge',  label:'🏆 Badge',        html: renderMBlock('Verified Artist Badge (embed code)', kit.verified_badge_html)},
+    {id:'preferral',label:'🔗 Share & Refer', html: renderReferralPane(kit, name, score)},
+    {id:'pbadge',   label:'🏆 Verified Badge', html: renderMBlock('TruClarify Verified Artist Badge', kit.verified_badge_html)},
   ] : [];
 
   const allTabs = [...starterTabs, ...proTabs];
@@ -2237,6 +2446,23 @@ function switchMTab(id) {
   document.querySelectorAll('.mkit-pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('mtab_'+id)?.classList.add('active');
   document.getElementById('mpane_'+id)?.classList.add('active');
+}
+
+function renderReferralPane(kit, name, score) {
+  const cap = name ? name.charAt(0).toUpperCase() + name.slice(1) : 'Artist';
+  const ref = kit.referral_script || `Just got my TruClarify Verified Artist score for ${cap} - ${score}/100. If you're releasing music, check your artist name before you drop anything. Saved me from a streaming conflict I didn't know about. truclarify.com/creators`;
+  return `<div class="mkit-block">
+    <h4>Your Referral Share Package<button class="mkit-copy" onclick="copyMkitBlock(this)">Copy</button></h4>
+    <p>${ref}</p>
+  </div>
+  <div class="mkit-block" style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:16px;margin-top:12px">
+    <h4 style="color:#6EE7B7;margin-bottom:8px">🎁 Your Referral Link</h4>
+    <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:10px">Share this link. When a friend signs up through it, they get a better experience and you build the TruClarify creator community.</p>
+    <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 14px;font-family:monospace;font-size:12px;color:#93C5FD">
+      https://truclarify.com/creators?ref=${cap.toLowerCase().replace(/\s/g,'')}
+    </div>
+    <button onclick="navigator.clipboard.writeText('https://truclarify.com/creators?ref=${cap.toLowerCase().replace(/\s/g,'')}').then(()=>alert('Referral link copied!'))" style="margin-top:10px;background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Copy Referral Link</button>
+  </div>`;
 }
 
 function renderMBios(kit, isPro) {
@@ -2283,5 +2509,232 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
 });
 
 </script>
+
+
+
+<!-- FREE MINI-KIT EMAIL CAPTURE -->
+<div class="mkit-overlay" id="freeKitOverlay" onclick="if(event.target===this)closeFreeKit()">
+  <div class="mkit-modal" style="max-width:480px">
+    <div class="mkit-top" style="background:linear-gradient(135deg,#0F172A,#1B44C8)">
+      <button class="mkit-close" onclick="closeFreeKit()">✕</button>
+      <div style="font-size:32px;margin-bottom:8px">🎵</div>
+      <h2 style="font-size:22px">Get Your Free Mini-Kit</h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:6px;line-height:1.6">Real value. No credit card. Enter your email and we generate your personalized Free Mini-Kit instantly.</p>
+    </div>
+    <div class="mkit-body" style="padding:24px">
+
+      <div style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:14px;margin-bottom:20px">
+        <div style="font-size:11px;font-weight:700;color:#6EE7B7;margin-bottom:8px">YOUR FREE KIT INCLUDES:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ Name check + score</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ 7-day calendar</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ Bio framework</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ C2PA guide</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ 3 Suno prompts</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ Metadata cheat sheet</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ AI disclosure guide</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7)">✓ Tool recommendations</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:7px">Your email</label>
+        <input type="email" id="freeKitEmail" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:12px 15px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;box-sizing:border-box;transition:border-color .15s" onfocus="this.style.borderColor='rgba(147,197,253,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
+      </div>
+
+      <button onclick="generateFreeKit()" style="width:100%;background:#6EE7B7;color:#0F172A;border:none;border-radius:10px;padding:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:12px" onmouseover="this.style.background='#34d399'" onmouseout="this.style.background='#6EE7B7'">
+        Generate My Free Kit →
+      </button>
+
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">No spam. One-click unsubscribe. We only email when your name availability changes.</p>
+
+      <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:18px;padding-top:16px;text-align:center">
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:10px">Want everything, including the full rights briefing, video engine + C2PA toolkit?</p>
+        <button onclick="closeFreeKit();openMusicKit('pro')" style="background:rgba(147,197,253,0.15);color:#93C5FD;border:1px solid rgba(147,197,253,0.3);border-radius:8px;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Premium Pipeline Kit - $9.99 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FREE REPORT EMAIL CAPTURE + PRO KIT TEASER -->
+<div class="mkit-overlay" id="freeReportOverlay" onclick="if(event.target===this)closeFreeReport()">
+  <div class="mkit-modal" style="max-width:580px;max-height:92vh;overflow-y:auto">
+    
+    <!-- HEADER -->
+    <div class="mkit-top" style="background:linear-gradient(135deg,#0F172A,#1B44C8);position:sticky;top:0;z-index:10">
+      <button class="mkit-close" onclick="closeFreeReport()">✕</button>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#1B44C8"/><path d="M3 8l3.5 3.5L10 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span style="font-family:'DM Serif Display',serif;font-size:12px;color:rgba(255,255,255,0.6)">TruClarify Pro Kit Preview</span>
+      </div>
+      <h2 id="proPreviewTitle" style="font-size:20px">Here's what your Pro Kit contains</h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Save your results + unlock a preview of your complete kit</p>
+    </div>
+
+    <div class="mkit-body" style="padding:0">
+
+      <!-- EMAIL CAPTURE STRIP -->
+      <div style="background:rgba(110,231,183,0.08);border-bottom:1px solid rgba(110,231,183,0.15);padding:18px 24px;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <label style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px">Save your results + get alerts when your name changes</label>
+          <input type="email" id="freeReportEmail" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:#fff;outline:none;box-sizing:border-box" />
+        </div>
+        <button onclick="saveFreeResults()" style="background:#6EE7B7;color:#0F172A;border:none;border-radius:8px;padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap">Save Results →</button>
+      </div>
+
+      <!-- PRO KIT TEASER SECTIONS -->
+      <div style="padding:20px 24px">
+        
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px">Pro Kit Preview — <span style="color:#93C5FD" id="proPreviewName">your artist name</span></div>
+
+        <!-- SECTION 1: Bios - FULLY VISIBLE as teaser -->
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:700;color:#6EE7B7;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+            <span style="background:rgba(110,231,183,0.15);padding:2px 8px;border-radius:100px">✓ INCLUDED</span> Platform Bios
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.65" id="proPreviewBio">
+            <strong style="color:rgba(255,255,255,0.9)">Spotify:</strong> Your artist creates music that moves between worlds — atmospheric textures layered over beats that feel both ancient and futuristic. For listeners who need sound to think.<br><br>
+            <strong style="color:rgba(255,255,255,0.9)">Instagram (150 chars):</strong> Making sounds for the space between awake and dreaming 🌙 New music always dropping · Genre · Vibes
+          </div>
+        </div>
+
+        <!-- SECTION 2: AI Rights - BLURRED -->
+        <div style="margin-bottom:16px;position:relative">
+          <div style="font-size:11px;font-weight:700;color:#FCD34D;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+            <span style="background:rgba(252,211,77,0.15);padding:2px 8px;border-radius:100px">🔒 PRO ONLY</span> AI Music Rights Briefing
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.65;filter:blur(4px);user-select:none;pointer-events:none">
+            Your Suno commercial licence gives you the right to distribute and monetise this music on streaming platforms. However, this is NOT copyright ownership. The US Copyright Office currently requires human creative input for copyright registration. Based on your workflow, your human authorship score is 6/10. To strengthen this: add original lyrics before generating, iterate through 15+ prompts, edit the output in a DAW for at least 45 minutes. Your specific risk exposure from the 2025 Suno litigation settlement is LOW because you are adding sufficient human creative elements.
+          </div>
+          <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
+            <button onclick="closeFreeReport();openMusicKit('pro')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Pro Kit — $19.99 →</button>
+          </div>
+        </div>
+
+        <!-- SECTION 3: Distributor comparison - BLURRED -->
+        <div style="margin-bottom:16px;position:relative">
+          <div style="font-size:11px;font-weight:700;color:#FCD34D;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+            <span style="background:rgba(252,211,77,0.15);padding:2px 8px;border-radius:100px">🔒 STARTER+</span> Best Distributor for Your Genre
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.65;filter:blur(4px);user-select:none;pointer-events:none">
+            For your genre, DistroKid at $22.99/year is the clear winner. Here's why: unlimited releases means every track costs you nothing extra after the annual fee. Their AI disclosure checkbox is the clearest in the industry — exactly what to tick for Suno content. TuneCore charges per release which works against high-volume creators. CD Baby's manual review adds 3-5 days for AI content. Your recommended setup: DistroKid annual plan, keep 100% of royalties, enable Content ID on YouTube.
+          </div>
+          <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Starter Kit — $9.99 →</button>
+          </div>
+        </div>
+
+        <!-- SECTION 4: Playlist pitching - BLURRED -->
+        <div style="margin-bottom:16px;position:relative">
+          <div style="font-size:11px;font-weight:700;color:#FCD34D;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+            <span style="background:rgba(252,211,77,0.15);padding:2px 8px;border-radius:100px">🔒 STARTER+</span> Playlist Pitching Package
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.65;filter:blur(4px);user-select:none;pointer-events:none">
+            Subject: [Artist Name] — [Track] for [Playlist Name]. Hi [Curator], I've been following your playlist for a while and think [track] would resonate with your listeners because [specific reason]. The track has [X] streams on Spotify and has been featured in [context]. Streaming link: [URL]. Happy to answer any questions. [Name]. Platform: SubmitHub (most curators, $1-3 per submission), Groover (guaranteed feedback within 7 days), PlaylistPush (premium, higher placement rate).
+          </div>
+          <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Starter Kit — $9.99 →</button>
+          </div>
+        </div>
+
+        <!-- SECTION 5: Social calendar - BLURRED -->
+        <div style="margin-bottom:20px;position:relative">
+          <div style="font-size:11px;font-weight:700;color:#FCD34D;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+            <span style="background:rgba(252,211,77,0.15);padding:2px 8px;border-radius:100px">🔒 STARTER+</span> 30-Day Social Content Calendar
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.65;filter:blur(4px);user-select:none;pointer-events:none">
+            Day 1 (Instagram): Introduce yourself and your sound with a 30-second video clip. Hook: "This is what [genre] sounds like when there are no rules." Day 3 (TikTok): Behind-the-scenes of your creative process — show the Suno interface, your prompt, the moment you heard the output. Day 5 (X/Twitter): Ask your audience which of two track names they prefer. Day 7: Share your full track for the first time with the story behind it. Week 2: Collaboration week — duet or stitch with another genre creator...
+          </div>
+          <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Starter Kit — $9.99 →</button>
+          </div>
+        </div>
+
+        <!-- UPGRADE CTA -->
+        <div style="background:linear-gradient(135deg,rgba(27,68,200,0.3),rgba(110,231,183,0.1));border:1px solid rgba(147,197,253,0.3);border-radius:12px;padding:20px;text-align:center">
+          <div style="font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:6px">Get your complete kit in 60 seconds</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:16px">Bios · Distributor guide · Playlist pitching · 30-day calendar · Rights briefing · Certificate</div>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#fff;color:#0F172A;border:none;border-radius:9px;padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Starter Kit — $9.99</button>
+            <button onclick="closeFreeReport();openMusicKit('pro')" style="background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Pro Kit — $19.99 ⭐</button>
+          </div>
+          <p style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:10px">Generated instantly by Claude · No account needed · One-time payment</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MONITORING MODAL -->
+<div class="mkit-overlay" id="monitoringOverlay" onclick="if(event.target===this)closeMonitoring()">
+  <div class="mkit-modal" style="max-width:520px">
+    <div class="mkit-top" style="background:linear-gradient(135deg,#1e1b4b,#1B44C8)">
+      <button class="mkit-close" onclick="closeMonitoring()">✕</button>
+      <h2>Creator Monitoring</h2>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;margin-top:4px">$4.99/month · Cancel anytime</p>
+    </div>
+    <div class="mkit-body" style="padding:28px">
+      
+      <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:24px;line-height:1.6">Your artist name is an asset. Once you claim it, TruClarify watches it for you every week — so you can focus on making music.</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px">
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
+          <span style="font-size:20px">🔊</span>
+          <div>
+            <div style="font-weight:600;color:#fff;margin-bottom:3px">Soundalike Artist Alerts</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6)">We watch for new artists with similar or identical names appearing on Spotify, Apple Music, and SoundCloud. You'll know before your algorithm does.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
+          <span style="font-size:20px">🆕</span>
+          <div>
+            <div style="font-weight:600;color:#fff;margin-bottom:3px">New Platform Notifications</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6)">When a new streaming platform launches, we check if your name is available and alert you to claim it first.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
+          <span style="font-size:20px">⚖️</span>
+          <div>
+            <div style="font-weight:600;color:#fff;margin-bottom:3px">Trademark Watch</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6)">Weekly scan for new trademark filings that could conflict with your artist name. Know before it becomes a legal problem.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
+          <span style="font-size:20px">📋</span>
+          <div>
+            <div style="font-weight:600;color:#fff;margin-bottom:3px">Monthly AI Music Law Updates</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6)">The AI music legal landscape changes fast. Every month you get a personalized briefing on what changed and what it means for you.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
+          <span style="font-size:20px">🔍</span>
+          <div>
+            <div style="font-weight:600;color:#fff;margin-bottom:3px">Annual Rights Audit</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6)">Once a year, a full review of your rights position — what's registered, what's changed, what you should do next.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.3);border-radius:10px;padding:14px;margin-bottom:24px">
+        <div style="font-size:13px;color:#6EE7B7;font-weight:600;margin-bottom:4px">✓ Same price as one coffee per month</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6)">$4.99/month · Weekly checks · Email alerts only when something changes · Cancel anytime</div>
+      </div>
+
+      <div style="margin-bottom:16px">
+        <label style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:8px">Your email for alerts</label>
+        <input type="email" id="monitoringEmail" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:11px 15px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;box-sizing:border-box" />
+      </div>
+
+      <button onclick="startMonitoring()" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:10px;padding:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s" onmouseover="this.style.background='#1537a0'" onmouseout="this.style.background='#1B44C8'">
+        Start Monitoring — $4.99/month →
+      </button>
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.35);margin-top:10px">Secure payment via Stripe · Cancel anytime · No contracts</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
