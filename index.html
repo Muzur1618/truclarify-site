@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>TruClarify - Brand Name Intelligence for Founders & Creators</title>
 <meta name="description" content="Check if your business name or artist name is safe, available, and truly ownable. Trademark risk, phonetic conflicts, domain availability, and hidden risk analysis - in seconds.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -15,7 +16,8 @@
   --border:rgba(0,0,0,0.08);--border-mid:rgba(0,0,0,0.14);
   --green:#0A7A4B;--r:10px;--rl:16px;
 }
-html,body{height:100%;overflow-x:hidden}
+html,body{min-height:100%;overflow-x:hidden;color-scheme:light}
+@media(prefers-color-scheme:dark){html,body{background:#F9F8F5!important;color:#111111!important}:root{--ink:#111111!important;--bg:#F9F8F5!important;--bg-card:#FFFFFF!important}}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
 /* NAV */
 nav{height:62px;display:flex;align-items:center;justify-content:center;padding:0 24px;background:rgba(249,248,245,0.97);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:100}
@@ -57,19 +59,26 @@ footer{text-align:center;padding:24px;font-size:12px;color:var(--ink-dim);border
 footer a{color:var(--ink-dim);text-decoration:none}
 footer a:hover{color:var(--accent)}
 @media(max-width:600px){
-  .choice-grid{grid-template-columns:1fr;max-width:420px;gap:12px}
+  .choice-grid{grid-template-columns:1fr;max-width:420px;gap:8px}
   .choice-card.creator{order:-1}
-  .choice-card{padding:24px 20px;border-radius:16px}
-  .choice-icon{font-size:28px;margin-bottom:12px}
-  .choice-title{font-size:20px;margin-bottom:6px}
-  .choice-desc{font-size:12px;margin-bottom:14px;line-height:1.55}
-  .choice-cta{font-size:12px;padding:9px 16px}
-  h1{font-size:24px;margin-bottom:8px;line-height:1.15}
-  .home-sub{font-size:13px;margin-bottom:20px}
-  main{padding:100px 16px 40px}
-  .proof-strip{gap:20px;padding:16px 0}
-  .ps-num{font-size:18px}
-  .ps-lbl{font-size:10px}
+  .choice-card{padding:16px;border-radius:14px}
+  .choice-icon{font-size:22px;margin-bottom:6px}
+  .choice-label{font-size:9px;margin-bottom:4px}
+  .choice-title{font-size:18px;margin-bottom:4px}
+  .choice-desc{font-size:11px;margin-bottom:10px;line-height:1.45}
+  .choice-cta{font-size:11px;padding:8px 14px}
+  h1{font-size:22px;margin-bottom:6px;line-height:1.15}
+  .home-sub{font-size:12px;margin-bottom:16px;line-height:1.5}
+  .home-tag{font-size:9px;margin-bottom:8px}
+  main{
+    justify-content:flex-start;
+    padding:74px 16px 16px;
+    min-height:unset;
+    height:auto;
+  }
+  .proof-strip{gap:16px;padding:12px 0}
+  .ps-num{font-size:16px}
+  .ps-lbl{font-size:9px}
 }
 </style>
 </head>
