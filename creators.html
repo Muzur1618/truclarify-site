@@ -431,7 +431,7 @@ footer strong{font-family:'DM Serif Display',serif;font-size:15px;color:var(--in
 .cert-preview-overlay button{font-size:11px;font-weight:700;padding:6px 16px;border-radius:7px;background:#fff;color:#0F172A;border:none;cursor:pointer}
 
 /* ── CREATOR KITS GRID ── */
-.creator-kits{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+.creator-kits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
 .ck{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--rl);padding:32px;transition:all .2s;position:relative;display:flex;flex-direction:column}
 .ck:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
 .ck.featured{border-color:rgba(147,197,253,.4);background:rgba(147,197,253,.07)}
@@ -509,9 +509,41 @@ footer strong{font-family:'DM Serif Display',serif;font-size:15px;color:var(--in
 @media(max-width:768px){
   .creator-section{padding:56px 20px}
   .creator-kits{grid-template-columns:1fr}
+  .creator-kits .ck:nth-child(1){order:3}
+  .creator-kits .ck:nth-child(2){order:2}
+  .creator-kits .ck.featured{order:1}
   .cr-score-row{gap:8px}
   .mkit-body,.mkit-top{padding:20px}
   .mkit-row{grid-template-columns:1fr}
+  .ck-feats li.ck-hidden{display:none}
+  .ck-feats li.ck-hidden.expanded{display:flex}
+  .ck-expand-btn{
+    width:100%;
+    background:transparent;
+    border:none;
+    color:rgba(255,255,255,0.5);
+    font-family:'DM Sans',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    padding:10px 0 4px;
+    cursor:pointer;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:color .15s;
+  }
+  .ck-expand-btn:hover{color:rgba(255,255,255,0.8)}
+  .ck-expand-icon{
+    display:inline-block;
+    transition:transform .25s;
+    font-style:normal;
+  }
+  .ck-expand-btn.open .ck-expand-icon{transform:rotate(180deg)}
+}
+@media(min-width:769px){
+  .ck-expand-btn{display:none}
+  .ck-feats li.ck-hidden{display:flex}
 }
 
 
@@ -733,7 +765,7 @@ footer a:hover{color:#93C5FD}
   <h2 class="kits-h">Everything you need.<br>Priced for creators.</h2>
   <p class="kits-sub">Wrong name, missing royalties, no rights paper trail — pick a kit and fix all three before your first drop.</p>
 
-  <div class="creator-kits" style="grid-template-columns:repeat(3,1fr)">
+  <div class="creator-kits">
 
     <!-- FREE MINI-KIT -->
     <div class="ck">
@@ -745,13 +777,14 @@ footer a:hover{color:#93C5FD}
         <li><span class="ckchk">✓</span>7-day launch calendar</li>
         <li><span class="ckchk">✓</span>Basic bio framework</li>
         <li><span class="ckchk">✓</span>Canva cover art template link</li>
-        <li><span class="ckchk">✓</span>C2PA Quick-Start Guide (1 page)</li>
-        <li><span class="ckchk">✓</span>3 proven Suno prompt templates</li>
-        <li><span class="ckchk">✓</span>3-step first release checklist</li>
-        <li><span class="ckchk">✓</span>Basic metadata cheat sheet</li>
-        <li><span class="ckchk">✓</span>AI disclosure quick guide</li>
-        <li><span class="ckchk">✓</span>Recommended tools starter pack</li>
-        <li><span class="ckchk">✓</span>30-second name story template</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>C2PA Quick-Start Guide (1 page)</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>3 proven Suno prompt templates</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>3-step first release checklist</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Basic metadata cheat sheet</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>AI disclosure quick guide</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Recommended tools starter pack</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>30-second name story template</li>
+      <button class="ck-expand-btn" onclick="toggleFeatures(this,'free')"><i class="ck-expand-icon">↓</i> See all 11 features</button>
       </ul>
       <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('free')">Get Free Mini-Kit →</button>
     </div>
@@ -766,19 +799,20 @@ footer a:hover{color:#93C5FD}
         <li><span class="ckchk">✓</span>Verified Artist Certificate (download)</li>
         <li><span class="ckchk">✓</span>Platform bios for 8 platforms in your voice</li>
         <li><span class="ckchk">✓</span>Name story framework (3 lengths)</li>
-        <li><span class="ckchk">✓</span>Pronunciation guide + misspelling list</li>
-        <li><span class="ckchk">✓</span>Username conflict resolution</li>
-        <li><span class="ckchk">✓</span>Full 30-day launch calendar</li>
-        <li><span class="ckchk">✓</span>Claiming checklist with direct links</li>
-        <li><span class="ckchk">✓</span>Metadata standardization sheet</li>
-        <li><span class="ckchk">✓</span>DistroKid pre-fill template</li>
-        <li><span class="ckchk">✓</span>AI disclosure checklist</li>
-        <li><span class="ckchk">✓</span>Personalized distributor recommendation</li>
-        <li><span class="ckchk new">📱</span>30-day social content calendar</li>
-        <li><span class="ckchk new">💰</span>Uncollected royalty estimate</li>
-        <li><span class="ckchk new">📊</span>Streaming platform pay comparison</li>
-        <li><span class="ckchk new">🎯</span>Playlist pitching package</li>
-        <li><span class="ckchk new">📦</span>Best distributor for your genre</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Pronunciation guide + misspelling list</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Username conflict resolution</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Full 30-day launch calendar</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Claiming checklist with direct links</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Metadata standardization sheet</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>DistroKid pre-fill template</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>AI disclosure checklist</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Personalized distributor recommendation</li>
+        <li class="ck-hidden"><span class="ckchk new">📱</span>30-day social content calendar</li>
+        <li class="ck-hidden"><span class="ckchk new">💰</span>Uncollected royalty estimate</li>
+        <li class="ck-hidden"><span class="ckchk new">📊</span>Streaming platform pay comparison</li>
+        <li class="ck-hidden"><span class="ckchk new">🎯</span>Playlist pitching package</li>
+        <li class="ck-hidden"><span class="ckchk new">📦</span>Best distributor for your genre</li>
+      <button class="ck-expand-btn" onclick="toggleFeatures(this,'starter')"><i class="ck-expand-icon">↓</i> See all 17 features</button>
       </ul>
       <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('starter')">Get Launch Kit - $5.99 →</button>
     </div>
@@ -794,22 +828,23 @@ footer a:hover{color:#93C5FD}
         <li><span class="ckchk">✓</span>Full AI Rights Briefing + authorship score</li>
         <li><span class="ckchk">✓</span>Rights Establishment Record</li>
         <li><span class="ckchk">✓</span>Creative Decision Log template</li>
-        <li><span class="ckchk new">🔐</span>C2PA Provenance Toolkit + ledger</li>
-        <li><span class="ckchk new">🎛️</span>Stem polishing workflow (LALAL.AI + DAW)</li>
-        <li><span class="ckchk new">🎬</span>TikTok/Reels/Shorts video engine</li>
-        <li><span class="ckchk new">📈</span>Advanced royalty tracker dashboard</li>
-        <li><span class="ckchk new">🎵</span>Sync licensing playbook</li>
-        <li><span class="ckchk new">🔗</span>Full recommended tools + 6 affiliates</li>
-        <li><span class="ckchk">✓</span>PRO registration guide (ASCAP/BMI)</li>
-        <li><span class="ckchk">✓</span>SoundExchange + MLC registration</li>
-        <li><span class="ckchk">✓</span>Cover song licensing guide</li>
-        <li><span class="ckchk">✓</span>Spotify for Artists optimisation</li>
-        <li><span class="ckchk">✓</span>Full EPK generator</li>
-        <li><span class="ckchk">✓</span>Distributor pre-fills (DistroKid, TuneCore, CD Baby)</li>
-        <li><span class="ckchk new">📣</span>Personalized referral share package</li>
-        <li><span class="ckchk new">🏆</span>TruClarify Verified Artist badge</li>
-        <li><span class="ckchk">✓</span>30 days monitoring included</li>
-        <li><span class="ckchk">✓</span>Annual AI law update enrolled</li>
+        <li class="ck-hidden"><span class="ckchk new">🔐</span>C2PA Provenance Toolkit + ledger</li>
+        <li class="ck-hidden"><span class="ckchk new">🎛️</span>Stem polishing workflow (LALAL.AI + DAW)</li>
+        <li class="ck-hidden"><span class="ckchk new">🎬</span>TikTok/Reels/Shorts video engine</li>
+        <li class="ck-hidden"><span class="ckchk new">📈</span>Advanced royalty tracker dashboard</li>
+        <li class="ck-hidden"><span class="ckchk new">🎵</span>Sync licensing playbook</li>
+        <li class="ck-hidden"><span class="ckchk new">🔗</span>Full recommended tools + 6 affiliates</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>PRO registration guide (ASCAP/BMI)</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>SoundExchange + MLC registration</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Cover song licensing guide</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Spotify for Artists optimisation</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Full EPK generator</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Distributor pre-fills (DistroKid, TuneCore, CD Baby)</li>
+        <li class="ck-hidden"><span class="ckchk new">📣</span>Personalized referral share package</li>
+        <li class="ck-hidden"><span class="ckchk new">🏆</span>TruClarify Verified Artist badge</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>30 days monitoring included</li>
+        <li class="ck-hidden"><span class="ckchk">✓</span>Annual AI law update enrolled</li>
+      <button class="ck-expand-btn" onclick="toggleFeatures(this,'pro')"><i class="ck-expand-icon">↓</i> See all 20 features</button>
       </ul>
       <button class="ck-cta ck-cta-solid" onclick="openMusicKit('pro')">Get Premium Pipeline Kit - $9.99 →</button>
     </div>
@@ -2061,6 +2096,32 @@ async function generateFreeKit() {
 
   // Generate via Claude API
   await generateMusicKit();
+}
+
+function toggleFeatures(btn, cardId) {
+  const hiddenItems = btn.previousElementSibling
+    ? Array.from(btn.parentElement.querySelectorAll('.ck-hidden'))
+    : [];
+  const items = btn.closest('.ck').querySelectorAll('.ck-hidden');
+  const isOpen = btn.classList.contains('open');
+
+  items.forEach(item => {
+    if (isOpen) {
+      item.classList.remove('expanded');
+    } else {
+      item.classList.add('expanded');
+    }
+  });
+
+  btn.classList.toggle('open');
+  const icon = btn.querySelector('.ck-expand-icon');
+  const count = {'free': 11, 'starter': 17, 'pro': 20}[cardId] || items.length + 4;
+
+  if (isOpen) {
+    btn.innerHTML = '<i class="ck-expand-icon">↓</i> See all ' + count + ' features';
+  } else {
+    btn.innerHTML = '<i class="ck-expand-icon" style="transform:rotate(180deg)">↓</i> Show less';
+  }
 }
 
 function openMonitoringModal() {
