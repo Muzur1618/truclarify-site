@@ -691,7 +691,7 @@ footer a:hover{color:#93C5FD}
         </div>
         <div class="cert-preview-overlay">
           <p>Unlock your Verified Artist Certificate</p>
-          <button onclick="openMusicKit('starter')">Get Starter Kit - $9.99</button>
+          <button onclick="openMusicKit('starter')">Get Launch Kit - $5.99</button>
         </div>
       </div>
       <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:12px 14px;margin-top:10px;font-size:12px;color:rgba(255,255,255,.6);line-height:1.6">
@@ -955,9 +955,9 @@ footer a:hover{color:#93C5FD}
         </div>
         <div class="mkit-upsell" id="mkitUpsell" style="display:none">
           <div class="mkit-upsell-text">
-            <strong>Ready to release?</strong> The Pro Kit covers your <strong>rights, distribution, and royalty collection</strong>.
+            <strong>Ready to release?</strong> The Premium Pipeline Kit covers your <strong>rights, distribution, royalty collection, C2PA provenance, and video promotion</strong>.
           </div>
-          <button class="mkit-upsell-btn" onclick="closeMkit();setTimeout(()=>openMusicKit('pro'),300)">Upgrade to Pro - $19.99 →</button>
+          <button class="mkit-upsell-btn" onclick="closeMkit();setTimeout(()=>openMusicKit('pro'),300)">Upgrade to Premium Pipeline Kit - $9.99 →</button>
         </div>
         <div style="text-align:center;margin-top:10px;font-size:11px;color:rgba(255,255,255,.35)">
           Protect this name ongoing → <span style="color:#93C5FD;cursor:pointer;font-weight:600" onclick="closeMkit();setTimeout(()=>openMusicKit('monitoring'),300)">Add monitoring - $4.99/month</span>
@@ -1990,7 +1990,7 @@ function showFreeEmailCapture(name, data) {
   const cap = name.charAt(0).toUpperCase() + name.slice(1);
   // Update preview title with artist name
   const titleEl = document.getElementById('proPreviewTitle');
-  if (titleEl) titleEl.textContent = cap + "'s Pro Kit — Preview";
+  if (titleEl) titleEl.textContent = cap + "'s Premium Pipeline Kit — Preview";
   const nameEl = document.getElementById('proPreviewName');
   if (nameEl) nameEl.textContent = cap;
   // Update bio preview with artist name
@@ -2565,9 +2565,9 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
       <button class="mkit-close" onclick="closeFreeReport()">✕</button>
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#1B44C8"/><path d="M3 8l3.5 3.5L10 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span style="font-family:'DM Serif Display',serif;font-size:12px;color:rgba(255,255,255,0.6)">TruClarify Pro Kit Preview</span>
+        <span style="font-family:'DM Serif Display',serif;font-size:12px;color:rgba(255,255,255,0.6)">TruClarify Premium Pipeline Kit Preview</span>
       </div>
-      <h2 id="proPreviewTitle" style="font-size:20px">Here's what your Pro Kit contains</h2>
+      <h2 id="proPreviewTitle" style="font-size:20px">Here's what your Premium Pipeline Kit contains</h2>
       <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:4px">Save your results + unlock a preview of your complete kit</p>
     </div>
 
@@ -2585,7 +2585,7 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
       <!-- PRO KIT TEASER SECTIONS -->
       <div style="padding:20px 24px">
         
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px">Pro Kit Preview — <span style="color:#93C5FD" id="proPreviewName">your artist name</span></div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px">Premium Pipeline Kit Preview — <span style="color:#93C5FD" id="proPreviewName">your artist name</span></div>
 
         <!-- SECTION 1: Bios - FULLY VISIBLE as teaser -->
         <div style="margin-bottom:16px">
@@ -2607,7 +2607,7 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
             Your Suno commercial licence gives you the right to distribute and monetise this music on streaming platforms. However, this is NOT copyright ownership. The US Copyright Office currently requires human creative input for copyright registration. Based on your workflow, your human authorship score is 6/10. To strengthen this: add original lyrics before generating, iterate through 15+ prompts, edit the output in a DAW for at least 45 minutes. Your specific risk exposure from the 2025 Suno litigation settlement is LOW because you are adding sufficient human creative elements.
           </div>
           <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
-            <button onclick="closeFreeReport();openMusicKit('pro')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Pro Kit — $19.99 →</button>
+            <button onclick="closeFreeReport();openMusicKit('pro')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Premium Pipeline Kit — $9.99 →</button>
           </div>
         </div>
 
@@ -2620,7 +2620,7 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
             For your genre, DistroKid at $22.99/year is the clear winner. Here's why: unlimited releases means every track costs you nothing extra after the annual fee. Their AI disclosure checkbox is the clearest in the industry — exactly what to tick for Suno content. TuneCore charges per release which works against high-volume creators. CD Baby's manual review adds 3-5 days for AI content. Your recommended setup: DistroKid annual plan, keep 100% of royalties, enable Content ID on YouTube.
           </div>
           <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
-            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Starter Kit — $9.99 →</button>
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Launch Kit — $5.99 →</button>
           </div>
         </div>
 
@@ -2633,7 +2633,7 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
             Subject: [Artist Name] — [Track] for [Playlist Name]. Hi [Curator], I've been following your playlist for a while and think [track] would resonate with your listeners because [specific reason]. The track has [X] streams on Spotify and has been featured in [context]. Streaming link: [URL]. Happy to answer any questions. [Name]. Platform: SubmitHub (most curators, $1-3 per submission), Groover (guaranteed feedback within 7 days), PlaylistPush (premium, higher placement rate).
           </div>
           <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
-            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Starter Kit — $9.99 →</button>
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Launch Kit — $5.99 →</button>
           </div>
         </div>
 
@@ -2646,7 +2646,7 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
             Day 1 (Instagram): Introduce yourself and your sound with a 30-second video clip. Hook: "This is what [genre] sounds like when there are no rules." Day 3 (TikTok): Behind-the-scenes of your creative process — show the Suno interface, your prompt, the moment you heard the output. Day 5 (X/Twitter): Ask your audience which of two track names they prefer. Day 7: Share your full track for the first time with the story behind it. Week 2: Collaboration week — duet or stitch with another genre creator...
           </div>
           <div style="position:absolute;inset:28px 0 0 0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(15,23,42,0.5)">
-            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Starter Kit — $9.99 →</button>
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#1B44C8;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer">Unlock with Launch Kit — $5.99 →</button>
           </div>
         </div>
 
@@ -2655,8 +2655,8 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
           <div style="font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:6px">Get your complete kit in 60 seconds</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:16px">Bios · Distributor guide · Playlist pitching · 30-day calendar · Rights briefing · Certificate</div>
           <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#fff;color:#0F172A;border:none;border-radius:9px;padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Starter Kit — $9.99</button>
-            <button onclick="closeFreeReport();openMusicKit('pro')" style="background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Pro Kit — $19.99 ⭐</button>
+            <button onclick="closeFreeReport();openMusicKit('starter')" style="background:#fff;color:#0F172A;border:none;border-radius:9px;padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Launch Kit — $5.99</button>
+            <button onclick="closeFreeReport();openMusicKit('pro')" style="background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Premium Pipeline Kit — $9.99 ⭐</button>
           </div>
           <p style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:10px">Generated instantly by Claude · No account needed · One-time payment</p>
         </div>
