@@ -660,6 +660,7 @@ footer a:hover{color:#93C5FD}
     <a href="founders.html" class="nl">For Founders</a>
     <a href="#check" class="nl">Check Name</a>
     <a href="#kits" class="nl">Kits</a>
+    <a href="/log" class="nl">Rights Log — Free</a>
     <button class="nb" onclick="openMusicKit('free')">Start Free</button>
   </div>
 </nav>
@@ -878,7 +879,10 @@ footer a:hover{color:#93C5FD}
         <span class="suno-tag">Video promotion engine</span>
       </div>
     </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
     <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get the Premium Pipeline Kit - $9.99 →</button>
+    <button class="suno-cta-btn" style="background:rgba(110,231,183,0.15);border:1px solid rgba(110,231,183,0.3);color:#6EE7B7" onclick="openFreeLog(document.getElementById('artistNameInput')?.value)">📋 Log Your Creative Process — Free →</button>
+  </div>
   </div>
 </div>
 
@@ -2127,6 +2131,68 @@ function toggleFeatures(btn, cardId) {
   }
 }
 
+function openFreeLog(artistName) {
+  // Pre-fill artist name if provided
+  if (artistName) {
+    setTimeout(() => {
+      const el = document.getElementById('logArtistName');
+      if (el) el.value = artistName;
+    }, 200);
+  }
+  document.getElementById('freeLogOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFreeLog() {
+  document.getElementById('freeLogOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function submitFreeLog() {
+  const artist = document.getElementById('logArtistName').value.trim();
+  const track = document.getElementById('logTrackTitle').value.trim();
+  const email = document.getElementById('logEmail').value.trim();
+  const prompt = document.getElementById('logPrompt').value;
+  const promptDetail = document.getElementById('logPromptDetail').value.trim();
+  const selection = document.getElementById('logSelection').value.trim();
+
+  if (!artist || !track || !email || !email.includes('@')) {
+    alert('Please fill in your artist name, track title, and email.');
+    return;
+  }
+
+  // Collect checkboxes
+  const elements = [];
+  if (document.getElementById('logLyrics').checked) elements.push('Original lyrics');
+  if (document.getElementById('logVocals').checked) elements.push('Recorded vocals');
+  if (document.getElementById('logInstruments').checked) elements.push('Live instruments');
+  if (document.getElementById('logDAW').checked) elements.push('DAW editing');
+  if (document.getElementById('logMastering').checked) elements.push('Mastering/mixing');
+  if (document.getElementById('logStructure').checked) elements.push('Structure/arrangement');
+
+  // In production: POST to Supabase + trigger Resend email with formatted log
+  console.log('Free log submitted:', { artist, track, email, prompt, promptDetail, elements, selection });
+
+  // Show success
+  document.getElementById('freeLogOverlay').querySelector('.mkit-body').innerHTML = `
+    <div style="text-align:center;padding:40px 20px">
+      <div style="font-size:48px;margin-bottom:16px">✅</div>
+      <h3 style="font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:8px">Your log is on its way!</h3>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px">We've sent a timestamped Creative Decision Log to <strong style="color:#fff">\${email}</strong>. Keep it with your track files.</p>
+      <div style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:14px;margin-bottom:20px;text-align:left">
+        <div style="font-size:11px;font-weight:700;color:#6EE7B7;margin-bottom:8px">WHAT TO DO NEXT</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.8">
+          1. Save the log email in a folder with your track files<br>
+          2. Fill one out for every track you release<br>
+          3. Register with SoundExchange (free, 15 mins) to collect royalties
+        </div>
+      </div>
+      <button onclick="closeFreeLog();openMusicKit('pro')" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:12px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Get the Full Rights Package - $9.99 →</button>
+      <button onclick="closeFreeLog()" style="width:100%;background:transparent;color:rgba(255,255,255,0.4);border:none;padding:10px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;margin-top:6px">Close</button>
+    </div>
+  `;
+}
+
 function openMonitoringModal() {
   document.getElementById('monitoringOverlay').classList.add('on');
   document.body.style.overflow = 'hidden';
@@ -2731,6 +2797,90 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
 </div>
 
 
+
+
+<!-- FREE CREATIVE DECISION LOG MODAL -->
+<div class="mkit-overlay" id="freeLogOverlay" onclick="if(event.target===this)closeFreeLog()">
+  <div class="mkit-modal" style="max-width:520px;max-height:92vh;overflow-y:auto">
+    <div class="mkit-top" style="background:linear-gradient(135deg,#064E3B,#065F46)">
+      <button class="mkit-close" onclick="closeFreeLog()">✕</button>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px">FREE TOOL</div>
+      <h2 style="font-size:20px">Creative Decision Log</h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:4px;line-height:1.5">Document your creative process before you release. This is the evidence that protects your rights if a dispute arrives.</p>
+    </div>
+    <div class="mkit-body" style="padding:24px">
+
+      <!-- WHY IT MATTERS -->
+      <div style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:14px;margin-bottom:20px">
+        <div style="font-size:11px;font-weight:700;color:#6EE7B7;margin-bottom:6px">WHY THIS MATTERS</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.6">The US Copyright Office requires <strong style="color:#fff">human creative input</strong> for copyright protection. This log documents yours — timestamped, structured, and ready if you ever need it.</div>
+      </div>
+
+      <!-- TRACK INFO - PRE-FILLED -->
+      <div style="margin-bottom:16px">
+        <label style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:7px">Artist Name</label>
+        <input type="text" id="logArtistName" placeholder="Your artist name" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:#fff;outline:none;box-sizing:border-box" />
+      </div>
+
+      <div style="margin-bottom:16px">
+        <label style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:7px">Track Title</label>
+        <input type="text" id="logTrackTitle" placeholder="e.g. Midnight Circuit" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:#fff;outline:none;box-sizing:border-box" />
+      </div>
+
+      <!-- 3 CREATIVE DECISIONS -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px">Your 3 Key Creative Decisions</div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:11px;color:rgba(255,255,255,0.6);display:block;margin-bottom:6px">1. How did you develop your prompt?</label>
+        <select id="logPrompt" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:#fff;outline:none;box-sizing:border-box;margin-bottom:6px">
+          <option value="">Select...</option>
+          <option value="single">Single prompt, accepted first output</option>
+          <option value="2-5">2-5 prompt iterations before selecting</option>
+          <option value="6-15">6-15 prompt iterations with deliberate refinement</option>
+          <option value="15+">15+ iterations — extensive creative development</option>
+        </select>
+        <textarea id="logPromptDetail" placeholder="Briefly describe your creative direction (e.g. 'I wanted a melancholic lo-fi feel with sparse piano and no drums for the first 30 seconds')" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:12px;color:#fff;outline:none;box-sizing:border-box;resize:vertical;min-height:60px"></textarea>
+      </div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:11px;color:rgba(255,255,255,0.6);display:block;margin-bottom:6px">2. What human elements did you add?</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px">
+          <label style="font-size:12px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" id="logLyrics" style="accent-color:#6EE7B7"> Original lyrics</label>
+          <label style="font-size:12px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" id="logVocals" style="accent-color:#6EE7B7"> Recorded vocals</label>
+          <label style="font-size:12px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" id="logInstruments" style="accent-color:#6EE7B7"> Live instruments</label>
+          <label style="font-size:12px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" id="logDAW" style="accent-color:#6EE7B7"> DAW editing</label>
+          <label style="font-size:12px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" id="logMastering" style="accent-color:#6EE7B7"> Mastering/mixing</label>
+          <label style="font-size:12px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" id="logStructure" style="accent-color:#6EE7B7"> Structure/arrangement</label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label style="font-size:11px;color:rgba(255,255,255,0.6);display:block;margin-bottom:6px">3. Why did you choose this output over others?</label>
+        <textarea id="logSelection" placeholder="e.g. 'I generated 8 versions and chose this one because the chord progression in the bridge felt more emotionally resonant and the tempo matched the mood I was going for'" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:12px;color:#fff;outline:none;box-sizing:border-box;resize:vertical;min-height:70px"></textarea>
+      </div>
+
+      <!-- EMAIL -->
+      <div style="margin-bottom:16px">
+        <label style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:7px">Email — we'll send you a timestamped copy</label>
+        <input type="email" id="logEmail" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:#fff;outline:none;box-sizing:border-box" />
+      </div>
+
+      <button onclick="submitFreeLog()" style="width:100%;background:#6EE7B7;color:#0F172A;border:none;border-radius:10px;padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:12px">
+        Generate & Email My Log →
+      </button>
+
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.3)">Timestamped automatically. Sent to your email. No spam.</p>
+
+      <!-- UPSELL -->
+      <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:18px;padding-top:16px">
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:8px">PREMIUM PIPELINE KIT — $9.99</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:12px">Get the full Creative Decision Log with copyright registration guidance, distributor-specific fields, PRO registration notes, and chain of title documentation — plus C2PA toolkit, stem workflow, video engine, and 15+ more tabs.</div>
+        <button onclick="closeFreeLog();openMusicKit('pro')" style="width:100%;background:rgba(147,197,253,0.1);color:#93C5FD;border:1px solid rgba(147,197,253,0.25);border-radius:8px;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Get Premium Pipeline Kit - $9.99 →</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- MONITORING MODAL -->
 <div class="mkit-overlay" id="monitoringOverlay" onclick="if(event.target===this)closeMonitoring()">
