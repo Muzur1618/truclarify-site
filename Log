@@ -1,0 +1,791 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Creative Decision Log — TruClarify</title>
+<meta name="description" content="Document your human creative input before you release. The Creative Decision Log timestamps your authorship evidence — free, instant, and the first thing you should do before uploading to DistroKid.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0F172A;
+  --bg-card:rgba(255,255,255,0.05);
+  --ink:#FFFFFF;
+  --ink-mid:rgba(255,255,255,0.65);
+  --ink-dim:rgba(255,255,255,0.35);
+  --accent:#1B44C8;
+  --green:#6EE7B7;
+  --blue-light:#93C5FD;
+  --amber:#FCD34D;
+  --border:rgba(255,255,255,0.1);
+  --r:10px;
+}
+html{scroll-behavior:smooth;color-scheme:dark}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:62px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(15,23,42,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.logo{text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo svg{flex-shrink:0}
+.logo-text{font-family:'DM Serif Display',serif;font-size:19px}
+.logo-text .tru{color:var(--ink)}
+.logo-text .clarify{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nl{font-size:13px;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:6px 12px;border-radius:8px;transition:all .15s}
+.nl:hover{color:var(--ink);background:rgba(255,255,255,0.07)}
+.nl.active{color:var(--green);font-weight:600}
+.nb{font-size:13px;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:8px;padding:7px 18px;cursor:pointer;text-decoration:none;transition:background .15s}
+.nb:hover{background:#1537a0}
+
+/* HERO */
+.hero{
+  padding:130px 24px 60px;
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(110,231,183,0.1);
+  border:1px solid rgba(110,231,183,0.25);
+  border-radius:100px;
+  padding:6px 16px;
+  font-size:12px;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:24px;
+}
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(36px,5vw,62px);
+  line-height:1.1;
+  margin-bottom:20px;
+}
+.hero h1 em{color:var(--green);font-style:italic}
+.hero-sub{
+  font-size:clamp(16px,2vw,19px);
+  color:var(--ink-mid);
+  max-width:640px;
+  margin:0 auto 40px;
+  line-height:1.65;
+}
+
+/* MARCUS STORY */
+.story{
+  max-width:720px;
+  margin:0 auto 60px;
+  background:rgba(252,211,77,0.05);
+  border:1px solid rgba(252,211,77,0.2);
+  border-radius:16px;
+  padding:28px 32px;
+}
+.story-label{
+  font-size:10px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:12px;
+}
+.story p{font-size:14px;color:var(--ink-mid);line-height:1.75;margin-bottom:10px}
+.story p:last-child{margin-bottom:0}
+.story strong{color:var(--ink)}
+
+/* WHY IT MATTERS */
+.why{
+  max-width:900px;
+  margin:0 auto 60px;
+  padding:0 24px;
+}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.why-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:24px;
+}
+.why-icon{font-size:24px;margin-bottom:12px}
+.why-title{font-family:'DM Serif Display',serif;font-size:17px;margin-bottom:8px}
+.why-desc{font-size:13px;color:var(--ink-mid);line-height:1.65}
+
+/* SCORE EXPLAINER */
+.score-section{
+  max-width:720px;
+  margin:0 auto 60px;
+  padding:0 24px;
+}
+.score-section h2{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(24px,3vw,32px);
+  margin-bottom:8px;
+  text-align:center;
+}
+.score-section .sub{
+  text-align:center;
+  color:var(--ink-mid);
+  font-size:15px;
+  margin-bottom:32px;
+}
+.score-bar-wrap{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:24px;
+  margin-bottom:16px;
+}
+.score-example{
+  display:flex;align-items:center;gap:16px;margin-bottom:12px;
+}
+.score-label{font-size:13px;color:var(--ink-mid);width:220px;flex-shrink:0}
+.score-bar-bg{flex:1;background:rgba(255,255,255,0.08);border-radius:100px;height:8px;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--green),var(--accent))}
+.score-pts{font-size:12px;font-weight:700;color:var(--green);width:60px;text-align:right;flex-shrink:0}
+
+/* THE FORM */
+.log-section{
+  max-width:680px;
+  margin:0 auto 80px;
+  padding:0 24px;
+}
+.log-section h2{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(24px,3vw,32px);
+  margin-bottom:8px;
+  text-align:center;
+}
+.log-section .sub{
+  text-align:center;
+  color:var(--ink-mid);
+  font-size:15px;
+  margin-bottom:32px;
+}
+.log-form{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:36px;
+}
+.form-section-label{
+  font-size:10px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-dim);
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;gap:8px;
+}
+.form-section-num{
+  background:var(--accent);
+  color:#fff;
+  width:20px;height:20px;
+  border-radius:100px;
+  font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.field{margin-bottom:18px}
+.field label{
+  font-size:11px;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--ink-dim);
+  display:block;margin-bottom:7px;
+}
+.field input,.field textarea,.field select{
+  width:100%;
+  background:rgba(255,255,255,0.07);
+  border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:9px;
+  padding:11px 14px;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .15s;
+  box-sizing:border-box;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:rgba(147,197,253,0.4);
+}
+.field textarea{resize:vertical;min-height:80px}
+.field select option{background:#1E293B;color:#fff}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.checkbox-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:6px;
+}
+.cb-item{
+  display:flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:8px;
+  padding:10px 12px;
+  cursor:pointer;
+  transition:all .15s;
+}
+.cb-item:hover{border-color:rgba(110,231,183,0.3);background:rgba(110,231,183,0.05)}
+.cb-item input[type=checkbox]{accent-color:var(--green);width:14px;height:14px;cursor:pointer}
+.cb-item span{font-size:12px;color:var(--ink-mid)}
+
+/* SCORE PREVIEW */
+.score-preview{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:10px;
+  padding:16px;
+  margin:20px 0;
+  display:none;
+}
+.score-preview.show{display:block}
+.score-preview-label{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.score-row{display:flex;align-items:center;gap:12px}
+.score-bar-sm{flex:1;background:rgba(255,255,255,0.08);border-radius:100px;height:8px;overflow:hidden}
+.score-fill-sm{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--green),var(--accent));transition:width .5s ease}
+.score-num-lg{font-family:'DM Serif Display',serif;font-size:28px;color:var(--green)}
+
+/* EMAIL + SUBMIT */
+.email-section{
+  border-top:1px solid rgba(255,255,255,0.07);
+  margin-top:24px;
+  padding-top:24px;
+}
+.submit-btn{
+  width:100%;
+  background:var(--green);
+  color:#0F172A;
+  border:none;
+  border-radius:10px;
+  padding:14px;
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .15s;
+  margin-top:16px;
+}
+.submit-btn:hover{background:#34d399}
+.submit-note{
+  text-align:center;
+  font-size:11px;
+  color:var(--ink-dim);
+  margin-top:10px;
+}
+
+/* PAID UPGRADE CARD */
+.upgrade-card{
+  background:linear-gradient(135deg,rgba(27,68,200,0.2),rgba(110,231,183,0.08));
+  border:1px solid rgba(147,197,253,0.2);
+  border-radius:var(--r);
+  padding:20px;
+  margin-top:16px;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.upgrade-badge{
+  background:var(--accent);
+  color:#fff;
+  font-size:10px;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;
+  white-space:nowrap;flex-shrink:0;
+  margin-top:2px;
+}
+.upgrade-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.upgrade-desc{font-size:12px;color:var(--ink-dim);line-height:1.6}
+.upgrade-link{font-size:12px;color:var(--blue-light);font-weight:600;text-decoration:none;margin-top:6px;display:inline-block}
+
+/* SUCCESS STATE */
+.success-state{
+  text-align:center;
+  padding:40px 20px;
+  display:none;
+}
+.success-state.show{display:block}
+.success-icon{font-size:52px;margin-bottom:16px}
+.success-title{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:8px}
+.success-sub{font-size:15px;color:var(--ink-mid);margin-bottom:24px;line-height:1.6}
+.success-steps{
+  text-align:left;
+  background:rgba(110,231,183,0.06);
+  border:1px solid rgba(110,231,183,0.15);
+  border-radius:var(--r);
+  padding:20px 24px;
+  margin-bottom:24px;
+}
+.success-step{
+  display:flex;gap:12px;align-items:flex-start;
+  margin-bottom:12px;font-size:13px;color:var(--ink-mid);
+}
+.success-step:last-child{margin-bottom:0}
+.step-dot{
+  width:20px;height:20px;border-radius:100px;
+  background:var(--accent);color:#fff;
+  font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.cta-pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.cta-primary{
+  background:var(--accent);color:#fff;
+  border:none;border-radius:9px;
+  padding:12px 24px;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:700;cursor:pointer;
+  text-decoration:none;display:inline-block;
+}
+.cta-ghost{
+  background:transparent;color:var(--ink-dim);
+  border:1px solid var(--border);border-radius:9px;
+  padding:12px 24px;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:500;cursor:pointer;
+  text-decoration:none;display:inline-block;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:32px 24px;
+  text-align:center;
+  font-size:12px;
+  color:var(--ink-dim);
+  line-height:1.8;
+}
+footer a{color:var(--blue-light);text-decoration:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nl{display:none}
+  .why-grid{grid-template-columns:1fr}
+  .field-row{grid-template-columns:1fr}
+  .checkbox-grid{grid-template-columns:1fr}
+  .log-form{padding:24px 20px}
+  .hero{padding-top:100px}
+  .upgrade-card{flex-direction:column;gap:10px}
+  .cta-pair{flex-direction:column}
+  .cta-primary,.cta-ghost{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/creators" class="logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <rect width="26" height="26" rx="6" fill="#1B44C8"/>
+      <path d="M6 13l5 5L20 8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text"><span class="tru">Tru</span><span class="clarify">Clarify</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="/creators" class="nl">For Creators</a>
+    <a href="/founders" class="nl">For Founders</a>
+    <a href="/creators#kits" class="nl">Kits</a>
+    <a href="/log" class="nl active">Rights Log</a>
+    <a href="/creators" class="nb">Check My Name →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">
+    <span>📋</span> Free Tool — No Card Needed
+  </div>
+  <h1>Protect what you create<br>before you <em>release anything.</em></h1>
+  <p class="hero-sub">The Creative Decision Log timestamps your human authorship evidence — the legal foundation you need if a dispute ever arrives. Takes 2 minutes. Free forever.</p>
+</div>
+
+<!-- MARCUS STORY -->
+<div class="story" style="padding:0 24px;max-width:720px;margin:0 auto 60px">
+  <div style="background:rgba(252,211,77,0.05);border:1px solid rgba(252,211,77,0.2);border-radius:16px;padding:28px 32px">
+    <div class="story-label">Why this exists</div>
+    <p>Marcus uploaded his first Suno track to Spotify in January 2025. By March it had 40,000 streams. By April he received a copyright dispute notice — and discovered he had <strong>no documentation of his creative process, no PRO registration, and no answer to the one question that mattered:</strong> did he actually own this music?</p>
+    <p>The US Copyright Office requires human creative input for copyright protection. Without a record of yours, you have nothing to stand on. <strong>The Creative Decision Log gives you that record — timestamped, structured, and ready if you ever need it.</strong></p>
+  </div>
+</div>
+
+<!-- WHY IT MATTERS -->
+<div class="why">
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⏱️</div>
+      <div class="why-title">Timestamped automatically</div>
+      <div class="why-desc">Every log is timestamped the moment you submit. That date is legally significant — it establishes when your creative decisions were made.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📬</div>
+      <div class="why-title">Emailed to you instantly</div>
+      <div class="why-desc">You get a beautifully formatted copy immediately. Save it with your track files. It lives in your email forever — not behind a login.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚖️</div>
+      <div class="why-title">Builds your rights position</div>
+      <div class="why-desc">Documents prompt iterations, human creative additions, and selection rationale — the three things that matter most to the Copyright Office.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCORE EXPLAINER -->
+<div class="score-section">
+  <h2>Your Human Authorship Score</h2>
+  <p class="sub">We calculate your score based on your creative inputs. The higher your score, the stronger your copyright position.</p>
+
+  <div class="score-bar-wrap">
+    <div class="score-example">
+      <div class="score-label" style="font-size:13px;color:var(--ink)">Original lyrics written</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:100%"></div></div>
+      <div class="score-pts">+25 pts</div>
+    </div>
+    <div class="score-example">
+      <div class="score-label" style="font-size:13px;color:var(--ink)">Recorded vocals or instruments</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%"></div></div>
+      <div class="score-pts">+20 pts</div>
+    </div>
+    <div class="score-example">
+      <div class="score-label" style="font-size:13px;color:var(--ink)">Extensive DAW post-production</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:64%"></div></div>
+      <div class="score-pts">+16 pts</div>
+    </div>
+    <div class="score-example">
+      <div class="score-label" style="font-size:13px;color:var(--ink)">15+ prompt iterations</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:56%"></div></div>
+      <div class="score-pts">+14 pts</div>
+    </div>
+    <div class="score-example">
+      <div class="score-label" style="font-size:13px;color:var(--ink)">Structure / arrangement decisions</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:44%"></div></div>
+      <div class="score-pts">+11 pts</div>
+    </div>
+    <div class="score-example" style="margin-bottom:0">
+      <div class="score-label" style="font-size:13px;color:var(--ink)">Creative selection from outputs</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:28%"></div></div>
+      <div class="score-pts">+7 pts</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--ink-dim);text-align:center;margin-top:12px">Scores below 40 indicate limited human authorship. Above 70 is a strong position. The full breakdown comes in your email.</p>
+</div>
+
+<!-- THE FORM -->
+<div class="log-section">
+  <h2>Start Your Free Log</h2>
+  <p class="sub">Fill in what you know. Takes 2 minutes. We timestamp it and email it to you.</p>
+
+  <div class="log-form" id="logForm">
+
+    <!-- SECTION 1: TRACK INFO -->
+    <div style="margin-bottom:24px">
+      <div class="form-section-label">
+        <div class="form-section-num">1</div>
+        Track Identity
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Artist Name</label>
+          <input type="text" id="logArtist" placeholder="e.g. Nova Drift" />
+        </div>
+        <div class="field">
+          <label>Track Title</label>
+          <input type="text" id="logTrack" placeholder="e.g. Midnight Circuit" />
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Genre</label>
+          <select id="logGenre">
+            <option value="">Select genre...</option>
+            <option>Lo-Fi</option>
+            <option>Electronic</option>
+            <option>Pop</option>
+            <option>Hip-Hop</option>
+            <option>R&B</option>
+            <option>Rock</option>
+            <option>Country</option>
+            <option>Ambient</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Created With</label>
+          <select id="logTool">
+            <option value="Suno AI">Suno AI</option>
+            <option value="Udio">Udio</option>
+            <option value="Suno + DAW">Suno AI + DAW</option>
+            <option value="Other AI tool">Other AI tool</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROMPT DEVELOPMENT -->
+    <div style="margin-bottom:24px">
+      <div class="form-section-label">
+        <div class="form-section-num">2</div>
+        Prompt Development
+      </div>
+      <div class="field">
+        <label>How many prompt iterations did you use?</label>
+        <select id="logIterations" onchange="updateScore()">
+          <option value="0">Select...</option>
+          <option value="3">1 — Accepted first output</option>
+          <option value="7">2–5 iterations</option>
+          <option value="11">6–15 iterations — deliberate refinement</option>
+          <option value="14">15+ iterations — extensive development</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Describe your creative direction</label>
+        <textarea id="logDirection" placeholder="e.g. 'I wanted a melancholic lo-fi feel with sparse piano and no drums for the first 30 seconds, then a gradual build. I rejected 9 outputs before finding one with the right tension in the chord progression.'"></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 3: HUMAN ELEMENTS -->
+    <div style="margin-bottom:24px">
+      <div class="form-section-label">
+        <div class="form-section-num">3</div>
+        Human Creative Elements
+      </div>
+      <div class="checkbox-grid">
+        <label class="cb-item">
+          <input type="checkbox" id="cbLyrics" onchange="updateScore()" value="25">
+          <span>Original lyrics written</span>
+        </label>
+        <label class="cb-item">
+          <input type="checkbox" id="cbVocals" onchange="updateScore()" value="20">
+          <span>Recorded vocals</span>
+        </label>
+        <label class="cb-item">
+          <input type="checkbox" id="cbInstruments" onchange="updateScore()" value="20">
+          <span>Live instruments played</span>
+        </label>
+        <label class="cb-item">
+          <input type="checkbox" id="cbDAW" onchange="updateScore()" value="16">
+          <span>DAW editing / mixing</span>
+        </label>
+        <label class="cb-item">
+          <input type="checkbox" id="cbMastering" onchange="updateScore()" value="10">
+          <span>Professional mastering</span>
+        </label>
+        <label class="cb-item">
+          <input type="checkbox" id="cbStructure" onchange="updateScore()" value="11">
+          <span>Structure / arrangement</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- SECTION 4: SELECTION RATIONALE -->
+    <div style="margin-bottom:24px">
+      <div class="form-section-label">
+        <div class="form-section-num">4</div>
+        Selection Rationale
+      </div>
+      <div class="field">
+        <label>Why did you choose this output over others?</label>
+        <textarea id="logRationale" placeholder="e.g. 'I generated 8 versions and chose this one because the chord progression in the bridge felt more emotionally resonant and matched the mood I was building toward.'"></textarea>
+      </div>
+    </div>
+
+    <!-- LIVE SCORE PREVIEW -->
+    <div class="score-preview" id="scorePreview">
+      <div class="score-preview-label">Your Human Authorship Score — live preview</div>
+      <div class="score-row">
+        <div class="score-bar-sm">
+          <div class="score-fill-sm" id="scoreFill" style="width:0%"></div>
+        </div>
+        <div class="score-num-lg" id="scoreNum">0</div>
+        <div style="font-size:13px;color:var(--ink-dim)">/100</div>
+      </div>
+      <div style="font-size:12px;color:var(--ink-dim);margin-top:8px" id="scoreNote"></div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="email-section">
+      <div class="field">
+        <label>Your email — we'll send your timestamped log here</label>
+        <input type="email" id="logEmail" placeholder="your@email.com" />
+      </div>
+
+      <button class="submit-btn" onclick="submitLog()">
+        Generate & Email My Log →
+      </button>
+      <p class="submit-note">Timestamped automatically · Emailed instantly · No spam · One-click unsubscribe</p>
+
+      <!-- PAID UPGRADE TEASER -->
+      <div class="upgrade-card">
+        <span class="upgrade-badge">$4.99</span>
+        <div>
+          <div class="upgrade-title">Want the full legal-grade version?</div>
+          <div class="upgrade-desc">The paid log includes your complete prompt archive, Copyright Office guidance, C2PA credential field, chain of title documentation, PRO registration notes, distributor compliance record, and a signed declaration of accuracy.</div>
+          <a href="/creators?kit=pro" class="upgrade-link">Included in Premium Pipeline Kit ($9.99) — or add standalone for $4.99 →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUCCESS STATE -->
+  <div class="success-state" id="successState">
+    <div class="success-icon">✅</div>
+    <h2 class="success-title">Your log is on its way</h2>
+    <p class="success-sub">We've sent a timestamped Creative Decision Log to <strong id="successEmail"></strong>. Save it with your track files — that timestamp is your evidence.</p>
+
+    <div class="success-steps">
+      <div class="success-step">
+        <div class="step-dot">1</div>
+        <div>Save the email in a folder named after your track. Keep it with your stems and recordings.</div>
+      </div>
+      <div class="success-step">
+        <div class="step-dot">2</div>
+        <div>Register with <a href="https://www.soundexchange.com/artist-support/" target="_blank" style="color:var(--green)">SoundExchange</a> — free, 15 minutes. Most creators have $200–800 in uncollected royalties.</div>
+      </div>
+      <div class="success-step">
+        <div class="step-dot">3</div>
+        <div>When uploading to <a href="https://distrokid.com/vip/seven/truclarify" target="_blank" style="color:var(--green)">DistroKid</a>, tick the AI disclosure checkbox. Skipping it risks track removal.</div>
+      </div>
+      <div class="success-step">
+        <div class="step-dot">4</div>
+        <div>Fill one of these out for every track. Build your paper trail from track one.</div>
+      </div>
+    </div>
+
+    <div class="cta-pair">
+      <a href="/creators?kit=pro" class="cta-primary">Get Full Rights Package — $9.99 →</a>
+      <a href="/creators" class="cta-ghost">Back to TruClarify</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/creators" style="color:var(--ink-mid);text-decoration:none;font-family:'DM Serif Display',serif;font-size:16px">
+    <span style="color:var(--ink)">Tru</span><span style="color:var(--accent)">Clarify</span>
+  </a>
+  <br><br>
+  <a href="/creators">For Creators</a> &nbsp;·&nbsp;
+  <a href="/founders">For Founders</a> &nbsp;·&nbsp;
+  <a href="/creators#kits">Kits</a> &nbsp;·&nbsp;
+  <a href="/log">Rights Log</a>
+  <br><br>
+  This tool is for informational purposes only and does not constitute legal advice.<br>
+  AI copyright law is evolving — consult an IP attorney for high-stakes decisions.<br><br>
+  <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Unsubscribe</a>
+</footer>
+
+<script>
+// ── SCORE CALCULATOR ─────────────────────────────────────────
+function updateScore() {
+  const iterations = parseInt(document.getElementById('logIterations').value) || 0;
+  const checkboxes = ['cbLyrics','cbVocals','cbInstruments','cbDAW','cbMastering','cbStructure'];
+  let score = iterations;
+  
+  checkboxes.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.checked) score += parseInt(el.value);
+  });
+
+  // Cap at 100
+  score = Math.min(score, 100);
+
+  // Show preview
+  const preview = document.getElementById('scorePreview');
+  const fill = document.getElementById('scoreFill');
+  const num = document.getElementById('scoreNum');
+  const note = document.getElementById('scoreNote');
+
+  if (score > 0) {
+    preview.classList.add('show');
+    fill.style.width = score + '%';
+    num.textContent = score;
+
+    if (score >= 70) {
+      note.textContent = 'Strong position. You have significant human authorship evidence.';
+      num.style.color = '#6EE7B7';
+    } else if (score >= 40) {
+      note.textContent = 'Moderate. Adding recorded vocals or more DAW editing would strengthen your claim.';
+      num.style.color = '#FCD34D';
+    } else {
+      note.textContent = 'Limited human authorship documented. Consider adding original lyrics or recorded elements.';
+      num.style.color = '#FCA5A5';
+    }
+  }
+}
+
+// ── FORM SUBMISSION ───────────────────────────────────────────
+function submitLog() {
+  const artist = document.getElementById('logArtist').value.trim();
+  const track = document.getElementById('logTrack').value.trim();
+  const email = document.getElementById('logEmail').value.trim();
+
+  if (!artist) {
+    document.getElementById('logArtist').style.borderColor = 'rgba(239,68,68,0.6)';
+    document.getElementById('logArtist').focus();
+    setTimeout(() => document.getElementById('logArtist').style.borderColor = '', 1500);
+    return;
+  }
+  if (!track) {
+    document.getElementById('logTrack').style.borderColor = 'rgba(239,68,68,0.6)';
+    document.getElementById('logTrack').focus();
+    setTimeout(() => document.getElementById('logTrack').style.borderColor = '', 1500);
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    document.getElementById('logEmail').style.borderColor = 'rgba(239,68,68,0.6)';
+    document.getElementById('logEmail').focus();
+    setTimeout(() => document.getElementById('logEmail').style.borderColor = '', 1500);
+    return;
+  }
+
+  // In production: POST to Supabase + trigger Resend email
+  console.log('Log submitted:', { artist, track, email });
+
+  // Show success
+  document.getElementById('logForm').style.display = 'none';
+  document.getElementById('successEmail').textContent = email;
+  document.getElementById('successState').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── PRE-FILL FROM URL PARAMS ──────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name');
+  const genre = params.get('genre');
+  
+  if (name) {
+    const el = document.getElementById('logArtist');
+    if (el) el.value = decodeURIComponent(name);
+  }
+  if (genre) {
+    const el = document.getElementById('logGenre');
+    if (el) {
+      const option = Array.from(el.options).find(o => o.value.toLowerCase() === genre.toLowerCase());
+      if (option) el.value = option.value;
+    }
+  }
+});
+</script>
+
+</body>
+</html>
