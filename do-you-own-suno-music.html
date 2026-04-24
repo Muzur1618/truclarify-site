@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Do You Actually Own Music Made With Suno? The Honest Answer. — TruClarify</title>
+<meta name="description" content="You made music with Suno. But do you own it? The honest answer covers copyright, commercial licences, PRO registration, and the five pitfalls catching AI creators right now.">
+<meta name="keywords" content="do I own music made with Suno, Suno copyright, AI music rights, Suno commercial license, AI music ownership">
+<link rel="canonical" href="https://truclarify.com/blog/do-you-own-suno-music">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Do You Actually Own Music Made With Suno? The Honest Answer.">
+<meta property="og:description" content="You made music with Suno. But do you own it? The answer determines whether you can protect your work, collect every royalty, and defend yourself if a dispute arrives.">
+<meta property="og:url" content="https://truclarify.com/blog/do-you-own-suno-music">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TruClarify">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0F172A;
+  --bg-card:rgba(255,255,255,0.04);
+  --ink:#FFFFFF;
+  --ink-mid:rgba(255,255,255,0.65);
+  --ink-dim:rgba(255,255,255,0.35);
+  --accent:#1B44C8;
+  --green:#6EE7B7;
+  --blue-light:#93C5FD;
+  --amber:#FCD34D;
+  --red-light:#FCA5A5;
+  --border:rgba(255,255,255,0.08);
+  --r:10px;
+}
+html{scroll-behavior:smooth;color-scheme:dark}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:62px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(15,23,42,0.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.logo{text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo-text{font-family:'DM Serif Display',serif;font-size:19px}
+.logo-text .tru{color:var(--ink)}
+.logo-text .clarify{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nl{font-size:13px;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:6px 12px;border-radius:8px;transition:all .15s}
+.nl:hover{color:var(--ink);background:rgba(255,255,255,0.07)}
+.nb{font-size:13px;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:8px;padding:7px 18px;cursor:pointer;text-decoration:none;transition:background .15s}
+.nb:hover{background:#1537a0}
+
+/* HERO */
+.article-hero{
+  padding:110px 24px 60px;
+  max-width:760px;
+  margin:0 auto;
+}
+.article-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(110,231,183,0.1);
+  border:1px solid rgba(110,231,183,0.2);
+  border-radius:100px;padding:5px 14px;
+  font-size:11px;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--green);margin-bottom:20px;
+}
+.article-hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(30px,4.5vw,52px);
+  line-height:1.1;margin-bottom:16px;
+  color:var(--ink);
+}
+.article-meta{
+  font-size:13px;color:var(--ink-dim);
+  display:flex;gap:16px;flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.article-intro{
+  font-size:clamp(16px,2vw,19px);
+  color:var(--ink-mid);
+  line-height:1.7;
+  padding-bottom:32px;
+  border-bottom:1px solid var(--border);
+}
+
+/* ARTICLE BODY */
+.article-body{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 24px 80px;
+}
+.article-body h2{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(22px,2.8vw,30px);
+  color:var(--ink);
+  margin:48px 0 14px;
+  line-height:1.2;
+}
+.article-body h3{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(17px,2vw,21px);
+  color:var(--blue-light);
+  margin:32px 0 10px;
+  line-height:1.3;
+}
+.article-body p{
+  color:var(--ink-mid);
+  margin-bottom:18px;
+  font-size:16px;
+  line-height:1.75;
+}
+.article-body strong{color:var(--ink)}
+.article-body ul{
+  margin:0 0 18px 0;
+  padding-left:0;
+  list-style:none;
+}
+.article-body ul li{
+  color:var(--ink-mid);
+  padding:6px 0 6px 24px;
+  position:relative;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  font-size:16px;
+  line-height:1.65;
+}
+.article-body ul li::before{
+  content:'→';
+  position:absolute;left:0;
+  color:var(--green);font-size:12px;
+  top:8px;
+}
+.article-body ol{
+  margin:0 0 18px 20px;
+}
+.article-body ol li{
+  color:var(--ink-mid);
+  padding:4px 0;
+  font-size:16px;
+  line-height:1.65;
+}
+
+/* CALLOUT BOXES */
+.callout{
+  border-radius:var(--r);
+  padding:20px 24px;
+  margin:28px 0;
+}
+.callout-green{
+  background:rgba(110,231,183,0.07);
+  border:1px solid rgba(110,231,183,0.2);
+}
+.callout-amber{
+  background:rgba(252,211,77,0.07);
+  border:1px solid rgba(252,211,77,0.2);
+}
+.callout-blue{
+  background:rgba(27,68,200,0.15);
+  border:1px solid rgba(147,197,253,0.2);
+}
+.callout-red{
+  background:rgba(239,68,68,0.08);
+  border:1px solid rgba(252,165,165,0.2);
+}
+.callout-label{
+  font-size:10px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.callout-green .callout-label{color:var(--green)}
+.callout-amber .callout-label{color:var(--amber)}
+.callout-blue .callout-label{color:var(--blue-light)}
+.callout-red .callout-label{color:var(--red-light)}
+.callout p{color:rgba(255,255,255,0.75);margin-bottom:8px;font-size:14px;line-height:1.65}
+.callout p:last-child{margin-bottom:0}
+.callout a{color:var(--blue-light);font-weight:600;text-decoration:none}
+.callout a:hover{text-decoration:underline}
+
+/* CTA SECTION */
+.cta-section{
+  background:linear-gradient(135deg,rgba(27,68,200,0.2),rgba(110,231,183,0.08));
+  border:1px solid rgba(147,197,253,0.2);
+  border-radius:16px;
+  padding:32px;
+  margin:40px 0;
+  text-align:center;
+}
+.cta-section h3{
+  font-family:'DM Serif Display',serif;
+  font-size:22px;color:var(--ink);
+  margin-bottom:8px;
+}
+.cta-section p{
+  font-size:14px;color:var(--ink-mid);
+  margin-bottom:20px;line-height:1.6;
+}
+.cta-pair{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  text-decoration:none;border-radius:9px;
+  padding:11px 22px;font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:700;transition:background .15s;
+  display:inline-block;
+}
+.btn-primary:hover{background:#1537a0}
+.btn-ghost{
+  background:transparent;color:var(--blue-light);
+  text-decoration:none;border-radius:9px;
+  border:1px solid rgba(147,197,253,0.3);
+  padding:11px 22px;font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:600;
+  display:inline-block;transition:all .15s;
+}
+.btn-ghost:hover{background:rgba(147,197,253,0.1)}
+
+/* SCORE VISUAL */
+.score-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:20px;margin:20px 0;
+}
+.score-row{
+  display:flex;align-items:center;
+  gap:12px;margin-bottom:8px;
+}
+.score-label{font-size:13px;color:var(--ink-mid);flex:1}
+.score-bar{flex:2;background:rgba(255,255,255,0.08);border-radius:100px;height:8px;overflow:hidden}
+.score-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--green),var(--accent))}
+.score-pts{font-size:12px;font-weight:700;color:var(--green);width:50px;text-align:right}
+
+/* PITFALL CARDS */
+.pitfall{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:22px;margin:16px 0;
+}
+.pitfall-num{
+  font-size:11px;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--red-light);margin-bottom:8px;
+}
+.pitfall h3{color:var(--ink);font-size:17px;margin:0 0 10px}
+.pitfall p{font-size:14px;color:var(--ink-mid);margin:0;line-height:1.65}
+.pitfall strong{color:var(--ink)}
+
+/* RELATED ARTICLES */
+.related{
+  max-width:760px;margin:0 auto;
+  padding:0 24px 60px;
+  border-top:1px solid var(--border);
+  padding-top:48px;
+}
+.related h3{
+  font-family:'DM Serif Display',serif;
+  font-size:22px;margin-bottom:20px;
+}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.related-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px;
+  text-decoration:none;transition:all .15s;
+  display:block;
+}
+.related-card:hover{border-color:rgba(147,197,253,0.3);background:rgba(255,255,255,0.06)}
+.related-card-tag{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.related-card-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:32px 24px;text-align:center;
+  font-size:12px;color:var(--ink-dim);line-height:1.8;
+}
+footer a{color:var(--blue-light);text-decoration:none}
+
+/* DISCLAIMER */
+.disclaimer{
+  background:rgba(255,255,255,0.03);
+  border-radius:var(--r);
+  padding:16px 20px;margin:32px 0 0;
+  font-size:12px;color:var(--ink-dim);
+  line-height:1.7;font-style:italic;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nl{display:none}
+  .article-hero{padding:90px 20px 40px}
+  .related-grid{grid-template-columns:1fr}
+  .cta-pair{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/creators" class="logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <rect width="26" height="26" rx="6" fill="#1B44C8"/>
+      <path d="M6 13l5 5L20 8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text"><span class="tru">Tru</span><span class="clarify">Clarify</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="/creators" class="nl">For Creators</a>
+    <a href="/founders" class="nl">For Founders</a>
+    <a href="/log" class="nl">Rights Log</a>
+    <a href="/creators" class="nb">Check My Name →</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="article-tag">🎵 AI Music Rights</div>
+  <h1>Do You Actually Own Music Made With Suno?<br>The Honest Answer.</h1>
+  <div class="article-meta">
+    <span>By the TruClarify Team</span>
+    <span>·</span>
+    <span>9 min read</span>
+    <span>·</span>
+    <span>Updated April 2026</span>
+  </div>
+  <p class="article-intro">You opened Suno, typed a prompt, iterated until something gave you chills, and released it on Spotify. So here's the question nobody asked before you hit upload: do you actually own that music? The answer isn't yes or no. It's a spectrum — and where you fall on it determines whether you can protect your work, collect every royalty you're owed, and defend yourself when a dispute arrives.</p>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <p>I built TruClarify because I kept seeing the same pattern: Suno creators releasing music with real audiences and zero rights infrastructure. No documentation. No PRO registration. No idea that SoundExchange was holding their royalties. No clue their artist name was conflicting with someone on Spotify.</p>
+
+  <p>This is what I wish someone had told me before I released a single AI track. Let's get into it.</p>
+
+  <h2>What Suno Actually Gives You</h2>
+
+  <p>Suno gives you two completely different things depending on your plan — and most creators don't realise they're different things at all.</p>
+
+  <h3>Free plan</h3>
+  <p><strong>Non-commercial licence only.</strong> You can share privately, but you cannot release on streaming platforms, monetise, or earn revenue from it. I know people do it anyway. I know it feels harmless. But it's a terms violation that can get your account terminated and your music pulled — sometimes after you've built an audience under it. That's a terrible position to be in.</p>
+
+  <h3>Paid plan (Pro or Premier)</h3>
+  <p><strong>Commercial licence.</strong> You can release, distribute, and earn money. This is the baseline you need. If you're serious about releasing music, you need to be on a paid plan. Full stop.</p>
+
+  <p>But here's what trips almost everyone up:</p>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">⚠️ Critical Distinction</div>
+    <p><strong>A commercial licence from Suno is NOT the same as copyright ownership.</strong> Suno is granting you permission to use the music they helped generate. Copyright ownership means you have exclusive legal rights — to reproduce it, licence it to others, sue people who copy it, register it with the Copyright Office. Those are different things. Confusing them is how creators get blindsided.</p>
+  </div>
+
+  <h2>The Copyright Reality — Straight, No Chaser</h2>
+
+  <p>The US Copyright Office has been consistent on this: purely AI-generated content, without sufficient human creative input, is <strong>not eligible for copyright protection</strong>. Copyright requires a human author.</p>
+
+  <p>If you type one prompt into Suno, accept the first output, and upload it directly to DistroKid — that track may not be copyrightable by you. You have permission to distribute it. But you may not be able to:</p>
+
+  <ul>
+    <li>Register a copyright in it</li>
+    <li>Sue someone who copies your sound</li>
+    <li>Licence it for TV, film, or advertising sync placements</li>
+    <li>Enforce your rights in a streaming platform dispute</li>
+  </ul>
+
+  <p>Now here's the genuinely good news, and it matters a lot if you're actually making music rather than just pressing generate:</p>
+
+  <p><strong>The more human creative work you put in, the stronger your copyright position.</strong></p>
+
+  <h3>What actually moves the needle on your authorship score</h3>
+
+  <div class="score-card">
+    <div class="score-row">
+      <div class="score-label">Original lyrics written by you</div>
+      <div class="score-bar"><div class="score-fill" style="width:100%"></div></div>
+      <div class="score-pts">+25 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Recorded vocals or instruments</div>
+      <div class="score-bar"><div class="score-fill" style="width:80%"></div></div>
+      <div class="score-pts">+20 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Substantial DAW post-production</div>
+      <div class="score-bar"><div class="score-fill" style="width:64%"></div></div>
+      <div class="score-pts">+16 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">15+ prompt iterations with direction</div>
+      <div class="score-bar"><div class="score-fill" style="width:56%"></div></div>
+      <div class="score-pts">+14 pts</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Structure and arrangement decisions</div>
+      <div class="score-bar"><div class="score-fill" style="width:44%"></div></div>
+      <div class="score-pts">+11 pts</div>
+    </div>
+    <div class="score-row" style="margin-bottom:0">
+      <div class="score-label">Creative selection from outputs</div>
+      <div class="score-bar"><div class="score-fill" style="width:28%"></div></div>
+      <div class="score-pts">+7 pts</div>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-label">TruClarify</div>
+    <p>The <a href="/log">Creative Decision Log</a> at truclarify.com/log timestamps your creative process the moment you submit. That timestamp is your evidence of human authorship. It takes 2 minutes and it's free. Fill one out for every track before you release.</p>
+  </div>
+
+  <h2>The Five Things Catching Suno Creators Right Now</h2>
+
+  <p>I've looked at this carefully. Here's exactly where the gaps are — and what's actually hurting people.</p>
+
+  <div class="pitfall">
+    <div class="pitfall-num">Pitfall 01</div>
+    <h3>Skipping the AI disclosure box on your distributor</h3>
+    <p>DistroKid, TuneCore, and CD Baby all require you to disclose AI-generated content at upload. This isn't optional. Skipping it — even accidentally — can get your tracks removed from every platform simultaneously, your account suspended, and your accumulated royalties frozen. <strong>Read every disclosure question on your upload form. Every time. Answer honestly. It takes 30 extra seconds.</strong></p>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-num">Pitfall 02</div>
+    <h3>Your artist name is conflicting with someone else on Spotify</h3>
+    <p>When two artists have similar names, the algorithm conflates them — streams misattributed, discovery damaged, playlist placements confused. If the other artist has established commercial use or a registered trademark, they can file a dispute and your content gets removed. <strong>Check your artist name before you release anything.</strong> The free check at truclarify.com/creators takes 30 seconds and catches conflicts you'd never find by Googling.</p>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-num">Pitfall 03</div>
+    <h3>Not registering with SoundExchange</h3>
+    <p>SoundExchange collects digital performance royalties — money earned when your music plays on streaming services, internet radio, and satellite radio. This is entirely separate from the royalties your distributor pays you. If you haven't registered, they're holding your money. The average independent artist who's been releasing for 12+ months has <strong>$200–800 sitting uncollected</strong>. It takes 15 minutes to register at soundexchange.com and it's completely free. Do this before your first track drops.</p>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-num">Pitfall 04</div>
+    <h3>PRO registration without understanding the AI disclosure requirement</h3>
+    <p>ASCAP and BMI require human authorship for registration. If you wrote original lyrics, made substantial arrangement decisions, or added significant human creative elements — register those elements. Be transparent about AI's role. <strong>Do not register purely AI-generated output and claim full human authorship.</strong> This is a misrepresentation that can result in clawbacks and account termination.</p>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-num">Pitfall 05</div>
+    <h3>Cover songs without a mechanical licence</h3>
+    <p>If you've used Suno to generate a cover of an existing song — even with completely different production, even with AI vocals — you need a mechanical licence. The underlying composition is still protected. Easy Song Licensing handles it for $15–25. <strong>There is no good reason not to get one.</strong> Releasing without a licence is copyright infringement.</p>
+  </div>
+
+  <h2>What to Do — Before You Release Anything</h2>
+
+  <p>Here's the exact sequence I'd follow. Not theory. What I'd actually do.</p>
+
+  <ol>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Get on a paid Suno plan.</strong> If you're releasing on the free plan, stop. The risk of losing everything you've built isn't worth the subscription cost.</li>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Check your artist name.</strong> Go to <a href="/creators" style="color:var(--blue-light)">truclarify.com/creators</a>. Run the free check across 30+ platforms. See if your name conflicts with anyone or sounds phonetically similar to an established artist.</li>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Fill in a Creative Decision Log.</strong> Go to <a href="/log" style="color:var(--blue-light)">truclarify.com/log</a>. Takes 2 minutes. Documents your prompt iterations, creative choices, human additions. Timestamped the moment you submit.</li>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Register with SoundExchange.</strong> soundexchange.com — free, 15 minutes. Before your first release. Not after you discover uncollected royalties.</li>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Set up your distributor correctly.</strong> <a href="https://distrokid.com/vip/seven/12507043" target="_blank" rel="noopener" style="color:var(--blue-light)">DistroKid</a> is the best option for most Suno creators — clearest AI disclosure workflow, unlimited releases at $22.99/year. When you upload, tick the AI content checkbox. Every time.</li>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Register human-authored elements with ASCAP or BMI.</strong> If you wrote lyrics, made arrangement decisions, or added recordings — register those elements. Be transparent about AI's role.</li>
+    <li style="padding:8px 0;color:rgba(255,255,255,0.7)"><strong style="color:#fff">Register with the MLC.</strong> themlc.com collects mechanical royalties from on-demand streaming. Another royalty stream most creators leave uncollected.</li>
+  </ol>
+
+  <h2>The Honest Bottom Line</h2>
+
+  <p>Do you own music made with Suno? Here's where I land:</p>
+
+  <ul>
+    <li>You own a <strong>commercial licence</strong> to use it — on a paid plan</li>
+    <li>You may own <strong>copyright in the human-authored elements</strong> — lyrics, recordings, arrangement decisions</li>
+    <li>You likely do <strong>NOT own full copyright</strong> in pure AI-generated audio with no human input</li>
+    <li>The law is <strong>still evolving</strong> — what's true today may be refined in 12 months</li>
+  </ul>
+
+  <p>None of this means you should stop making music with Suno. It means you should make it thoughtfully. Write lyrics. Iterate your prompts with genuine creative direction. Add your voice — even a whisper, even a spoken intro. Edit in a DAW. Document every decision. Check your name before you build an audience under it.</p>
+
+  <p><strong>The creators who do these things now will have a defensible rights position as the law evolves. The ones who skip it will have real music, a real audience, and no foundation to stand on when a dispute arrives.</strong></p>
+
+  <div class="cta-section">
+    <h3>Start protecting your music today</h3>
+    <p>Check your artist name free across 30+ platforms. Document your creative process in 2 minutes. Get your complete launch kit from $5.99.</p>
+    <div class="cta-pair">
+      <a href="/creators" class="btn-primary">Check My Artist Name Free →</a>
+      <a href="/log" class="btn-ghost">Start Creative Decision Log →</a>
+    </div>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Can I put Suno music on Spotify?</h3>
+  <p>Yes — on a paid Suno plan. You need a distributor (<a href="https://distrokid.com/vip/seven/12507043" target="_blank" rel="noopener" style="color:var(--blue-light);font-weight:600">DistroKid is the easiest for AI music</a>) and you must disclose that the music is AI-generated during upload. Spotify allows AI music but prohibits content designed to imitate specific human artists.</p>
+
+  <h3>Can I copyright AI generated music?</h3>
+  <p>You can copyright the human-authored elements — original lyrics, creative arrangements, recorded performances, substantial post-production. Pure AI-generated audio with no human creative input is currently not eligible for copyright registration in the US. The more original human work you add, the stronger your claim.</p>
+
+  <h3>Is Suno music royalty free?</h3>
+  <p>No. Suno grants you a licence to use the music — not royalty-free ownership. When you release on streaming platforms, it earns royalties. But you need PRO registration, SoundExchange registration, and MLC registration to collect everything you're owed. Most creators are missing at least one of these.</p>
+
+  <h3>What if someone else has the same artist name as me on Spotify?</h3>
+  <p>Spotify's algorithm will conflate you — streams misattributed, discovery damaged. If they have established commercial use or a trademark, they can file a dispute. <a href="/creators" style="color:var(--blue-light);font-weight:600">Check your name before you release anything</a>.</p>
+
+  <h3>Do I need a mechanical licence for Suno covers?</h3>
+  <p>Yes. Even with AI-generated production, the underlying composition is still protected. Easy Song Licensing handles this for $15–25 per song. No exceptions.</p>
+
+  <div class="disclaimer">
+    Legal disclaimer: This article is for general informational purposes only and does not constitute legal advice. AI music copyright law is evolving rapidly. For decisions involving your specific situation, consult a qualified entertainment or IP attorney. TruClarify provides brand intelligence tools — we are not lawyers.
+  </div>
+
+</div>
+
+<!-- RELATED ARTICLES -->
+<div class="related">
+  <h3>Related Reading</h3>
+  <div class="related-grid">
+    <a href="/blog/how-to-release-suno-music-on-spotify" class="related-card">
+      <div class="related-card-tag">Distribution</div>
+      <div class="related-card-title">How to Release Suno Music on Spotify, Apple Music, and Streaming Platforms</div>
+    </a>
+    <a href="/log" class="related-card">
+      <div class="related-card-tag">Free Tool</div>
+      <div class="related-card-title">The Creative Decision Log — Timestamp Your Human Authorship Evidence</div>
+    </a>
+    <a href="/creators" class="related-card">
+      <div class="related-card-tag">Free Check</div>
+      <div class="related-card-title">Check Your Artist Name Across 30+ Music Platforms Before You Release</div>
+    </a>
+    <a href="/blog/distrokid-ai-music-policy" class="related-card">
+      <div class="related-card-tag">Distribution</div>
+      <div class="related-card-title">DistroKid AI Music Policy: What Suno Creators Need to Know in 2026</div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/creators" style="font-family:'DM Serif Display',serif;font-size:16px;color:var(--ink-mid);text-decoration:none">
+    <span style="color:var(--ink)">Tru</span><span style="color:var(--accent)">Clarify</span>
+  </a>
+  <br><br>
+  <a href="/creators">For Creators</a> &nbsp;·&nbsp;
+  <a href="/founders">For Founders</a> &nbsp;·&nbsp;
+  <a href="/log">Rights Log</a> &nbsp;·&nbsp;
+  <a href="/creators#kits">Kits from $5.99</a>
+  <br><br>
+  © 2026 TruClarify · Brand & Music Intelligence
+</footer>
+
+</body>
+</html>
