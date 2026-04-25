@@ -733,7 +733,7 @@ footer a:hover{color:#93C5FD}
       </div>
       <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:12px 14px;margin-top:10px;font-size:12px;color:rgba(255,255,255,.6);line-height:1.6">
         <span style="color:#FCA5A5;font-weight:700">⚠ Suno Creator?</span> Do you know what you actually own? Most AI music creators don't.
-        <span style="color:#93C5FD;cursor:pointer;font-weight:600" onclick="stripeCheckout(STRIPE_PRICES.launch)"> Get the AI Music Rights Briefing in your kit →</span>
+        <span style="color:#93C5FD;cursor:pointer;font-weight:600" onclick="openMusicKit('pro')"> Get the AI Music Rights Briefing in your kit →</span>
       </div>
     </div>
   </div>
@@ -819,7 +819,7 @@ footer a:hover{color:#93C5FD}
         <li class="ck-hidden"><span class="ckchk new">📦</span>Best distributor for your genre</li>
       <button class="ck-expand-btn" onclick="toggleFeatures(this,'starter')"><i class="ck-expand-icon">↓</i> See all 17 features</button>
       </ul>
-      <button class="ck-cta ck-cta-ghost" onclick="stripeCheckout(STRIPE_PRICES.launch)">Get Launch Kit - $5.99 →</button>
+      <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('starter')">Get Launch Kit - $5.99 →</button>
     </div>
 
     <!-- PREMIUM PIPELINE KIT -->
@@ -851,7 +851,7 @@ footer a:hover{color:#93C5FD}
         <li class="ck-hidden"><span class="ckchk">✓</span>Annual AI law update enrolled</li>
       <button class="ck-expand-btn" onclick="toggleFeatures(this,'pro')"><i class="ck-expand-icon">↓</i> See all 20 features</button>
       </ul>
-      <button class="ck-cta ck-cta-solid" onclick="stripeCheckout(STRIPE_PRICES.pro)">Get Premium Pipeline Kit - $9.99 →</button>
+      <button class="ck-cta ck-cta-solid" onclick="openMusicKit('pro')">Get Premium Pipeline Kit - $9.99 →</button>
     </div>
 
   </div>
@@ -863,7 +863,7 @@ footer a:hover{color:#93C5FD}
       <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:4px">$4.99<span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.4)">/month</span></div>
       <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.5">Soundalike artist alerts · New platform notifications · Monthly AI music law updates · Annual rights audit</div>
     </div>
-    <button onclick="stripeCheckout(STRIPE_PRICES.monitoring)" style="padding:11px 22px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">Start Monitoring - $4.99/mo →</button>
+    <button onclick="openMonitoringModal()" style="padding:11px 22px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">Start Monitoring - $4.99/mo →</button>
   </div>
 </div>
 
@@ -881,7 +881,7 @@ footer a:hover{color:#93C5FD}
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
-    <button class="suno-cta-btn" onclick="stripeCheckout(STRIPE_PRICES.pro)">Get the Premium Pipeline Kit - $9.99 →</button>
+    <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get the Premium Pipeline Kit - $9.99 →</button>
     <button class="suno-cta-btn" style="background:rgba(110,231,183,0.15);border:1px solid rgba(110,231,183,0.3);color:#6EE7B7" onclick="openFreeLog(document.getElementById('artistNameInput')?.value)">📋 Log Your Creative Process — Free →</button>
   </div>
   </div>
