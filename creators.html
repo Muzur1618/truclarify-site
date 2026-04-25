@@ -2535,13 +2535,12 @@ function handleGenerateClick() {
 
 async function generateMusicKit() {
   const name  = document.getElementById('mkitName').value.trim();
-  const desc  = document.getElementById('mkitDesc').value.trim();
+  const desc  = document.getElementById('mkitDesc').value.trim() || 'AI-generated music';
   const genre = document.getElementById('mkitGenre').value.trim() || artistGenre || 'Electronic';
   const suno  = document.getElementById('mkitSuno').value;
-  if (!name || !desc) {
-    if (!name) document.getElementById('mkitName').style.borderColor='rgba(239,68,68,.6)';
-    if (!desc) document.getElementById('mkitDesc').style.borderColor='rgba(239,68,68,.6)';
-    setTimeout(()=>{document.getElementById('mkitName').style.borderColor='';document.getElementById('mkitDesc').style.borderColor='';},900);
+  if (!name) {
+    document.getElementById('mkitName').style.borderColor='rgba(239,68,68,.6)';
+    setTimeout(()=>{document.getElementById('mkitName').style.borderColor='';},900);
     return;
   }
   showMkitState('progress');
@@ -2611,6 +2610,7 @@ async function generateMusicKit() {
     mkitData = JSON.parse(text.replace(/```json|```/g,'').trim());
   } catch(e) {
     console.error('API error:', e);
+    // Show fallback kit if API fails
     mkitData = buildMusicFallback(name, desc, genre, suno, mkitTone, isPro);
   }
 
