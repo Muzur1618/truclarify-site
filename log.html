@@ -639,7 +639,7 @@ footer a{color:var(--blue-light);text-decoration:none}
         <div>
           <div class="upgrade-title">Want the full legal-grade version?</div>
           <div class="upgrade-desc">The paid log includes your complete prompt archive, Copyright Office guidance, C2PA credential field, chain of title documentation, PRO registration notes, distributor compliance record, and a signed declaration of accuracy.</div>
-          <a href="https://truclarify.com/creators" class="upgrade-link">Included in Premium Pipeline Kit ($9.99) — or add standalone for $4.99 →</a>
+          <a href="https://truclarify.com/creators" class="upgrade-link" onclick="event.preventDefault();upgradeLog()">Included in Premium Pipeline Kit ($9.99) — or add standalone for $4.99 →</a>
         </div>
       </div>
     </div>
@@ -700,6 +700,22 @@ footer a{color:var(--blue-light);text-decoration:none}
 const STRIPE_PK = 'pk_live_51TPt1XBfGQZ9cOqqq6VPoedXFJrjoje204d2cqXJ8eoY7tFrcJqSlX1iaD1zhZpXz3aUR9oOBTvwaVQPg7ojkSOY00mDA0SbQd';
 const RESEND_KEY = 're_EsLWV7Uy_HJiDMnGQEF1SSFNhfVb77S58';
 const LOG_PRICE_ID = 'price_1TPtRIBfGQZ9cOqqXEQncWaT'; // $4.99 paid log
+const STRIPE_PK_LOG = 'pk_live_51TPt1XBfGQZ9cOqqq6VPoedXFJrjoje204d2cqXJ8eoY7tFrcJqSlX1iaD1zhZpXz3aUR9oOBTvwaVQPg7ojkSOY00mDA0SbQd';
+
+async function upgradeLog() {
+  try {
+    const stripe = Stripe(STRIPE_PK_LOG);
+    await stripe.redirectToCheckout({
+      lineItems: [{ price: LOG_PRICE_ID, quantity: 1 }],
+      mode: 'payment',
+      successUrl: 'https://truclarify.com/log?upgraded=true',
+      cancelUrl: 'https://truclarify.com/log',
+    });
+  } catch (err) {
+    console.error('Stripe error:', err);
+    window.location.href = 'https://truclarify.com/creators';
+  }
+}
 
 // ── SEND LOG EMAIL VIA RESEND ─────────────────────────────────
 async function sendLogEmail(email, artist, track, genre, tool, iterations, direction, elements, rationale, score) {
