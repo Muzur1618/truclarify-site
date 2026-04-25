@@ -2592,15 +2592,25 @@ async function generateMusicKit() {
 
   try {
     const prompt = buildMusicKitPrompt(name, desc, genre, suno, mkitTone, isPro);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 55000);
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method:'POST',
+      signal: controller.signal,
+      headers:{
+        'Content-Type':'application/json',
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
       body: JSON.stringify({ model:'claude-sonnet-4-6', max_tokens: isPro ? 4000 : 2500,
         messages:[{role:'user', content: prompt}] })
     });
+    clearTimeout(timeout);
     const data = await resp.json();
     const text = data.content[0].text;
     mkitData = JSON.parse(text.replace(/```json|```/g,'').trim());
   } catch(e) {
+    console.error('API error:', e);
     mkitData = buildMusicFallback(name, desc, genre, suno, mkitTone, isPro);
   }
 
