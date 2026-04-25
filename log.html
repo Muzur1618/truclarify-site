@@ -388,6 +388,7 @@ footer a{color:var(--blue-light);text-decoration:none}
   .cta-primary,.cta-ghost{text-align:center}
 }
 </style>
+<script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
@@ -696,6 +697,151 @@ footer a{color:var(--blue-light);text-decoration:none}
 
 <script>
 // ── SCORE CALCULATOR ─────────────────────────────────────────
+const STRIPE_PK = 'pk_live_51TPt1XBfGQZ9cOqqq6VPoedXFJrjoje204d2cqXJ8eoY7tFrcJqSlX1iaD1zhZpXz3aUR9oOBTvwaVQPg7ojkSOY00mDA0SbQd';
+const RESEND_KEY = 're_EsLWV7Uy_HJiDMnGQEF1SSFNhfVb77S58';
+const LOG_PRICE_ID = 'price_1TPtRIBfGQZ9cOqqXEQncWaT'; // $4.99 paid log
+
+// ── SEND LOG EMAIL VIA RESEND ─────────────────────────────────
+async function sendLogEmail(email, artist, track, genre, tool, iterations, direction, elements, rationale, score) {
+  const logId = 'TC-LOG-' + Date.now() + '-' + (artist.substring(0,4).toUpperCase().replace(/[^A-Z]/g,'') || 'ARTST');
+  const timestamp = new Date().toLocaleString('en-US', {month:'long', day:'numeric', year:'numeric', hour:'2-digit', minute:'2-digit', timeZoneName:'short'});
+
+  const elementsList = elements.length > 0 
+    ? elements.map(e => `<div style="display:inline-block;background:rgba(110,231,183,0.15);border:1px solid rgba(110,231,183,0.3);border-radius:6px;padding:4px 10px;font-size:12px;color:#6EE7B7;margin:3px">${e}</div>`).join('')
+    : '<div style="font-size:13px;color:rgba(255,255,255,0.4);font-style:italic">No human elements documented</div>';
+
+  const scoreColor = score >= 70 ? '#6EE7B7' : score >= 40 ? '#FCD34D' : '#FCA5A5';
+  const scoreNote = score >= 70 ? 'Strong position — significant human authorship documented.' 
+    : score >= 40 ? 'Moderate — consider adding recorded vocals or more DAW editing to strengthen your claim.'
+    : 'Limited human authorship documented. Add original lyrics or recorded elements to improve your position.';
+
+  const emailHtml = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#0F172A;font-family:Georgia,serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0F172A;padding:40px 20px">
+<tr><td align="center"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%">
+
+<tr><td style="padding-bottom:24px;text-align:center">
+  <span style="font-size:20px"><span style="color:#fff;font-weight:700">Tru</span><span style="color:#93C5FD;font-weight:700">Clarify</span></span>
+</td></tr>
+
+<tr><td style="background:linear-gradient(135deg,#064E3B,#065F46);border-radius:16px 16px 0 0;padding:32px 40px;text-align:center">
+  <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px">CREATIVE DECISION LOG</div>
+  <h1 style="font-size:26px;color:#fff;margin:0 0 6px">${artist}</h1>
+  <div style="font-size:14px;color:#6EE7B7;margin-bottom:4px">${track} · ${genre}</div>
+  <div style="font-size:11px;color:rgba(255,255,255,0.4)">${timestamp}</div>
+  <div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:4px">Log ID: ${logId}</div>
+</td></tr>
+
+<tr><td style="background:#1E293B;border-radius:0 0 16px 16px;padding:28px 40px">
+
+  <div style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:14px;margin-bottom:22px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6EE7B7;margin-bottom:6px">WHY THIS DOCUMENT EXISTS</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7">The US Copyright Office requires <strong style="color:#fff">human creative input</strong> for copyright protection. This log timestamps your creative decisions and serves as evidence of human authorship.</div>
+  </div>
+
+  <!-- SCORE -->
+  <div style="margin-bottom:22px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">HUMAN AUTHORSHIP SCORE</div>
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding-right:12px">
+          <div style="background:rgba(255,255,255,0.08);border-radius:100px;height:10px;overflow:hidden">
+            <div style="background:linear-gradient(90deg,#6EE7B7,#1B44C8);width:${Math.min(score,100)}%;height:100%;border-radius:100px"></div>
+          </div>
+        </td>
+        <td style="white-space:nowrap">
+          <span style="font-size:20px;font-weight:700;color:${scoreColor}">${score}</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.3)">/100</span>
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">${scoreNote}</div>
+  </div>
+
+  <!-- PROMPT DEVELOPMENT -->
+  <div style="margin-bottom:20px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">01 — PROMPT DEVELOPMENT</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:6px">Iteration level</div>
+    <div style="display:inline-block;background:rgba(110,231,183,0.15);border:1px solid rgba(110,231,183,0.3);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:700;color:#6EE7B7;margin-bottom:10px">${iterations}</div>
+    ${direction ? `<div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:6px">Creative direction</div><div style="background:rgba(255,255,255,0.04);border-left:3px solid #6EE7B7;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.65;font-style:italic">"${direction}"</div>` : ''}
+  </div>
+
+  <!-- HUMAN ELEMENTS -->
+  <div style="margin-bottom:20px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">02 — HUMAN CREATIVE ELEMENTS</div>
+    <div>${elementsList}</div>
+  </div>
+
+  <!-- RATIONALE -->
+  ${rationale ? `<div style="margin-bottom:20px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">03 — SELECTION RATIONALE</div>
+    <div style="background:rgba(255,255,255,0.04);border-left:3px solid #93C5FD;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.65;font-style:italic">"${rationale}"</div>
+  </div>` : ''}
+
+  <!-- NEXT STEPS -->
+  <div style="margin-bottom:22px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">NEXT STEPS</div>
+    <table cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="padding-bottom:10px"><table cellpadding="0" cellspacing="0"><tr>
+        <td style="background:#1B44C8;border-radius:100px;width:20px;height:20px;text-align:center;line-height:20px;font-size:10px;font-weight:700;color:#fff;vertical-align:top">1</td>
+        <td style="padding-left:10px;font-size:12px;color:rgba(255,255,255,0.6)">Save this email in a folder named after your track — this timestamp is your evidence</td>
+      </tr></table></td></tr>
+      <tr><td style="padding-bottom:10px"><table cellpadding="0" cellspacing="0"><tr>
+        <td style="background:#1B44C8;border-radius:100px;width:20px;height:20px;text-align:center;line-height:20px;font-size:10px;font-weight:700;color:#fff;vertical-align:top">2</td>
+        <td style="padding-left:10px;font-size:12px;color:rgba(255,255,255,0.6)">Register with SoundExchange — free, 15 minutes, most creators have $200-800 uncollected</td>
+      </tr></table></td></tr>
+      <tr><td style="padding-bottom:10px"><table cellpadding="0" cellspacing="0"><tr>
+        <td style="background:#1B44C8;border-radius:100px;width:20px;height:20px;text-align:center;line-height:20px;font-size:10px;font-weight:700;color:#fff;vertical-align:top">3</td>
+        <td style="padding-left:10px;font-size:12px;color:rgba(255,255,255,0.6)">Upload to <a href="https://distrokid.com/vip/seven/12507043" style="color:#93C5FD">DistroKid</a> — tick the AI disclosure checkbox every time</td>
+      </tr></table></td></tr>
+      <tr><td><table cellpadding="0" cellspacing="0"><tr>
+        <td style="background:#1B44C8;border-radius:100px;width:20px;height:20px;text-align:center;line-height:20px;font-size:10px;font-weight:700;color:#fff;vertical-align:top">4</td>
+        <td style="padding-left:10px;font-size:12px;color:rgba(255,255,255,0.6)">Fill one of these out for every track — build your paper trail from track one</td>
+      </tr></table></td></tr>
+    </table>
+  </div>
+
+  <!-- UPSELL -->
+  <div style="background:linear-gradient(135deg,rgba(27,68,200,0.3),rgba(110,231,183,0.1));border:1px solid rgba(147,197,253,0.25);border-radius:12px;padding:20px;text-align:center">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px">GET THE FULL SYSTEM</div>
+    <div style="font-size:16px;color:#fff;margin-bottom:6px">Premium Pipeline Kit — $9.99</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:14px">Full Creative Decision Log · C2PA Provenance Toolkit · AI Rights Briefing · Stem polishing · TikTok/Reels video engine · Distributor pre-fills · EPK · Royalty tracker · Sync playbook</div>
+    <a href="https://truclarify.com/creators" style="display:inline-block;background:#1B44C8;color:#fff;text-decoration:none;border-radius:9px;padding:11px 24px;font-size:13px;font-weight:700">Get Premium Pipeline Kit →</a>
+  </div>
+
+</td></tr>
+
+<tr><td style="padding-top:24px;text-align:center;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.8">
+  TruClarify · <a href="https://truclarify.com" style="color:#93C5FD;text-decoration:none">truclarify.com</a><br>
+  This log is for informational purposes only and does not constitute legal advice.<br>
+  Some links are affiliate links. <a href="#" style="color:rgba(255,255,255,0.2);text-decoration:none">Unsubscribe</a>
+</td></tr>
+
+</table></td></tr>
+</table>
+</body></html>`;
+
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'TruClarify <hello@truclarify.com>',
+        to: [email],
+        subject: `Your Creative Decision Log — ${artist} · ${track}`,
+        html: emailHtml,
+      }),
+    });
+    console.log('Log email sent:', res.status);
+  } catch (err) {
+    console.error('Resend error:', err);
+  }
+}
+
 function updateScore() {
   const iterations = parseInt(document.getElementById('logIterations').value) || 0;
   const checkboxes = ['cbLyrics','cbVocals','cbInstruments','cbDAW','cbMastering','cbStructure'];
@@ -734,7 +880,7 @@ function updateScore() {
 }
 
 // ── FORM SUBMISSION ───────────────────────────────────────────
-function submitLog() {
+async function submitLog() {
   const artist = document.getElementById('logArtist').value.trim();
   const track = document.getElementById('logTrack').value.trim();
   const email = document.getElementById('logEmail').value.trim();
@@ -758,8 +904,24 @@ function submitLog() {
     return;
   }
 
-  // In production: POST to Supabase + trigger Resend email
-  console.log('Log submitted:', { artist, track, email });
+  // Collect all form data
+  const genre = document.getElementById('logGenre')?.value || '';
+  const tool = document.getElementById('logTool')?.value || 'Suno AI';
+  const iterEl = document.getElementById('logIterations');
+  const iterations = iterEl?.options[iterEl?.selectedIndex]?.text || 'Not specified';
+  const direction = document.getElementById('logDirection')?.value?.trim() || '';
+  const rationale = document.getElementById('logRationale')?.value?.trim() || '';
+  
+  const checkboxes = ['cbLyrics','cbVocals','cbInstruments','cbDAW','cbMastering','cbStructure'];
+  const labels = ['Original lyrics','Recorded vocals','Live instruments','DAW editing','Professional mastering','Structure / arrangement'];
+  const elements = checkboxes.map((id,i) => document.getElementById(id)?.checked ? labels[i] : null).filter(Boolean);
+  
+  const scoreEl = document.getElementById('scoreNum');
+  const score = scoreEl ? parseInt(scoreEl.textContent) || 0 : 0;
+
+  // Send email via Resend
+  await sendLogEmail(email, artist, track, genre, tool, iterations, direction, elements, rationale, score);
+  console.log('Log submitted and emailed:', { artist, track, email });
 
   // Show success
   document.getElementById('logForm').style.display = 'none';

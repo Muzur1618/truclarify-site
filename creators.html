@@ -642,6 +642,7 @@ footer a:hover{color:#93C5FD}
   .creator-kits{grid-template-columns:1fr}
 }
 </style>
+<script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
@@ -727,12 +728,12 @@ footer a:hover{color:#93C5FD}
         </div>
         <div class="cert-preview-overlay">
           <p>Unlock your Verified Artist Certificate</p>
-          <button onclick="openMusicKit('starter')">Get Launch Kit - $5.99</button>
+          <button onclick="stripeCheckout(STRIPE_PRICES.launch)">Get Launch Kit - $5.99</button>
         </div>
       </div>
       <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:12px 14px;margin-top:10px;font-size:12px;color:rgba(255,255,255,.6);line-height:1.6">
         <span style="color:#FCA5A5;font-weight:700">⚠ Suno Creator?</span> Do you know what you actually own? Most AI music creators don't.
-        <span style="color:#93C5FD;cursor:pointer;font-weight:600" onclick="openMusicKit('starter')"> Get the AI Music Rights Briefing in your kit →</span>
+        <span style="color:#93C5FD;cursor:pointer;font-weight:600" onclick="stripeCheckout(STRIPE_PRICES.launch)"> Get the AI Music Rights Briefing in your kit →</span>
       </div>
     </div>
   </div>
@@ -818,7 +819,7 @@ footer a:hover{color:#93C5FD}
         <li class="ck-hidden"><span class="ckchk new">📦</span>Best distributor for your genre</li>
       <button class="ck-expand-btn" onclick="toggleFeatures(this,'starter')"><i class="ck-expand-icon">↓</i> See all 17 features</button>
       </ul>
-      <button class="ck-cta ck-cta-ghost" onclick="openMusicKit('starter')">Get Launch Kit - $5.99 →</button>
+      <button class="ck-cta ck-cta-ghost" onclick="stripeCheckout(STRIPE_PRICES.launch)">Get Launch Kit - $5.99 →</button>
     </div>
 
     <!-- PREMIUM PIPELINE KIT -->
@@ -850,7 +851,7 @@ footer a:hover{color:#93C5FD}
         <li class="ck-hidden"><span class="ckchk">✓</span>Annual AI law update enrolled</li>
       <button class="ck-expand-btn" onclick="toggleFeatures(this,'pro')"><i class="ck-expand-icon">↓</i> See all 20 features</button>
       </ul>
-      <button class="ck-cta ck-cta-solid" onclick="openMusicKit('pro')">Get Premium Pipeline Kit - $9.99 →</button>
+      <button class="ck-cta ck-cta-solid" onclick="stripeCheckout(STRIPE_PRICES.pro)">Get Premium Pipeline Kit - $9.99 →</button>
     </div>
 
   </div>
@@ -862,7 +863,7 @@ footer a:hover{color:#93C5FD}
       <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:4px">$4.99<span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.4)">/month</span></div>
       <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.5">Soundalike artist alerts · New platform notifications · Monthly AI music law updates · Annual rights audit</div>
     </div>
-    <button onclick="openMusicKit('monitoring')" style="padding:11px 22px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">Start Monitoring - $4.99/mo →</button>
+    <button onclick="stripeCheckout(STRIPE_PRICES.monitoring)" style="padding:11px 22px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">Start Monitoring - $4.99/mo →</button>
   </div>
 </div>
 
@@ -880,7 +881,7 @@ footer a:hover{color:#93C5FD}
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
-    <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get the Premium Pipeline Kit - $9.99 →</button>
+    <button class="suno-cta-btn" onclick="stripeCheckout(STRIPE_PRICES.pro)">Get the Premium Pipeline Kit - $9.99 →</button>
     <button class="suno-cta-btn" style="background:rgba(110,231,183,0.15);border:1px solid rgba(110,231,183,0.3);color:#6EE7B7" onclick="openFreeLog(document.getElementById('artistNameInput')?.value)">📋 Log Your Creative Process — Free →</button>
   </div>
   </div>
@@ -954,7 +955,7 @@ footer a:hover{color:#93C5FD}
         <div id="mkitSunoNote" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:11px 14px;font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:14px">
           <span style="color:#FCA5A5;font-weight:700">Suno creator detected.</span> Your Premium Pipeline Kit includes the full AI Rights Briefing, C2PA provenance toolkit, human authorship assessment, and complete distributor compliance package.
         </div>
-        <button class="mkit-gen-btn" id="mkitGenBtn" onclick="generateMusicKit()">✨ Generate My Kit →</button>
+        <button class="mkit-gen-btn" id="mkitGenBtn" onclick="handleGenerateClick()">✨ Generate My Kit →</button>
         <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px">Live demo · In production: Stripe payment before generation</p>
       </div>
     </div>
@@ -1029,6 +1030,282 @@ footer a:hover{color:#93C5FD}
 </footer>
 
 <script>
+// ── STRIPE CONFIGURATION ─────────────────────────────────────
+
+// ── STRIPE SUCCESS HANDLER ───────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('paid') === 'true') {
+    const tier = params.get('tier') || 'starter';
+    const name = decodeURIComponent(params.get('name') || '');
+    const genre = decodeURIComponent(params.get('genre') || '');
+    const email = decodeURIComponent(params.get('email') || '');
+
+    // Clean URL immediately
+    window.history.replaceState({}, '', '/creators');
+
+    // Auto-open kit modal and generate
+    if (name) {
+      mkitTier = tier;
+      document.getElementById('mkitOverlay').classList.add('on');
+      document.body.style.overflow = 'hidden';
+      showMkitState('progress');
+
+      // Pre-fill fields
+      setTimeout(() => {
+        const nameEl = document.getElementById('mkitName');
+        const genreEl = document.getElementById('mkitGenre');
+        const emailEl = document.getElementById('mkitEmail');
+        if (nameEl) nameEl.value = name;
+        if (genreEl) genreEl.value = genre;
+        if (emailEl) emailEl.value = email;
+        generateMusicKit();
+      }, 500);
+    }
+  }
+});
+
+const STRIPE_PK = 'pk_live_51TPt1XBfGQZ9cOqqq6VPoedXFJrjoje204d2cqXJ8eoY7tFrcJqSlX1iaD1zhZpXz3aUR9oOBTvwaVQPg7ojkSOY00mDA0SbQd';
+const STRIPE_PRICES = {
+  launch:     'price_1TPtPJBfGQZ9cOqqznRRtQJr',
+  pro:        'price_1TPtPsBfGQZ9cOqq4JE55yly',
+  log:        'price_1TPtRIBfGQZ9cOqqXEQncWaT',
+  monitoring: 'price_1TPtQPBfGQZ9cOqqfIu61OJ5',
+};
+const RESEND_KEY = 're_EsLWV7Uy_HJiDMnGQEF1SSFNhfVb77S58';
+const CLAUDE_MODEL = 'claude-sonnet-4-6';
+
+// ── MAIN PAYMENT + KIT FLOW ──────────────────────────────────
+// Called when user clicks Generate in the kit form
+async function processKitPayment(tier, name, genre, desc, suno, tone, email) {
+  const isPaid = tier === 'starter' || tier === 'pro';
+  
+  if (!isPaid) {
+    // Free kit — generate and email directly
+    await generateAndEmailKit(tier, name, genre, desc, suno, tone, email);
+    return;
+  }
+
+  // Paid kit — show Stripe payment modal first
+  const priceId = tier === 'starter' ? STRIPE_PRICES.launch : STRIPE_PRICES.pro;
+  const price = tier === 'starter' ? '$5.99' : '$9.99';
+  const kitName = tier === 'starter' ? 'Launch Kit' : 'Premium Pipeline Kit';
+
+  showPaymentModal(priceId, price, kitName, () => {
+    // After payment confirmed — generate and email kit
+    generateAndEmailKit(tier, name, genre, desc, suno, tone, email);
+  });
+}
+
+// ── PAYMENT MODAL ────────────────────────────────────────────
+function showPaymentModal(priceId, price, kitName, name, genre, desc, suno, tone, email) {
+  // Store kit data for post-payment generation
+  window._pendingKit = { tier: mkitTier, name, genre, desc, suno, tone, email };
+  const overlay = document.createElement('div');
+  overlay.id = 'paymentOverlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px';
+  
+  overlay.innerHTML = `
+    <div style="background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px;max-width:420px;width:100%;text-align:center">
+      <div style="font-size:32px;margin-bottom:12px">🎵</div>
+      <h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:8px">${kitName}</h3>
+      <div style="font-family:'DM Serif Display',serif;font-size:36px;color:#6EE7B7;margin-bottom:8px">${price}</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6">One-time payment. Your personalized kit generates immediately after payment and is emailed to you automatically.</p>
+      <button id="payBtn" onclick="startStripePayment('${priceId}')" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:10px;padding:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px">
+        Pay ${price} with Stripe →
+      </button>
+      <button onclick="document.getElementById('paymentOverlay').remove()" style="width:100%;background:transparent;color:rgba(255,255,255,0.4);border:none;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer">
+        Cancel
+      </button>
+      <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px">🔒 Secured by Stripe · No subscription · Cancel anytime</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  
+  // Store callback for after payment
+  window._kitPaymentCallback = onSuccess;
+}
+
+async function startStripePayment(priceId) {
+  const btn = document.getElementById('payBtn');
+  if (btn) { btn.textContent = 'Redirecting to Stripe...'; btn.disabled = true; }
+  
+  try {
+    const stripe = Stripe(STRIPE_PK);
+    await stripe.redirectToCheckout({
+      lineItems: [{ price: priceId, quantity: 1 }],
+      mode: 'payment',
+      successUrl: window.location.href + '?paid=true&tier=' + (window._pendingKit?.tier||mkitTier) + '&name=' + encodeURIComponent(window._pendingKit?.name||'') + '&genre=' + encodeURIComponent(window._pendingKit?.genre||'') + '&email=' + encodeURIComponent(window._pendingKit?.email||''),
+      cancelUrl: window.location.href,
+    });
+  } catch (err) {
+    console.error('Stripe error:', err);
+    alert('Payment could not be started. Please try again.');
+  }
+}
+
+// ── GENERATE + EMAIL KIT ─────────────────────────────────────
+async function generateAndEmailKit(tier, name, genre, desc, suno, tone, email) {
+  const isPro = tier === 'pro';
+  
+  // Show progress
+  showMkitState('progress');
+  document.getElementById('mkitOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  
+  // Generate kit via Claude API
+  const kit = await callClaudeAPI(tier, name, genre, desc, suno, tone, isPro);
+  
+  // Render kit results
+  renderMusicKit(kit, name, isPro);
+  
+  // Send email via Resend
+  if (email) {
+    await sendKitEmail(email, name, genre, tier, kit);
+  }
+}
+
+// ── SEND KIT EMAIL VIA RESEND ────────────────────────────────
+async function sendKitEmail(email, artistName, genre, tier, kit) {
+  const kitName = tier === 'pro' ? 'Premium Pipeline Kit' : tier === 'starter' ? 'Launch Kit' : 'Free Mini-Kit';
+  const score = kit.brand_score || 75;
+  
+  const emailHtml = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#0F172A;font-family:Georgia,serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0F172A;padding:40px 20px">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%">
+
+<!-- HEADER -->
+<tr><td style="padding-bottom:32px;text-align:center">
+  <span style="font-family:Georgia,serif;font-size:20px">
+    <span style="color:#fff;font-weight:700">Tru</span><span style="color:#93C5FD;font-weight:700">Clarify</span>
+  </span>
+</td></tr>
+
+<!-- HERO -->
+<tr><td style="background:linear-gradient(135deg,#064E3B,#065F46);border-radius:16px 16px 0 0;padding:36px 40px 28px;text-align:center">
+  <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px">${kitName.toUpperCase()}</div>
+  <h1 style="font-family:Georgia,serif;font-size:28px;color:#fff;margin:0 0 8px">${artistName}</h1>
+  <div style="font-size:14px;color:#6EE7B7;font-weight:600;margin-bottom:4px">${genre}</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.4)">Generated: ${new Date().toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric'})}</div>
+</td></tr>
+
+<!-- BODY -->
+<tr><td style="background:#1E293B;border-radius:0 0 16px 16px;padding:32px 40px">
+  
+  <!-- BRAND SCORE -->
+  <div style="text-align:center;margin-bottom:28px">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px">TruClarify Brand Score</div>
+    <div style="font-size:48px;font-weight:700;color:#6EE7B7;font-family:Georgia,serif">${score}<span style="font-size:20px;color:rgba(255,255,255,0.3)">/100</span></div>
+  </div>
+
+  <!-- TAGLINE -->
+  ${kit.tagline ? `<div style="background:rgba(255,255,255,0.04);border-left:3px solid #6EE7B7;border-radius:0 8px 8px 0;padding:14px 16px;margin-bottom:24px;font-size:16px;color:#fff;font-style:italic">"${kit.tagline}"</div>` : ''}
+
+  <!-- SPOTIFY BIO -->
+  ${kit.bio_spotify ? `
+  <div style="margin-bottom:20px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">Spotify Bio</div>
+    <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;margin:0">${kit.bio_spotify}</p>
+  </div>` : ''}
+
+  <!-- NEXT STEPS -->
+  <div style="margin-bottom:24px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px">Your Next Steps</div>
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr><td style="padding-bottom:12px">
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="background:#1B44C8;border-radius:100px;width:22px;height:22px;text-align:center;line-height:22px;font-size:11px;font-weight:700;color:#fff;vertical-align:top">1</td>
+          <td style="padding-left:12px;font-size:13px;color:rgba(255,255,255,0.7)">Log your creative process at <a href="https://truclarify.com/log" style="color:#93C5FD">truclarify.com/log</a> — builds your copyright evidence</td>
+        </tr></table>
+      </td></tr>
+      <tr><td style="padding-bottom:12px">
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="background:#1B44C8;border-radius:100px;width:22px;height:22px;text-align:center;line-height:22px;font-size:11px;font-weight:700;color:#fff;vertical-align:top">2</td>
+          <td style="padding-left:12px;font-size:13px;color:rgba(255,255,255,0.7)">Register with SoundExchange — free, 15 minutes, $200-800 in uncollected royalties waiting</td>
+        </tr></table>
+      </td></tr>
+      <tr><td style="padding-bottom:12px">
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="background:#1B44C8;border-radius:100px;width:22px;height:22px;text-align:center;line-height:22px;font-size:11px;font-weight:700;color:#fff;vertical-align:top">3</td>
+          <td style="padding-left:12px;font-size:13px;color:rgba(255,255,255,0.7)">Distribute with <a href="https://distrokid.com/vip/seven/12507043" style="color:#93C5FD">DistroKid</a> — best AI disclosure workflow, unlimited releases $22.99/yr</td>
+        </tr></table>
+      </td></tr>
+    </table>
+  </div>
+
+  <!-- VIEW FULL KIT -->
+  <div style="text-align:center;margin-bottom:24px">
+    <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px">Your full kit is available on the TruClarify website. Return any time to view all your tabs.</p>
+    <a href="https://truclarify.com/creators" style="display:inline-block;background:#1B44C8;color:#fff;text-decoration:none;border-radius:9px;padding:12px 28px;font-family:Georgia,serif;font-size:14px;font-weight:700">View Full Kit at TruClarify →</a>
+  </div>
+
+  <!-- TOOLS STRIP -->
+  <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-align:center;margin-bottom:14px">Recommended Tools</div>
+    <table width="100%" cellpadding="4" cellspacing="0">
+      <tr>
+        <td width="33%" style="text-align:center">
+          <a href="https://distrokid.com/vip/seven/12507043" style="display:block;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px;text-decoration:none">
+            <div style="font-size:12px;font-weight:700;color:#fff">DistroKid</div>
+            <div style="font-size:10px;color:#93C5FD;margin-top:3px">Best for AI music →</div>
+          </a>
+        </td>
+        <td width="33%" style="text-align:center">
+          <a href="https://www.lalal.ai/?ref=truclarify" style="display:block;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px;text-decoration:none">
+            <div style="font-size:12px;font-weight:700;color:#fff">LALAL.AI</div>
+            <div style="font-size:10px;color:#93C5FD;margin-top:3px">Stem separation →</div>
+          </a>
+        </td>
+        <td width="33%" style="text-align:center">
+          <a href="https://www.landr.com/?ref=truclarify" style="display:block;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px;text-decoration:none">
+            <div style="font-size:12px;font-weight:700;color:#fff">LANDR</div>
+            <div style="font-size:10px;color:#93C5FD;margin-top:3px">AI mastering →</div>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</td></tr>
+
+<!-- FOOTER -->
+<tr><td style="padding-top:28px;text-align:center;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.8">
+  TruClarify · <a href="https://truclarify.com/creators" style="color:#93C5FD;text-decoration:none">truclarify.com</a><br>
+  Some links are affiliate links — we may earn a commission at no cost to you.<br>
+  <a href="#" style="color:rgba(255,255,255,0.2);text-decoration:none">Unsubscribe</a>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>`;
+
+  try {
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'TruClarify <hello@truclarify.com>',
+        to: [email],
+        subject: `Your ${kitName} — ${artistName} is verified ✓`,
+        html: emailHtml,
+      }),
+    });
+    console.log('Kit email sent to:', email);
+  } catch (err) {
+    console.error('Resend error:', err);
+  }
+}
+
 
 // ── REAL DATA ──
 const PLATFORMS = [
@@ -2187,7 +2464,7 @@ function submitFreeLog() {
           3. Register with SoundExchange (free, 15 mins) to collect royalties
         </div>
       </div>
-      <button onclick="closeFreeLog();openMusicKit('pro')" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:12px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Get the Full Rights Package - $9.99 →</button>
+      <button onclick="closeFreeLog();stripeCheckout(STRIPE_PRICES.pro)" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:12px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer">Get the Full Rights Package - $9.99 →</button>
       <button onclick="closeFreeLog()" style="width:100%;background:transparent;color:rgba(255,255,255,0.4);border:none;padding:10px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;margin-top:6px">Close</button>
     </div>
   `;
@@ -2223,6 +2500,39 @@ function showMkitState(s) {
 }
 
 // ── MUSIC KIT GENERATION ──────────────────────────────────────────────────────
+function handleGenerateClick() {
+  const name = document.getElementById('mkitName')?.value?.trim();
+  const email = document.getElementById('mkitEmail')?.value?.trim();
+  const genre = document.getElementById('mkitGenre')?.value?.trim();
+  const desc = document.getElementById('mkitDesc')?.value?.trim();
+  const suno = document.getElementById('mkitSuno')?.value?.trim();
+  const tone = document.getElementById('mkitTone')?.value || 'professional';
+
+  if (!name) {
+    document.getElementById('mkitName').style.borderColor = 'rgba(239,68,68,0.6)';
+    setTimeout(() => document.getElementById('mkitName').style.borderColor = '', 1500);
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    document.getElementById('mkitEmail').style.borderColor = 'rgba(239,68,68,0.6)';
+    setTimeout(() => document.getElementById('mkitEmail').style.borderColor = '', 1500);
+    return;
+  }
+
+  const isPaid = mkitTier === 'starter' || mkitTier === 'pro';
+
+  if (isPaid) {
+    // Show payment modal first
+    const priceId = mkitTier === 'starter' ? STRIPE_PRICES.launch : STRIPE_PRICES.pro;
+    const price = mkitTier === 'starter' ? '$5.99' : '$9.99';
+    const kitName = mkitTier === 'starter' ? 'Launch Kit' : 'Premium Pipeline Kit';
+    showPaymentModal(priceId, price, kitName, name, genre, desc, suno, tone, email);
+  } else {
+    // Free kit — generate directly
+    generateMusicKit();
+  }
+}
+
 async function generateMusicKit() {
   const name  = document.getElementById('mkitName').value.trim();
   const desc  = document.getElementById('mkitDesc').value.trim();
@@ -2875,7 +3185,7 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
       <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:18px;padding-top:16px">
         <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:8px">PREMIUM PIPELINE KIT — $9.99</div>
         <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:12px">Get the full Creative Decision Log with copyright registration guidance, distributor-specific fields, PRO registration notes, and chain of title documentation — plus C2PA toolkit, stem workflow, video engine, and 15+ more tabs.</div>
-        <button onclick="closeFreeLog();openMusicKit('pro')" style="width:100%;background:rgba(147,197,253,0.1);color:#93C5FD;border:1px solid rgba(147,197,253,0.25);border-radius:8px;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Get Premium Pipeline Kit - $9.99 →</button>
+        <button onclick="closeFreeLog();stripeCheckout(STRIPE_PRICES.pro)" style="width:100%;background:rgba(147,197,253,0.1);color:#93C5FD;border:1px solid rgba(147,197,253,0.25);border-radius:8px;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Get Premium Pipeline Kit - $9.99 →</button>
       </div>
 
     </div>
