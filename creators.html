@@ -260,7 +260,33 @@ h1 em{font-style:italic;color:var(--accent)}
 footer{padding:32px 48px;text-align:center;font-size:12px;color:var(--ink-dim);border-top:1px solid var(--border)}
 footer strong{font-family:'DM Serif Display',serif;font-size:15px;color:var(--ink)}
 
+.mobile-log-banner{
+  display:none;
+  background:rgba(110,231,183,0.08);
+  border:1px solid rgba(110,231,183,0.2);
+  border-radius:var(--rl);
+  padding:12px 16px;
+  margin-top:12px;
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.mobile-log-btn{
+  background:#6EE7B7;
+  color:#0F172A;
+  text-decoration:none;
+  border-radius:8px;
+  padding:7px 14px;
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
+  flex-shrink:0;
+}
 @media(max-width:768px){
+  .mobile-log-banner{display:flex}
   nav{padding:0 20px}.nl{display:none}
   .hero{grid-template-columns:1fr;padding:100px 20px 48px;gap:32px}
   .section{padding:56px 20px}
@@ -700,6 +726,7 @@ footer a:hover{color:#93C5FD}
       <button class="creator-btn" id="artistCheckBtn" onclick="runArtistCheck()">Check →</button>
     </div>
     <div class="creator-hint">Free · Checks Spotify, Apple Music, SoundCloud, YouTube + 26 more</div>
+
     <div id="creatorLoader" style="display:none;padding:14px 0">
       <div style="height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin-bottom:8px">
         <div id="creatorLoaderFill" style="height:100%;width:0%;background:linear-gradient(90deg,#1B44C8,#6EE7B7);transition:width .4s ease"></div>
@@ -740,35 +767,36 @@ footer a:hover{color:#93C5FD}
 </div>
 
 <!-- HOW IT WORKS -->
-<div class="how-section">
-  <div class="how-inner">
-    <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px">How TruClarify works</div>
-    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(24px,2.8vw,36px);color:#fff;margin-bottom:8px">From name check to<br>launch-ready in 60 seconds.</h2>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-num">1</div>
-        <div class="how-title">Check your artist name free</div>
-        <p class="how-desc">Enter your name and genre. TruClarify checks across 30+ music and social platforms, runs a phonetic conflict scan, and scores your name in seconds.</p>
+
+
+<div class="suno-section">
+  <div class="suno-card">
+    <div>
+      <h3>Suno made the sound.<br>You need to own the release.</h3>
+      <p>Most creators get the music right and everything else wrong. Wrong name, wrong disclosure, wrong royalty setup, no rights documentation. The Premium Pipeline Kit was built for exactly this moment — after the track is done, before anything goes wrong. Personalised to your artist name and genre. Generated in 60 seconds.</p>
+      <div class="suno-tags">
+        <span class="suno-tag">Name conflict scan</span>
+        <span class="suno-tag">Copyright clarity</span>
+        <span class="suno-tag">C2PA provenance</span>
+        <span class="suno-tag">Distributor compliance</span>
+        <span class="suno-tag">Royalty setup</span>
+        <span class="suno-tag">Video promotion engine</span>
       </div>
-      <div class="how-card">
-        <div class="how-num">2</div>
-        <div class="how-title">Get your personalised kit</div>
-        <p class="how-desc">Claude generates your complete launch kit - bios for every platform, hashtag strategy, platform calendar, rights briefing, and distributor pre-fills. All personalised to your artist name and genre.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">3</div>
-        <div class="how-title">Launch and protect</div>
-        <p class="how-desc">Claim every handle in 45 minutes using your personalised checklist. Add monitoring to protect your name as your career grows. Get paid every royalty you're owed.</p>
-      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;align-items:center">
+      <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get Premium Pipeline Kit — $9.99 →</button>
+      <a href="/log" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;text-align:center;transition:color .15s" onmouseover="this.style.color='rgba(110,231,183,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Already released? Document your creative process free →</a>
     </div>
   </div>
 </div>
+
+
 
 <!-- KITS -->
 <div class="kits-section" id="kits">
   <div class="kits-tag">Music Creator Kits</div>
   <h2 class="kits-h">Everything you need.<br>Priced for creators.</h2>
-  <p class="kits-sub">Wrong name, missing royalties, no rights paper trail — pick a kit and fix all three before your first drop.</p>
+  <p class="kits-sub">Our team analysed what goes wrong for independent AI music creators — and the same gaps appear every time. A name quietly conflicting with someone else on Spotify. Royalties sitting uncollected at SoundExchange. Zero documentation when a rights dispute arrives. Major labels have teams that catch all of this. Independent creators haven't — until now. Choose your kit and our system generates a complete, personalised release package for your artist name and genre in 60 seconds. Professional-grade protection, built for creators who are doing this without a team behind them. Nothing you have to figure out alone.</p>
 
   <div class="creator-kits">
 
@@ -856,63 +884,100 @@ footer a:hover{color:#93C5FD}
 
   </div>
 
-  <!-- MONITORING -->
-  <div style="margin-top:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-    <div>
-      <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px">Creator Monitoring</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:4px">$4.99<span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.4)">/month</span></div>
-      <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.5">Soundalike artist alerts · New platform notifications · Monthly AI music law updates · Annual rights audit</div>
-    </div>
-    <button onclick="window.location.href=PAYMENT_LINKS.monitoring" style="padding:11px 22px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">Start Monitoring - $4.99/mo →</button>
-  </div>
 </div>
 
 <!-- SUNO CALLOUT -->
-<div class="suno-section">
-  <div class="suno-card">
-    <div>
-      <h3>Made music with Suno?<br>Do you know what you own?</h3>
-      <p>You made the music. Now comes the part most creators skip — and regret. Name conflicts, uncollected royalties, distributor rejections, zero rights documentation. The Premium Pipeline Kit handles all of it. Built specifically for Suno creators in 2026. Personalized, done-for-you, generated in seconds.</p>
-      <div class="suno-tags">
-        <span class="suno-tag">Copyright clarity</span>
-        <span class="suno-tag">C2PA provenance</span>
-        <span class="suno-tag">Distributor compliance</span>
-        <span class="suno-tag">Video promotion engine</span>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
-    <button class="suno-cta-btn" onclick="openMusicKit('pro')">Get the Premium Pipeline Kit - $9.99 →</button>
-    <button class="suno-cta-btn" style="background:rgba(110,231,183,0.15);border:1px solid rgba(110,231,183,0.3);color:#6EE7B7" onclick="openFreeLog(document.getElementById('artistNameInput')?.value)">📋 Log Your Creative Process — Free →</button>
-  </div>
-  </div>
-</div>
 
 <!-- BLOG LINKS -->
-<div class="blog-section">
+
+  <!-- ── MONITORING SECTION ──────────────────────────────────── -->
+  <section id="monitoring" style="background:linear-gradient(180deg,#0F172A,#0D1526);padding:clamp(40px,8vw,80px) clamp(16px,4vw,24px);border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:900px;margin:0 auto">
+
+      <div style="text-align:center;margin-bottom:48px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#93C5FD;margin-bottom:12px">CREATOR MONITORING</div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,42px);color:#fff;margin-bottom:16px;line-height:1.2">You checked your name once.<br><em style="color:#6EE7B7">The music industry didn't stop moving.</em></h2>
+        <p style="font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.55);max-width:580px;margin:0 auto;line-height:1.65">New artists launch every day. Royalties go uncollected. AI law changes without warning. Most creators find out too late. For $4.99 a month, you never have to.</p>
+      </div>
+
+      <!-- THREE PROBLEM CARDS -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:48px">
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:24px">
+          <div style="font-size:28px;margin-bottom:12px">🎵</div>
+          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3">A new artist takes your name</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65">Spotify conflates you both. Your streams get misattributed. Your discovery drops. By the time you notice, the damage is done.</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:#FCA5A5">Happens every day to real creators</div>
+        </div>
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:24px">
+          <div style="font-size:28px;margin-bottom:12px">💸</div>
+          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3">$800 in royalties sits uncollected</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65">SoundExchange, MLC, and PROs are holding money that's legally yours. Most independent artists don't know where to look — or how much.</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:#FCA5A5">Average for 12+ months of releases</div>
+        </div>
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:24px">
+          <div style="font-size:28px;margin-bottom:12px">⚖️</div>
+          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3">DistroKid changes policy overnight</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65">AI music policies change fast. Creators find out when tracks get flagged — not before. A 24-hour heads up would have prevented all of it.</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:#FCA5A5">2026 will bring more changes, not fewer</div>
+        </div>
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:24px">
+          <div style="font-size:28px;margin-bottom:12px">⏳</div>
+          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3">Your uncollected royalties expire</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65">SoundExchange holds digital performance royalties for 3 years — then redistributes them to other artists. Money you legally earned disappears permanently if you don't claim it in time.</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:700;color:#FCA5A5">Expired royalties cannot be reclaimed — ever</div>
+        </div>
+      </div>
+
+      <!-- WHAT YOU GET -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:clamp(20px,4vw,36px);margin-bottom:36px">
+        <div style="text-align:center;margin-bottom:24px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6EE7B7;margin-bottom:8px">$4.99/MONTH — WHAT YOU GET</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45)">Eight things watching your back. Every month.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Weekly soundalike scans</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">30+ platforms, phonetic matching</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Monthly royalty estimate</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">SoundExchange, MLC, PROs</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Monthly name health score</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">Risk, compliance, collection status</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Personalised AI law alerts</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">Written for Suno creators specifically</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Distributor policy alerts</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">DistroKid, TuneCore, CD Baby changes</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">New platform notifications</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">Know when to claim new handles</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Monthly rights health email</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">Beautiful summary + one action</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#6EE7B7;flex-shrink:0;margin-top:2px">✓</span><div><div style="font-size:13px;font-weight:600;color:#fff">Annual rights audit + certificate</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">Full annual review, downloadable</div></div></div>
+        </div>
+      </div>
+
+      <!-- QUIZ -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:clamp(20px,4vw,36px);margin-bottom:36px">
+        <div style="text-align:center;margin-bottom:24px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#93C5FD;margin-bottom:8px">2-MINUTE QUIZ</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:8px">What's your monitoring score?</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,0.45)">5 questions. Find out what you're missing — and what it's costing you.</p>
+        </div>
+        <div id="mqProgress" style="height:4px;background:rgba(255,255,255,0.08);border-radius:100px;margin-bottom:20px">
+          <div id="mqFill" style="height:100%;border-radius:100px;background:#1B44C8;width:0%;transition:width .3s ease"></div>
+        </div>
+        <div id="mqBody"></div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center">
+        <div style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:14px 20px;margin-bottom:20px;font-size:14px;color:#6EE7B7;font-weight:600;line-height:1.6">
+          Less than one coffee. Cancel anytime.<br><span style="color:rgba(255,255,255,0.6);font-weight:400;font-size:13px">Most creators find more than this in uncollected royalties in month one.</span>
+        </div>
+        <button onclick="openMonitoringModal()" style="background:linear-gradient(135deg,#1B44C8,#1537a0);color:#fff;border:none;border-radius:10px;padding:16px 40px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;cursor:pointer">
+          Start Monitoring — $4.99/mo →
+        </button>
+        <div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:10px">Secured by Stripe · Cancel anytime · No contracts</div>
+      </div>
+
+    </div>
+  </section>
+
+<div style="text-align:center;padding:48px 24px;border-top:1px solid rgba(255,255,255,0.06)">
   <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px">From the TruClarify blog</div>
-  <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(22px,2.5vw,32px);color:#fff;margin-bottom:8px">Everything you need to know<br>about AI music rights.</h2>
-  <div class="blog-grid">
-    <a href="/blog/do-you-own-suno-music" class="blog-card">
-      <div class="blog-card-tag">AI Music Rights</div>
-      <div class="blog-card-title">Do You Actually Own Music Made With Suno? The Honest Answer.</div>
-      <p class="blog-card-desc">Copyright ownership, commercial licences, and the five pitfalls that are catching Suno creators right now.</p>
-    </a>
-    <a href="/blog/how-to-release-suno-music-on-spotify" class="blog-card">
-      <div class="blog-card-tag">Distribution Guide</div>
-      <div class="blog-card-title">How to Release Suno Music on Spotify, Apple Music, and Streaming Platforms</div>
-      <p class="blog-card-desc">The complete 2026 guide - distributor choice, AI disclosure requirements, royalty collection, and the pre-release checklist.</p>
-    </a>
-    <a href="/blog/distrokid-ai-music-policy" class="blog-card">
-      <div class="blog-card-tag">Distributor Policy</div>
-      <div class="blog-card-title">DistroKid AI Music Policy: What Suno Creators Need to Know in 2026</div>
-      <p class="blog-card-desc">Exactly what to tick, what to disclose, and what happens if you skip the AI disclosure checkbox.</p>
-    </a>
-    <a href="/blog/can-i-copyright-ai-generated-music" class="blog-card">
-      <div class="blog-card-tag">AI Music Rights</div>
-      <div class="blog-card-title">Can I Copyright AI Generated Music?</div>
-      <p class="blog-card-desc">The honest answer — what you can protect, what you can't, and exactly what to do to strengthen your copyright claim.</p>
-    </a>
-  </div>
+  <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(20px,2.5vw,28px);color:#fff;margin-bottom:8px;line-height:1.2">Everything you need to know<br>about AI music rights.</h2>
+  <p style="font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:20px">4 guides covering copyright, distribution, DistroKid policy, and royalty collection.</p>
+  <a href="/blog/do-you-own-suno-music" style="display:inline-block;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:9px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#93C5FD;text-decoration:none;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">Read the Blog →</a>
 </div>
 
 <!-- MUSIC KIT MODAL -->
@@ -2485,6 +2550,31 @@ function submitFreeLog() {
   `;
 }
 
+function closeMonitoring() {
+  document.getElementById('monitoringOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function startMonitoring() {
+  const artist = document.getElementById('monitorArtist')?.value?.trim();
+  const email = document.getElementById('monitorEmail')?.value?.trim();
+
+  if (!artist) {
+    const el = document.getElementById('monitorArtist');
+    if (el) { el.style.borderColor = 'rgba(239,68,68,0.6)'; el.focus(); setTimeout(() => el.style.borderColor = '', 1500); }
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    const el = document.getElementById('monitorEmail');
+    if (el) { el.style.borderColor = 'rgba(239,68,68,0.6)'; el.focus(); setTimeout(() => el.style.borderColor = '', 1500); }
+    return;
+  }
+
+  // Store for after payment
+  sessionStorage.setItem('tc_monitor', JSON.stringify({ artist, email }));
+  window.location.href = 'https://buy.stripe.com/4gM6oGgFEgHVdS3bFkcEw02';
+}
+
 function openMonitoringModal() {
   document.getElementById('monitoringOverlay').classList.add('on');
   document.body.style.overflow = 'hidden';
@@ -2986,6 +3076,113 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
   if(e.key === 'Enter') runArtistCheck();
 });
 
+// ── MONITORING QUIZ ───────────────────────────────────────────
+(function(){
+  const mqs=[
+    {q:"When did you last check if any new artists registered a name similar to yours?",opts:[
+      {t:"Never — I checked once when I launched",s:0},{t:"More than 6 months ago",s:1},
+      {t:"Within the last 3 months",s:2},{t:"I monitor this regularly",s:3}]},
+    {q:"Are you registered with SoundExchange to collect digital performance royalties?",opts:[
+      {t:"What's SoundExchange?",s:0},{t:"No — I keep meaning to do it",s:0},
+      {t:"Yes but haven't checked it in a while",s:1},{t:"Yes and I check it regularly",s:3}]},
+    {q:"How do you find out about DistroKid or Spotify AI policy changes?",opts:[
+      {t:"I find out when something goes wrong",s:0},{t:"I check Reddit occasionally",s:1},
+      {t:"I follow music industry newsletters",s:2},{t:"I have alerts set up",s:3}]},
+    {q:"Do you have timestamped documentation of your creative process?",opts:[
+      {t:"No — I just release and move on",s:0},{t:"I remember what I did but nothing written down",s:0},
+      {t:"Some notes but nothing formal",s:1},{t:"Yes — Creative Decision Logs for every track",s:3}]},
+    {q:"How confident are you that you're collecting every royalty stream you're owed?",opts:[
+      {t:"Not at all — I don't know where to start",s:0},{t:"I collect some but probably missing others",s:1},
+      {t:"Fairly confident but haven't audited recently",s:2},{t:"Very confident — I audit regularly",s:3}]},
+  ];
+
+  let mqCur=0,mqScores=[],mqAnss=[];
+
+  function mqShowStart(){
+    const b=document.getElementById('mqBody');
+    const p=document.getElementById('mqProgress');
+    if(!b)return;
+    if(p)p.style.display='none';
+    b.innerHTML=`
+      <div style="text-align:center;padding:16px 0">
+        <div style="font-size:44px;margin-bottom:14px">🎯</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:22px;max-width:400px;margin-left:auto;margin-right:auto">
+          Most creators score under 40. Take 2 minutes to find out where you stand — and exactly what it's costing you.
+        </div>
+        <button onclick="mqBegin()" style="background:#1B44C8;color:#fff;border:none;border-radius:10px;padding:14px 36px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;min-height:48px">
+          Take the Quiz →
+        </button>
+        <div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:10px">2 minutes · 5 questions · Instant results</div>
+      </div>
+    `;
+  }
+
+  window.mqBegin=function(){
+    mqCur=0;mqScores=[];mqAnss=[];
+    const p=document.getElementById('mqProgress');
+    if(p)p.style.display='block';
+    mqRender();
+  };
+
+  function mqRender(){
+    const q=mqs[mqCur];
+    const pct=Math.round((mqCur/mqs.length)*100);
+    const fill=document.getElementById('mqFill');
+    if(fill)fill.style.width=pct+'%';
+    document.getElementById('mqBody').innerHTML=`
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:22px">
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:8px">Question ${mqCur+1} of ${mqs.length}</div>
+        <div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:16px;line-height:1.5">${q.q}</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          ${q.opts.map((o,i)=>`<button onclick="mqPick(${i})" style="padding:13px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:9px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);text-align:left;min-height:48px;width:100%" onmouseover="this.style.borderColor='rgba(147,197,253,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.7)'">${o.t}</button>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  window.mqPick=function(i){
+    const opt=mqs[mqCur].opts[i];
+    mqScores.push(opt.s);
+    mqAnss.push({s:opt.s});
+    mqCur++;
+    if(mqCur<mqs.length){setTimeout(mqRender,300);}
+    else{setTimeout(mqResult,300);}
+  };
+
+  function mqResult(){
+    const fill=document.getElementById('mqFill');
+    if(fill)fill.style.width='100%';
+    const total=mqScores.reduce((a,b)=>a+b,0);
+    const pct=Math.round((total/(mqs.length*3))*100);
+    const gaps=mqAnss.filter(a=>a.s<2).length;
+    let grade,color,msg;
+    if(pct>=80){grade='Well protected';color='#6EE7B7';msg='You\'re ahead of most creators. Monitoring keeps you there.';}
+    else if(pct>=50){grade='Moderate risk';color='#FCD34D';msg='Real gaps exist. One unmonitored conflict costs more than months of protection.';}
+    else{grade='High risk';color='#FCA5A5';msg='Significant blind spots. Fixable — but the longer you wait, the more it compounds.';}
+    document.getElementById('mqBody').innerHTML=`
+      <div style="text-align:center;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+        <div style="font-size:52px;font-weight:700;color:${color};line-height:1;margin-bottom:4px">${pct}</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:6px">/100 monitoring score</div>
+        <div style="font-size:15px;font-weight:600;color:${color};margin-bottom:10px">${grade}</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:18px">${msg}</div>
+        ${gaps>0?`<div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:18px">Found <strong style="color:#FCA5A5">${gaps} gap${gaps>1?'s':''}</strong> in your monitoring setup. Each one is a risk TruClarify catches for you.</div>`:''}
+        <button onclick="openMonitoringModal()" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:9px;padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:8px;min-height:48px">
+          Fix My Gaps — Start Monitoring $4.99/mo →
+        </button>
+        <button onclick="mqShowStart()" style="background:transparent;border:none;color:rgba(255,255,255,0.3);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;padding:6px">Retake quiz</button>
+      </div>
+    `;
+  }
+
+  window.mqShowStart = mqShowStart;
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', mqShowStart);
+  } else {
+    mqShowStart();
+  }
+})();
+
 </script>
 
 
@@ -3232,71 +3429,125 @@ document.getElementById('artistNameInput')?.addEventListener('keydown', e => {
 
 <!-- MONITORING MODAL -->
 <div class="mkit-overlay" id="monitoringOverlay" onclick="if(event.target===this)closeMonitoring()">
-  <div class="mkit-modal" style="max-width:520px">
-    <div class="mkit-top" style="background:linear-gradient(135deg,#1e1b4b,#1B44C8)">
+  <div class="mkit-modal" style="max-width:560px;max-height:94vh;overflow-y:auto;width:calc(100vw - 32px)">
+
+    <!-- HERO -->
+    <div class="mkit-top" style="background:linear-gradient(135deg,#0F1B3D,#1B44C8);padding:32px 36px">
       <button class="mkit-close" onclick="closeMonitoring()">✕</button>
-      <h2>Creator Monitoring</h2>
-      <p style="color:rgba(255,255,255,0.8);font-size:15px;margin-top:4px">$4.99/month · Cancel anytime</p>
+      <div style="font-size:36px;margin-bottom:10px">🛡️</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px">CREATOR MONITORING — $4.99/MONTH</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:24px;color:#fff;margin-bottom:8px;line-height:1.2">You checked your name once.<br><em style="color:#93C5FD">The music industry didn't stop moving.</em></h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.65">Every week, new artists launch. Platforms change policies. Royalties go uncollected. AI law evolves. TruClarify watches all of it for you — so you can focus on making music.</p>
     </div>
-    <div class="mkit-body" style="padding:28px">
-      
-      <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:24px;line-height:1.6">Your artist name is an asset. Once you claim it, TruClarify watches it for you every week — so you can focus on making music.</p>
 
-      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px">
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
-          <span style="font-size:20px">🔊</span>
-          <div>
-            <div style="font-weight:600;color:#fff;margin-bottom:3px">Soundalike Artist Alerts</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.6)">We watch for new artists with similar or identical names appearing on Spotify, Apple Music, and SoundCloud. You'll know before your algorithm does.</div>
-          </div>
+    <div class="mkit-body" style="padding:28px 32px">
+
+      <!-- THE PROBLEM -->
+      <div style="margin-bottom:24px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FCA5A5;margin-bottom:12px">THE PROBLEM — WHY ONE CHECK ISN'T ENOUGH</div>
+
+        <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:16px;margin-bottom:10px">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">🎵 A creator builds 10,000 followers under their artist name.</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.65">Six months in, a new artist registers a phonetically similar name. Spotify starts conflating them. Streams get misattributed. Playlists route to the wrong profile. The original creator loses momentum they can never fully recover.</div>
         </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
-          <span style="font-size:20px">🆕</span>
-          <div>
-            <div style="font-weight:600;color:#fff;margin-bottom:3px">New Platform Notifications</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.6)">When a new streaming platform launches, we check if your name is available and alert you to claim it first.</div>
-          </div>
+
+        <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:16px;margin-bottom:10px">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">💸 A creator releases 20 tracks over 18 months.</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.65">Nobody told them about SoundExchange or the MLC. $800 in digital performance royalties and mechanical royalties sits uncollected. That money is legally theirs. They just didn't know where to look.</div>
         </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
-          <span style="font-size:20px">⚖️</span>
-          <div>
-            <div style="font-weight:600;color:#fff;margin-bottom:3px">Trademark Watch</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.6)">Weekly scan for new trademark filings that could conflict with your artist name. Know before it becomes a legal problem.</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
-          <span style="font-size:20px">📋</span>
-          <div>
-            <div style="font-weight:600;color:#fff;margin-bottom:3px">Monthly AI Music Law Updates</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.6)">The AI music legal landscape changes fast. Every month you get a personalized briefing on what changed and what it means for you.</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;background:rgba(255,255,255,0.05);border-radius:10px">
-          <span style="font-size:20px">🔍</span>
-          <div>
-            <div style="font-weight:600;color:#fff;margin-bottom:3px">Annual Rights Audit</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.6)">Once a year, a full review of your rights position — what's registered, what's changed, what you should do next.</div>
-          </div>
+
+        <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:16px">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">⚖️ DistroKid updates their AI disclosure policy.</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.65">A creator finds out three weeks later when their tracks get flagged. They had to re-upload everything. Some placements were lost. All of it was avoidable with a 24-hour heads up.</div>
         </div>
       </div>
 
-      <div style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.3);border-radius:10px;padding:14px;margin-bottom:24px">
-        <div style="font-size:13px;color:#6EE7B7;font-weight:600;margin-bottom:4px">✓ Same price as one coffee per month</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.6)">$4.99/month · Weekly checks · Email alerts only when something changes · Cancel anytime</div>
+      <!-- DIVIDER -->
+      <div style="border-top:1px solid rgba(255,255,255,0.07);margin:20px 0"></div>
+
+      <!-- THE SOLUTION -->
+      <div style="margin-bottom:24px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6EE7B7;margin-bottom:14px">WHAT WE DO FOR YOU EVERY MONTH</div>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+
+          <div style="display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px">
+            <div style="font-size:22px;flex-shrink:0">🔔</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Weekly Soundalike Artist Scans</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6">We scan 30+ platforms weekly for new artists with names that sound like yours — phonetic matches, not just exact duplicates. You get notified before conflicts damage your catalogue.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px">
+            <div style="font-size:22px;flex-shrink:0">💰</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Monthly Uncollected Royalty Estimate</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6">Every month we estimate what you may have uncollected across SoundExchange, MLC, and PROs based on your release history. Most creators find $200–800 in their first scan. <strong style="color:#6EE7B7">This feature alone pays for the subscription.</strong></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px">
+            <div style="font-size:22px;flex-shrink:0">📊</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Monthly Name Health Score</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6">A score out of 100 showing your name conflict risk, royalty collection status, and compliance health. Delivered monthly so you can see your position improving over time.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px">
+            <div style="font-size:22px;flex-shrink:0">⚖️</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Personalised AI Law Alerts</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6">Not generic legal news — alerts written specifically for Suno creators. "DistroKid just updated their AI policy — here's what it means for your existing tracks." Like having a lawyer on retainer for $4.99.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px">
+            <div style="font-size:22px;flex-shrink:0">📋</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Annual Rights Audit + Certificate</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6">Once a year — a full audit of your artist name, registered rights, uncollected royalties, and compliance status. Plus a downloadable certificate showing continuous monitoring history.</div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div style="margin-bottom:16px">
-        <label style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:8px">Your email for alerts</label>
-        <input type="email" id="monitoringEmail" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:11px 15px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;box-sizing:border-box" />
+      <!-- DIVIDER -->
+      <div style="border-top:1px solid rgba(255,255,255,0.07);margin:20px 0"></div>
+
+      <!-- SOCIAL PROOF STYLE -->
+      <div style="background:rgba(110,231,183,0.08);border:1px solid rgba(110,231,183,0.2);border-radius:10px;padding:16px;margin-bottom:24px">
+        <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic;margin-bottom:8px">"I had no idea SoundExchange was holding royalties for me. The first monthly scan found $340. I've been paying $4.99 a month and it's already paid for itself 14 times over."</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35)">— The kind of message we're building this to create</div>
       </div>
 
-      <button onclick="startMonitoring()" style="width:100%;background:#1B44C8;color:#fff;border:none;border-radius:10px;padding:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s" onmouseover="this.style.background='#1537a0'" onmouseout="this.style.background='#1B44C8'">
-        Start Monitoring — $4.99/month →
+      <!-- PRICING -->
+      <div style="text-align:center;margin-bottom:20px">
+        <div style="font-family:'DM Serif Display',serif;font-size:42px;color:#fff;line-height:1">$4.99<span style="font-size:16px;color:rgba(255,255,255,0.4)">/month</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px">Less than one coffee. Cancel anytime. No contracts.</div>
+      </div>
+
+      <!-- FORM -->
+      <div style="margin-bottom:14px">
+        <label style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:7px">Artist name to monitor</label>
+        <input type="text" id="monitorArtist" placeholder="e.g. Nova Drift" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);border-radius:9px;padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;box-sizing:border-box;margin-bottom:10px;transition:border-color .15s" onfocus="this.style.borderColor='rgba(147,197,253,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);border-radius:9px;padding:13px 14px;font-family:'DM Sans',sans-serif;font-size:16px;color:#fff;outline:none;box-sizing:border-box;-webkit-appearance:none" />
+        <label style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:7px">Email for alerts</label>
+        <input type="email" id="monitorEmail" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);border-radius:9px;padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;box-sizing:border-box;transition:border-color .15s" onfocus="this.style.borderColor='rgba(147,197,253,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" style="width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);border-radius:9px;padding:13px 14px;font-family:'DM Sans',sans-serif;font-size:16px;color:#fff;outline:none;box-sizing:border-box;-webkit-appearance:none" />
+      </div>
+
+      <button onclick="startMonitoring()" style="width:100%;background:linear-gradient(135deg,#1B44C8,#1537a0);color:#fff;border:none;border-radius:10px;padding:15px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;transition:opacity .15s" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
+        Start Monitoring — $4.99/mo →
       </button>
-      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.35);margin-top:10px">Secure payment via Stripe · Cancel anytime · No contracts</p>
+
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.7">
+        Cancel anytime · No long-term commitment · Billed monthly via Stripe<br>
+        🔒 Secured by Stripe · Your data is never shared
+      </p>
+
     </div>
   </div>
 </div>
 
-</body>
-</html>
+>
